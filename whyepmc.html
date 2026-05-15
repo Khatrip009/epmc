@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>ePMC | Why ePMC?</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    /* Brand Colors (same as index) */
+    :root {
+      --epmc-blue: #00357a;
+      --epmc-orange: #f36a22;
+      --epmc-golden: #dcb551;
+      --epmc-vivid-blue: #0058d7;
+      --epmc-green: #00b050;
+      --epmc-red: #ff0000;
+      --epmc-light-blue: #538dd5;
+      --epmc-bg-soft: #F8FAFF;
+      --epmc-text: #1A2C3C;
+    }
+    * {
+      font-family: 'Montserrat', 'Canva Sans', sans-serif;
+    }
+    body {
+      background: #ffffff;
+      scroll-behavior: smooth;
+      color: var(--epmc-text);
+    }
+    .text-epmc { color: var(--epmc-blue) !important; }
+    .bg-epmc { background-color: var(--epmc-blue) !important; }
+    .text-epmc-orange { color: var(--epmc-orange) !important; }
+    .bg-epmc-orange { background-color: var(--epmc-orange) !important; }
+    .text-epmc-golden { color: var(--epmc-golden) !important; }
+    .bg-epmc-soft { background-color: var(--epmc-bg-soft) !important; }
+    
+    /* Buttons */
+    .btn-epmc {
+      background-color: var(--epmc-blue);
+      color: white;
+      border-radius: 8px;
+      padding: 10px 28px;
+      font-weight: 700;
+      border: none;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-epmc:hover {
+      background-color: #002a5e;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,53,122,0.25);
+      color: white;
+    }
+    .btn-epmc-outline {
+      background: transparent;
+      border: 2px solid var(--epmc-blue);
+      color: var(--epmc-blue);
+      border-radius: 8px;
+      padding: 8px 26px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-epmc-outline:hover {
+      background: var(--epmc-blue);
+      color: white;
+    }
+    .btn-epmc-accent {
+      background-color: var(--epmc-orange);
+      color: white;
+      border-radius: 8px;
+      padding: 10px 28px;
+      font-weight: 700;
+      border: none;
+    }
+    .btn-epmc-accent:hover {
+      background-color: #d45a1c;
+      transform: translateY(-2px);
+    }
+    .btn-white-blue {
+      background-color: white;
+      color: var(--epmc-blue);
+      border-radius: 8px;
+      padding: 12px 36px;
+      font-weight: 700;
+      border: none;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 1.1rem;
+    }
+    .btn-white-blue:hover {
+      background-color: #f0f0f0;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      color: var(--epmc-blue);
+    }
+
+    /* Navbar */
+    .navbar-brand-custom {
+      display: flex;
+      align-items: center;
+    }
+    .navbar-logo {
+      max-height: 50px;
+      width: auto;
+    }
+    .nav-link-custom {
+      font-weight: 700;
+      color: #00357a !important;
+      text-decoration: none;
+      margin-right: 1.5rem;
+      transition: color 0.2s;
+    }
+    .nav-link-custom:hover {
+      color: #f36a22 !important;
+    }
+    @media (max-width: 768px) {
+      .nav-link-custom {
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+      }
+      .navbar-logo { max-height: 40px; }
+    }
+
+    /* Footer styles (5 columns) */
+    .footer-new {
+      background-color: #f8f9fa;
+      border: 2px solid #00357a;
+      border-radius: 20px;
+      padding: 2rem 1.5rem;
+      margin: 2rem 0;
+    }
+    .footer-logo {
+      max-height: 80px;
+      width: auto;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .footer-vertical-links a {
+      color: #00357a;
+      text-decoration: none;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .footer-vertical-links a:hover {
+      color: #f36a22;
+    }
+    .footer-contact p {
+      margin-bottom: 0.5rem;
+      color: #00357a;
+    }
+    .footer-contact i {
+      width: 25px;
+      color: #00357a;
+    }
+    .footer-map iframe {
+      width: 100%;
+      height: 180px;
+      border: 0;
+      border-radius: 12px;
+    }
+    .footer-copyright {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #dee2e6;
+      color: #6c757d;
+      font-size: 0.9rem;
+    }
+    .footer-row-5 {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-col {
+      flex: 1;
+      min-width: 160px;
+    }
+    @media (max-width: 992px) {
+      .footer-col {
+        flex: 0 0 calc(33.33% - 1rem);
+      }
+    }
+    @media (max-width: 768px) {
+      .footer-col {
+        flex: 0 0 100%;
+      }
+    }
+
+    /* Modal */
+    .modal-content { border-radius: 32px; border: none; }
+    .form-control, .form-select {
+      border-radius: 16px;
+      padding: 12px 16px;
+      border: 1px solid #DEE2E6;
+    }
+    .form-control:focus, .form-select:focus {
+      border-color: var(--epmc-orange);
+      box-shadow: 0 0 0 3px rgba(243,106,34,0.2);
+    }
+
+    /* Why ePMC page specific cards */
+    .why-card {
+      background: white;
+      border-radius: 20px;
+      padding: 1.2rem;
+      transition: all 0.2s;
+      border: 2px solid #002a5e;
+      height: 100%;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+    .why-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--epmc-golden);
+      box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.15);
+    }
+    .why-card-icon {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+    .why-card-content {
+      flex: 1;
+    }
+    .why-card-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      margin-bottom: 0.3rem;
+      line-height: 1.3;
+    }
+    .why-card-desc {
+      font-size: 0.85rem;
+      line-height: 1.4;
+      color: #5a6e7a;
+    }
+    .title-orange {
+      color: var(--epmc-orange);
+    }
+    .title-blue {
+      color: var(--epmc-blue);
+    }
+    .card-orange .why-card-title {
+      color: var(--epmc-orange);
+    }
+    /* Left column text styles */
+    .why-small-orange {
+      color: var(--epmc-orange);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.5rem;
+    }
+    .why-big-heading {
+      font-size: 2.8rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .why-big-heading span {
+      display: inline-block;
+    }
+    .blue-text { color: var(--epmc-blue); }
+    .orange-text { color: var(--epmc-orange); }
+    .small-savings {
+      font-size: 1rem;
+      color: var(--epmc-blue);
+      font-weight: 500;
+      margin-top: 1.5rem;
+    }
+    .small-savings p {
+      margin-bottom: 0.2rem;
+    }
+    @media (max-width: 768px) {
+      .why-big-heading { font-size: 2rem; }
+    }
+
+    /* Hero background image */
+    .why-hero-bg {
+      background-image: url('yepmc/hero-back-yepmc.png');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      position: relative;
+    }
+    
+    /* Centered buttons and line */
+    .hero-bottom-center {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .hero-bottom-center .btn {
+      margin: 0 0.5rem;
+    }
+
+
+/* Built specifically section – background image */
+.built-workflow-bg {
+  background-image: url('yepmc/construction workflow.png'); /* or use 'yepmc/construction%20workflow.png' for spaces */
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.built-workflow-text {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: white;
+  line-height: 1.3;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+@media (max-width: 768px) {
+  .built-workflow-text {
+    font-size: 1.3rem;
+  }
+  .built-workflow-overlay {
+    padding: 3rem 0;
+  }
+}
+.challenges-flow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+}
+.challenge-block {
+  flex: 1 1 180px;      /* grow, shrink, base width */
+  text-align: center;
+  padding: 1rem 1.5rem;
+  position: relative;
+}
+/* Vertical separator line (on right side) for all except last */
+.challenge-block:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 15%;
+  height: 70%;
+  width: 2px;
+  background-color: var(--epmc-orange);
+  opacity: 0.6;
+}
+.challenge-icon {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 0.75rem;
+}
+.challenge-title {
+  font-weight: 800;
+  color: var(--epmc-blue);
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+.challenge-desc {
+  font-size: 0.8rem;
+  color: var(--epmc-text);
+  line-height: 1.3;
+}
+
+/* On mobile (max-width: 768px): change to horizontal separators (border-bottom) */
+@media (max-width: 768px) {
+  .challenges-flow {
+    flex-direction: column;
+    align-items: center;
+  }
+  .challenge-block {
+    width: 100%;
+    max-width: 280px;
+    padding: 1rem 0;
+  }
+  /* Remove the right-side vertical line */
+  .challenge-block:not(:last-child)::after {
+    display: none;
+  }
+  /* Add bottom border for all except last */
+  .challenge-block:not(:last-child) {
+    border-bottom: 2px solid var(--epmc-orange);
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Why different section – blue rounded container */
+.why-different-box {
+  background-color: var(--epmc-blue);
+  border-radius: 32px;
+  padding: 3rem 2rem;
+  box-shadow: 0 20px 35px -12px rgba(0,0,0,0.2);
+}
+
+/* White cards inside blue box */
+.different-card {
+  background: white;
+  border-radius: 20px;
+  padding: 1.8rem 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+.different-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 25px -10px rgba(0,0,0,0.1);
+}
+.different-icon i {
+  transition: transform 0.2s;
+}
+.different-card:hover .different-icon i {
+  transform: scale(1.05);
+}
+.different-title {
+  font-weight: 800;
+  color: var(--epmc-blue);
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+}
+.different-desc {
+  color: #4a5b6e;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* Why different section – blue rounded container (unchanged) */
+.why-different-box {
+  background-color: var(--epmc-blue);
+  border-radius: 32px;
+  padding: 3rem 2rem;
+  box-shadow: 0 20px 35px -12px rgba(0,0,0,0.2);
+}
+
+/* White cards – now horizontal (icon left, text right) */
+.different-card {
+  background: white;
+  border-radius: 20px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+.different-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 25px -10px rgba(0,0,0,0.1);
+}
+.different-icon-img {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.different-title {
+  font-weight: 800;
+  color: var(--epmc-blue);
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+.different-desc {
+  color: #4a5b6e;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin-bottom: 0;
+}
+
+/* Comparison table (unchanged) */
+.comparison-table {
+  margin-top: 1rem;
+  border-radius: 24px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(2px);
+}
+.comparison-row {
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.comparison-row:last-child {
+  border-bottom: none;
+}
+.comparison-row.header {
+  background: rgba(0, 0, 0, 0.2);
+  font-weight: 800;
+}
+.comparison-cell {
+  flex: 1;
+  padding: 1rem 0.8rem;
+  color: white;
+  font-size: 0.9rem;
+  text-align: center;
+}
+.comparison-row.header .comparison-cell {
+  font-weight: 800;
+  font-size: 1rem;
+}
+@media (max-width: 768px) {
+  .comparison-cell {
+    font-size: 0.75rem;
+    padding: 0.75rem 0.3rem;
+  }
+  .why-different-box {
+    padding: 2rem 1rem;
+  }
+  .different-card {
+    padding: 1.2rem;
+  }
+  .different-icon-img {
+    width: 45px;
+    height: 45px;
+  }
+  .different-title {
+    font-size: 1.1rem;
+  }
+}
+
+/* Comparison cards */
+.compare-card {
+  background: #ffffff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 1px solid #eef2f0;
+}
+.compare-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 25px -10px rgba(0,0,0,0.1);
+}
+.compare-header {
+  padding: 1.2rem;
+  font-weight: 800;
+  font-size: 1.3rem;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+.compare-list {
+  list-style: none;
+  padding: 1.5rem;
+  margin: 0;
+}
+.compare-list li {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #f0f2f5;
+  font-size: 0.9rem;
+  color: var(--epmc-text);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.compare-list li:last-child {
+  border-bottom: none;
+}
+.list-icon {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+@media (max-width: 768px) {
+  .compare-header {
+    font-size: 1.1rem;
+    padding: 1rem;
+  }
+  .compare-list {
+    padding: 1rem;
+  }
+  .compare-list li {
+    font-size: 0.8rem;
+    padding: 0.5rem 0;
+  }
+  .list-icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* Orange rounded container for the four metrics */
+.impact-orange-container {
+  background-color: var(--epmc-orange);
+  border-radius: 32px;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+.impact-item {
+  text-align: center;
+  flex: 1;
+  min-width: 140px;
+}
+.impact-icon {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 0.75rem;
+}
+.impact-number {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: white;
+  line-height: 1.2;
+  margin-bottom: 0.25rem;
+}
+.impact-label {
+  font-size: 0.9rem;
+  color: white;
+  font-weight: 500;
+  opacity: 0.95;
+}
+
+/* Final CTA – left aligned, background image, no overlay */
+.final-cta-box-left {
+  background-image: url('yepmc/takecontrol.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 40px;
+  padding: 4rem 3rem;
+  color: white;
+}
+.cta-content {
+  max-width: 600px;
+}
+.cta-content h2,
+.cta-content p {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+.cta-content p {
+  color: rgba(255, 255, 255, 0.95);
+}
+@media (max-width: 768px) {
+  .final-cta-box-left {
+    padding: 2rem 1.5rem;
+  }
+}
+
+  </style>
+  
+</head>
+<body>
+
+<!-- ==================== NAVIGATION ==================== -->
+<nav class="navbar navbar-expand-lg bg-white py-3 shadow-sm sticky-top">
+  <div class="container">
+    <a class="navbar-brand navbar-brand-custom" href="index.html">
+      <img src="ePMC Logo PNG File.png" alt="ePMC Logo" class="navbar-logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center gap-3">
+        <li class="nav-item"><a class="nav-link-custom" href="whyepmc.html">Why ePMC?</a></li>
+        <li class="nav-item"><a class="nav-link-custom" href="index.html#features">Features</a></li>
+        <li class="nav-item"><a class="nav-link-custom" href="#">Pricing</a></li>
+      </ul>
+      <a href="#" class="btn btn-epmc ms-lg-3 mt-2 mt-lg-0" data-bs-toggle="modal" data-bs-target="#demoModal">Book a Demo <i class="fas fa-arrow-right ms-1"></i></a>
+    </div>
+  </div>
+</nav>
+
+<!-- ==================== HERO SECTION (with background image) ==================== -->
+<section class="why-hero-bg">
+  <div class="why-hero-overlay">
+    <div class="container py-4">
+      <!-- Two-column row -->
+      <div class="row g-5">
+        <!-- Left column: text -->
+        <div class="col-lg-6">
+          <div class="why-small-orange">Why ePMC?</div>
+          <div class="why-big-heading">
+            <span class="blue-text">Because</span>
+            <span class="orange-text"> 3% </span>
+            <span class="blue-text">can</span><br>
+            <span class="blue-text">Change Everything</span>
+          </div>
+          <div class="small-savings">
+            <p>Even a Small Savings today, Creates</p>
+            <p>a strong impact tomorrow</p>
+          </div>
+        </div>
+
+        <!-- Right column: 6 cards in 2 columns, 3 rows -->
+        <div class="col-lg-6">
+          <div class="row g-3">
+            <!-- Card 1: Higher Profitability -->
+            <div class="col-md-6">
+              <div class="why-card">
+                <img src="yepmc/highprofitibility.png" alt="Higher Profitability" class="why-card-icon">
+                <div class="why-card-content">
+                  <div class="why-card-title title-blue">Higher Profitability</div>
+                  <div class="why-card-desc">Improve Project Profit Margins</div>
+                </div>
+              </div>
+            </div>
+            <!-- Card 2: Competitive Edge -->
+            <div class="col-md-6">
+              <div class="why-card">
+                <img src="yepmc/compititiveedge.png" alt="Competitive Edge" class="why-card-icon">
+                <div class="why-card-content">
+                  <div class="why-card-title title-blue">Competitive Edge</div>
+                  <div class="why-card-desc">Deliver more value to your client</div>
+                </div>
+              </div>
+            </div>
+            <!-- Card 3: Quality First -->
+            <div class="col-md-6">
+              <div class="why-card">
+                <img src="yepmc/qualityfirst.png" alt="Quality First" class="why-card-icon">
+                <div class="why-card-content">
+                  <div class="why-card-title title-blue">Quality First</div>
+                  <div class="why-card-desc">Avoid Reworks. Save Cost & Time</div>
+                </div>
+              </div>
+            </div>
+            <!-- Card 4: Better Cash Flow -->
+            <div class="col-md-6">
+              <div class="why-card">
+                <img src="yepmc/bettercashblow.png" alt="Better Cash Flow" class="why-card-icon">
+                <div class="why-card-content">
+                  <div class="why-card-title title-blue">Better Cash Flow</div>
+                  <div class="why-card-desc">Improve Project Profit Margins</div>
+                </div>
+              </div>
+            </div>
+            <!-- Card 5: Stronger Project -->
+            <div class="col-md-6">
+              <div class="why-card">
+                <img src="yepmc/strongerproject.png" alt="Stronger Project" class="why-card-icon">
+                <div class="why-card-content">
+                  <div class="why-card-title title-blue">Stronger Project</div>
+                  <div class="why-card-desc">Complete on Time, within Budget</div>
+                </div>
+              </div>
+            </div>
+            <!-- Card 6: 3% Cost Savings (orange text) -->
+            <div class="col-md-6">
+              <div class="why-card card-orange">
+                <img src="yepmc/costsaving.png" alt="Cost Savings" class="why-card-icon">
+                <div class="why-card-content">
+                  <div class="why-card-title title-orange">3% Cost Savings</div>
+                  <div class="why-card-desc" style="color: var(--epmc-orange);">Can recover multiple times the software investment</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Centered row: Made in India line + two buttons -->
+      <div class="hero-bottom-center">
+        <div style="margin-bottom: 1.5rem;">
+          <span class="blue-text">Made in</span> <span class="orange-text">India</span>.
+          <span class="blue-text">Built for</span> <span class="orange-text">Indian Construction</span>.
+        </div>
+        <div>
+          <a href="#" class="btn btn-epmc me-3" data-bs-toggle="modal" data-bs-target="#demoModal">Book a Demo <i class="fas fa-arrow-right ms-1"></i></a>
+          <a href="#" class="btn btn-epmc-outline">See How it Works</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SECTION: Built from Real Construction Experience (horizontal flow) ==================== -->
+<section class="py-5 bg-white">
+  <div class="container">
+    <!-- Centered headings -->
+    <div class="text-center mb-5">
+      <div class="mb-2">
+        <span style="color: var(--epmc-orange); font-weight: 700; font-size: 1rem; letter-spacing: 1px;">BUILD FROM REAL CONSTRUCTION EXPERIENCE</span>
+      </div>
+      <h2 class="display-5 fw-bold mb-3" style="color: var(--epmc-blue);">
+        22+ Years of Real Construction Experience behind ePMC
+      </h2>
+      <div class="d-flex align-items-center justify-content-center">
+        <hr class="w-25" style="border-top: 1px solid var(--epmc-blue); opacity: 0.5;">
+        <span class="mx-3" style="color: var(--epmc-blue); font-weight: 500;">Our experience Spans Diverse Construction Segments</span>
+        <hr class="w-25" style="border-top: 1px solid var(--epmc-blue); opacity: 0.5;">
+      </div>
+    </div>
+
+    <!-- Horizontal flow: icons + titles + arrows -->
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <div class="d-flex flex-wrap align-items-center justify-content-center gap-3">
+          
+          <!-- 1. Interior Projects -->
+          <div class="text-center flow-item" style="min-width: 100px;">
+            <img src="yepmc/interior.png" alt="Interior Projects" style="width: 70px; height: 70px; object-fit: contain;">
+            <div class="mt-2 fw-bold" style="color: var(--epmc-blue); font-size: 0.9rem;">Interior Projects</div>
+          </div>
+          <i class="fas fa-chevron-right" style="color: var(--epmc-orange); font-size: 1.8rem;"></i>
+
+          <!-- 2. Residential / Commercial / Hospital / Institutional -->
+          <div class="text-center flow-item" style="min-width: 100px;">
+            <img src="yepmc/residencial.png" alt="Residential / Commercial / Hospital / Institutional" style="width: 70px; height: 70px; object-fit: contain;">
+            <div class="mt-2 fw-bold" style="color: var(--epmc-blue); font-size: 0.9rem;">Residential / Commercial<br>Hospital / Institutional</div>
+          </div>
+          <i class="fas fa-chevron-right" style="color: var(--epmc-orange); font-size: 1.8rem;"></i>
+
+          <!-- 3. Roads / Services / Infra -->
+          <div class="text-center flow-item" style="min-width: 100px;">
+            <img src="yepmc/roadsandinfra.png" alt="Roads / Services / Infra" style="width: 70px; height: 70px; object-fit: contain;">
+            <div class="mt-2 fw-bold" style="color: var(--epmc-blue); font-size: 0.9rem;">Roads / Services<br>Infra</div>
+          </div>
+          <i class="fas fa-chevron-right" style="color: var(--epmc-orange); font-size: 1.8rem;"></i>
+
+          <!-- 4. Bullet Train / Metro / Railways -->
+          <div class="text-center flow-item" style="min-width: 100px;">
+            <img src="yepmc/bulletmetro.png" alt="Bullet Train / Metro / Railways" style="width: 70px; height: 70px; object-fit: contain;">
+            <div class="mt-2 fw-bold" style="color: var(--epmc-blue); font-size: 0.9rem;">Bullet Train / Metro<br>Railways</div>
+          </div>
+          <i class="fas fa-chevron-right" style="color: var(--epmc-orange); font-size: 1.8rem;"></i>
+
+          <!-- 5. Airports -->
+          <div class="text-center flow-item" style="min-width: 100px;">
+            <img src="yepmc/airports.png" alt="Airports" style="width: 70px; height: 70px; object-fit: contain;">
+            <div class="mt-2 fw-bold" style="color: var(--epmc-blue); font-size: 0.9rem;">Airports</div>
+          </div>
+          <!-- No arrow after the last item -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SECTION: Built specifically around Indian Construction Workflows ==================== -->
+<section class="built-workflow-bg">
+  <div class="built-workflow-overlay">
+    <div class="container py-5">
+      <div class="row justify-content-start">
+        <div class="col-lg-10">
+          <div class="d-flex align-items-start gap-3">
+            <!-- Icon on the left -->
+            <img src="yepmc/constructionworkflow.png" alt="Construction Workflow Icon" style="width: 60px; height: auto; flex-shrink: 0;">
+            <!-- Text on the right, left-aligned -->
+            <p class="built-workflow-text mb-0">
+              Built specifically around Indian Construction Workflows, execution practices and real project requirements.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== SECTION: The Construction Industry Challenges ==================== -->
+<section class="py-5 bg-white">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="display-5 fw-bold" style="color: var(--epmc-blue);">The Construction Industry Challenges</h2>
+    </div>
+    <div class="challenges-flow">
+      <!-- Challenge 1 -->
+      <div class="challenge-block">
+        <img src="yepmc/delayeddecisions.png" alt="Delayed Decisions" class="challenge-icon">
+        <div class="challenge-title">Delayed Decisions</div>
+        <div class="challenge-desc">Issues are detected after it’s too late</div>
+      </div>
+      <!-- Challenge 2 -->
+      <div class="challenge-block">
+        <img src="yepmc/overruns.png" alt="Cost Overruns" class="challenge-icon">
+        <div class="challenge-title">Cost Overruns</div>
+        <div class="challenge-desc">Leakages and wastages go undetected</div>
+      </div>
+      <!-- Challenge 3 -->
+      <div class="challenge-block">
+        <img src="yepmc/poorvisibility.png" alt="Poor Visibility" class="challenge-icon">
+        <div class="challenge-title">Poor Visibility</div>
+        <div class="challenge-desc">Data exist, but not in a usable form</div>
+      </div>
+      <!-- Challenge 4 -->
+      <div class="challenge-block">
+        <img src="yepmc/fragmentedcoordination.png" alt="Fragmented Coordination" class="challenge-icon">
+        <div class="challenge-title">Fragmented Coordination</div>
+        <div class="challenge-desc">Teams, Vendors and Sites work in silos</div>
+      </div>
+      <!-- Challenge 5 -->
+      <div class="challenge-block">
+        <img src="yepmc/noaccountability.png" alt="No Accountability" class="challenge-icon">
+        <div class="challenge-title">No Accountability</div>
+        <div class="challenge-desc">No Real Time Tracking, No Ownership</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SECTION: Why ePMC is different? (left-aligned cards with PNG icons) ==================== -->
+<section class="py-5">
+  <div class="container">
+    <div class="why-different-box">
+      <!-- Heading area (centered) -->
+      <div class="text-center mb-5">
+        <h2 class="display-5 fw-bold text-white">Why ePMC is different?</h2>
+        <p class="text-white-50 fs-5 mx-auto" style="max-width: 800px;">
+          Most project management tools were built for IT teams or generic industries based on ERP concept.<br>
+          ePMC was built from the ground up for Indian Construction — and it shows.
+        </p>
+      </div>
+
+      <!-- Three white cards – now left-aligned with icon on the left -->
+      <div class="row g-4 mb-5">
+        <div class="col-md-4">
+          <div class="different-card h-100 d-flex align-items-start gap-3">
+            <img src="yepmc/designexecution.png" alt="Designed for Execution" class="different-icon-img">
+            <div>
+              <h3 class="different-title">Designed for Execution</h3>
+              <p class="different-desc">Built for Site Teams and Project Manager to use every day.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="different-card h-100 d-flex align-items-start gap-3">
+            <img src="yepmc/realtime control.png" alt="Real Time Control" class="different-icon-img">
+            <div>
+              <h3 class="different-title">Real Time Control</h3>
+              <p class="different-desc">Live Dashboards, Instant Alerts and Proactive Insights.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="different-card h-100 d-flex align-items-start gap-3">
+            <img src="yepmc/actionorientedplatform.png" alt="Action Oriented Platform" class="different-icon-img">
+            <div>
+              <h3 class="different-title">Action Oriented Platform</h3>
+              <p class="different-desc">Not just Data. Clear Next Steps to keep Project on Track.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</section>
+
+<!-- ==================== SECTION: How ePMC Compares (3-column comparison with icons) ==================== -->
+<section class="py-5 bg-white">
+  <div class="container">
+    
+    <div class="row g-4">
+      <!-- Column 1: Capability (header #093B52) -->
+      <div class="col-md-4">
+        <div class="compare-card h-100">
+          <div class="compare-header" style="background-color: #093B52; color: white;">
+            Capability
+          </div>
+          <ul class="compare-list">
+            <li><img src="yepmc/realtimevisibility.png" alt="icon" class="list-icon"> Real Time Visibility</li>
+            <li><img src="yepmc/dataentryburden.png" alt="icon" class="list-icon"> Data Entry Burden</li>
+            <li><img src="yepmc/insightsquality.png" alt="icon" class="list-icon"> Insights Quality</li>
+            <li><img src="yepmc/dependency.png" alt="icon" class="list-icon"> Dependency</li>
+            <li><img src="yepmc/issuesrisks.png" alt="icon" class="list-icon"> Issues / Risks</li>
+            <li><img src="yepmc/costtracking.png" alt="icon" class="list-icon"> Cost Tracking</li>
+            <li><img src="yepmc/sitereporting.png" alt="icon" class="list-icon"> Site Reporting</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Column 2: Traditional System (header #DFE4E3) -->
+      <div class="col-md-4">
+        <div class="compare-card h-100">
+          <div class="compare-header" style="background-color: #DFE4E3; color: #1A2C3C;">
+            Traditional System
+          </div>
+          <ul class="compare-list">
+            <li><img src="yepmc/false.png" alt="icon" class="list-icon"> Weekly / Monthly reports, stale data</li>
+            <li><img src="yepmc/false.png" alt="icon" class="list-icon"> Heavy manual input, spreadsheets</li>
+            <li><img src="yepmc/false.png" alt="icon" class="list-icon"> Raw data dumps, no context</li>
+            <li><img src="yepmc/false.png" alt="icon" class="list-icon"> High dependency on Individuals</li>
+            <li><img src="yepmc/false.png" alt="icon" class="list-icon"> Reactive problem solving</li>
+            <li><img src="yepmc/false.png" alt="icon" class="list-icon"> Finance-only, post-facto</li>
+            <li><img src="yepmc/false.png" alt="icon" class="list-icon"> Email attachments, WhatsApp</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Column 3: ePMC (header #00357a with logo) -->
+      <div class="col-md-4">
+        <div class="compare-card h-100">
+          <div class="compare-header" style="background-color: #00357a; color: white; display: flex; align-items: center; justify-content: center; gap: 10px;">
+            <img src="ePMC Logo PNG File.png" alt="ePMC Logo" style="height: 30px; width: auto;">
+            <span>ePMC</span>
+          </div>
+          <ul class="compare-list">
+            <li><img src="yepmc/true.png" alt="icon" class="list-icon"> Live dashboards, instant updates</li>
+            <li><img src="yepmc/true.png" alt="icon" class="list-icon"> Minimal, Mobile-first Capture</li>
+            <li><img src="yepmc/true.png" alt="icon" class="list-icon"> Action-oriented alerts and trends</li>
+            <li><img src="yepmc/true.png" alt="icon" class="list-icon"> System-driven Accountability</li>
+            <li><img src="yepmc/true.png" alt="icon" class="list-icon"> Proactive Risk Prevention</li>
+            <li><img src="yepmc/true.png" alt="icon" class="list-icon"> BOQ-linked, Real-time Variance</li>
+            <li><img src="yepmc/true.png" alt="icon" class="list-icon"> Structured Digital Reports with Photos</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SECTION: Final Impact & CTA ==================== -->
+<section class="py-5 bg-white">
+  <div class="container">
+    <!-- The Impact You can Measure - single orange rounded rectangle -->
+    <div class="text-center mb-5">
+      <h2 class="display-5 fw-bold" style="color: var(--epmc-blue);">The Impact You can Measure</h2>
+    </div>
+
+    <!-- Orange container with icons -->
+    <div class="impact-orange-container">
+      <div class="impact-item">
+        <img src="yepmc/averagecostsaving.png" alt="3% Cost Savings" class="impact-icon">
+        <div class="impact-number">3%</div>
+        <div class="impact-label">Average Cost Savings</div>
+      </div>
+      <div class="impact-item">
+        <img src="yepmc/50faster.png" alt="50% Faster" class="impact-icon">
+        <div class="impact-number">50%</div>
+        <div class="impact-label">Faster Decision Making</div>
+      </div>
+      <div class="impact-item">
+        <img src="yepmc/100visibilitycontrol.png" alt="100% Visibility" class="impact-icon">
+        <div class="impact-number">100%</div>
+        <div class="impact-label">Real Time Visibility & Control</div>
+      </div>
+      <div class="impact-item">
+        <img src="yepmc/zerosurprizecomplision.png" alt="Zero Surprises" class="impact-icon">
+        <div class="impact-number">ZERO</div>
+        <div class="impact-label">Surprises at Completion</div>
+      </div>
+    </div>
+
+    <!-- Savings highlight -->
+    <div class="text-center my-5">
+      <p class="fs-4 fw-semibold" style="color: var(--epmc-blue);">
+        On a ₹ 10 Crore Project, 3% Savings = <span style="color: var(--epmc-orange);">₹ 30 lac</span>
+      </p>
+    </div>
+
+    <!-- Final CTA with background image – left aligned, no overlay -->
+    <div class="final-cta-box-left">
+      <div class="cta-content">
+        <h2 class="display-6 fw-bold mb-3">Take Control. Deliver Better.</h2>
+        <p class="fs-5 mb-4" style="max-width: 600px;">
+          ePMC empowers your teams with visibility, accountability and action - all in one platform
+        </p>
+        <a href="#" class="btn btn-epmc btn-lg px-5 py-3" data-bs-toggle="modal" data-bs-target="#demoModal">
+          Book a Demo <i class="fas fa-arrow-right ms-2"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ==================== FOOTER (same as index) ==================== -->
+<div class="container">
+  <div class="footer-new">
+    <div class="footer-row-5">
+      <!-- Column 1: Logo -->
+      <div class="footer-col">
+        <img src="EPMC-Logo-File-PNG.png" alt="ePMC Logo" class="footer-logo">
+      </div>
+      <!-- Column 2: Navigation links -->
+      <div class="footer-col">
+        <div class="footer-vertical-links">
+          <a href="index.html">Home</a>
+          <a href="whyepmc.html">Why ePMC?</a>
+          <a href="index.html#features">Features</a>
+          <a href="#">Pricing</a>
+          <a href="#">Profit Meter</a>
+          <a href="#">Contact Us</a>
+        </div>
+      </div>
+      <!-- Column 3: Policies -->
+      <div class="footer-col">
+        <div class="footer-vertical-links">
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Refund Policy</a>
+        </div>
+      </div>
+      <!-- Column 4: Contact -->
+      <div class="footer-col">
+        <div class="footer-contact">
+          <p><i class="fas fa-phone-alt"></i> 9033281213</p>
+          <p><i class="fas fa-envelope"></i> inquiry@epmc.app</p>
+          <p><i class="fas fa-map-marker-alt"></i> 508/Shubh Universal, Vesu, Surat, Gujarat</p>
+        </div>
+      </div>
+      <!-- Column 5: Map -->
+      <div class="footer-col">
+        <div class="footer-map">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.123456789!2d72.831!3d21.170!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04e8e7a0b4f9d%3A0x8b7c1a2e3f4d5e6f!2s508%2C%20Shubh%20Universal%2C%20Vesu%2C%20Surat%2C%20Gujarat%20395007!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      © 2025 copyrights by ePMC
+    </div>
+  </div>
+</div>
+
+<!-- ==================== MODAL ==================== -->
+<div class="modal fade" id="demoModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header border-0 pb-0">
+        <h5 class="modal-title fw-bold text-epmc fs-3">Request a Demo</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-4 pt-0">
+        <!-- IMPORTANT: Replace with actual email -->
+        <form action="https://formsubmit.co/company@example.com" method="POST">
+          <input type="hidden" name="_subject" value="ePMC Demo Request (Modal)">
+          <input type="hidden" name="_captcha" value="false">
+          <div class="row g-3">
+            <div class="col-md-6"><input type="text" name="Name" class="form-control" placeholder="Full Name *" required></div>
+            <div class="col-md-6"><input type="text" name="Company" class="form-control" placeholder="Company *" required></div>
+            <div class="col-md-6"><input type="email" name="Email" class="form-control" placeholder="Work Email *" required></div>
+            <div class="col-md-6"><input type="tel" name="Phone" class="form-control" placeholder="Phone *" required></div>
+            <div class="col-12"><select name="Project Type" class="form-select"><option>Civil Construction</option><option>MEPFI</option><option>Solar</option><option>Infra</option><option>Interior</option></select></div>
+            <div class="col-12"><textarea name="Message" rows="2" class="form-control" placeholder="Tell us about your project..."></textarea></div>
+            <div class="col-12"><button type="submit" class="btn btn-epmc-accent w-100 py-2"><i class="fas fa-paper-plane me-2"></i>Submit Request</button></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>console.log("Why ePMC page ready — replace form email address.");</script>
+</body>
+</html>

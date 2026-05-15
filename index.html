@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>ePMC | Construction Project Management | Lead Generation</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    /* Brand Colors */
+    :root {
+      --epmc-blue: #00357a;
+      --epmc-orange: #f36a22;
+      --epmc-golden: #dcb551;
+      --epmc-vivid-blue: #0058d7;
+      --epmc-green: #00b050;
+      --epmc-red: #ff0000;
+      --epmc-light-blue: #538dd5;
+      --epmc-bg-soft: #F8FAFF;
+      --epmc-text: #1A2C3C;
+    }
+    * {
+      font-family: 'Montserrat', 'Canva Sans', sans-serif;
+    }
+    body {
+      background: #ffffff;
+      scroll-behavior: smooth;
+      color: var(--epmc-text);
+    }
+    .text-epmc { color: var(--epmc-blue) !important; }
+    .bg-epmc { background-color: var(--epmc-blue) !important; }
+    .text-epmc-orange { color: var(--epmc-orange) !important; }
+    .bg-epmc-orange { background-color: var(--epmc-orange) !important; }
+    .text-epmc-golden { color: var(--epmc-golden) !important; }
+    .bg-epmc-soft { background-color: var(--epmc-bg-soft) !important; }
+    
+    /* Buttons */
+    .btn-epmc {
+      background-color: var(--epmc-blue);
+      color: white;
+      border-radius: 8px;
+      padding: 10px 28px;
+      font-weight: 700;
+      border: none;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-epmc:hover {
+      background-color: #002a5e;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,53,122,0.25);
+      color: white;
+    }
+    .btn-epmc-outline {
+      background: transparent;
+      border: 2px solid var(--epmc-blue);
+      color: var(--epmc-blue);
+      border-radius: 8px;
+      padding: 8px 26px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-epmc-outline:hover {
+      background: var(--epmc-blue);
+      color: white;
+    }
+    .btn-epmc-accent {
+      background-color: var(--epmc-orange);
+      color: white;
+      border-radius: 8px;
+      padding: 10px 28px;
+      font-weight: 700;
+      border: none;
+    }
+    .btn-epmc-accent:hover {
+      background-color: #d45a1c;
+      transform: translateY(-2px);
+    }
+    .btn-white-blue {
+      background-color: white;
+      color: var(--epmc-blue);
+      border-radius: 8px;
+      padding: 12px 36px;
+      font-weight: 700;
+      border: none;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 1.1rem;
+    }
+    .btn-white-blue:hover {
+      background-color: #f0f0f0;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      color: var(--epmc-blue);
+    }
+    /* Feature cards */
+    .feature-card-horizontal {
+      background: white;
+      border-radius: 20px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+      border: 2px solid #00357a;
+      height: 100%;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.25rem;
+    }
+    .feature-card-horizontal:hover {
+      transform: translateY(-5px);
+      border-color: var(--epmc-golden);
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+    }
+    .feature-icon-img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+    .feature-content {
+      flex: 1;
+    }
+    .feature-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--epmc-blue);
+      margin-bottom: 0.5rem;
+    }
+    .feature-desc {
+      font-size: 0.9rem;
+      color: #5a6e7a;
+      line-height: 1.4;
+    }
+    /* Stats Cards */
+    .stats-card-blue {
+      background-color: var(--epmc-blue);
+      border-radius: 20px;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      height: 100%;
+      transition: transform 0.2s;
+      color: white;
+    }
+    .stats-card-blue:hover {
+      transform: translateY(-5px);
+    }
+    .stats-icon {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      margin-bottom: 1rem;
+    }
+    .stats-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+      color: white;
+    }
+    .stats-label {
+      font-size: 1rem;
+      font-weight: 500;
+      opacity: 0.9;
+      color: white;
+    }
+    /* Role Cards */
+    .role-card-new {
+      background: white;
+      border-radius: 24px;
+      padding: 0;
+      overflow: hidden;
+      height: 100%;
+      transition: all 0.3s ease;
+      border: 1px solid #EFF3F0;
+      display: flex;
+      flex-direction: column;
+    }
+    .role-card-new:hover {
+      transform: translateY(-5px);
+      border-color: var(--epmc-golden);
+      box-shadow: 0 15px 25px -10px rgba(0,0,0,0.08);
+    }
+    .role-image-wrapper {
+      width: 100%;
+      overflow: hidden;
+    }
+    .role-img-full {
+      width: 100%;
+      height: auto;
+      min-height: 180px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .role-card-new:hover .role-img-full {
+      transform: scale(1.02);
+    }
+    .role-content {
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .role-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--epmc-blue);
+      margin-bottom: 0.75rem;
+    }
+    .role-desc {
+      font-size: 0.95rem;
+      color: var(--epmc-blue);
+      line-height: 1.4;
+    }
+    .testimonial-card {
+      background: #ffffff;
+      border-radius: 32px;
+      padding: 2rem;
+      border: 1px solid #EBEFE8;
+    }
+    .testimonial-card i.fa-quote-left {
+      color: var(--epmc-orange) !important;
+    }
+    .section-title {
+      font-weight: 800;
+      font-size: 2.2rem;
+      color: var(--epmc-blue);
+    }
+    .section-subtitle {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--epmc-blue);
+    }
+    /* CTA section */
+    .cta-deliver-bg {
+      background-image: url('homepage_images/DelieverBetter.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      padding: 4rem 0;
+      transition: all 0.3s ease;
+    }
+    .cta-deliver-bg:hover {
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.2);
+      transform: scale(1.01);
+    }
+    .cta-title {
+      font-size: 3rem;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 1rem;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    }
+    .cta-subtitle {
+      font-size: 1.3rem;
+      color: white;
+      margin-bottom: 2rem;
+      font-weight: 500;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+    @media (max-width: 768px) {
+      .cta-title { font-size: 2rem; }
+      .cta-subtitle { font-size: 1rem; }
+      .btn-white-blue { padding: 10px 24px; font-size: 1rem; }
+    }
+    /* Navbar */
+    .navbar-brand-custom {
+      display: flex;
+      align-items: center;
+    }
+    .navbar-logo {
+      max-height: 50px;
+      width: auto;
+    }
+    .nav-link-custom {
+      font-weight: 700;
+      color: #00357a !important;
+      text-decoration: none;
+      margin-right: 1.5rem;
+      transition: color 0.2s;
+    }
+    .nav-link-custom:hover {
+      color: #f36a22 !important;
+    }
+    @media (max-width: 768px) {
+      .nav-link-custom {
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+      }
+      .navbar-logo { max-height: 40px; }
+      .feature-card-horizontal { flex-direction: column; align-items: center; text-align: center; }
+      .feature-icon-img { margin-bottom: 0.5rem; }
+      .stats-number { font-size: 2rem; }
+      .role-title { font-size: 1.2rem; }
+    }
+    .border-epmc { border-color: var(--epmc-blue) !important; }
+    .bg-epmc-gradient { background: linear-gradient(105deg, var(--epmc-blue) 0%, #0A3EA0 100%); }
+    .form-control, .form-select {
+      border-radius: 16px;
+      padding: 12px 16px;
+      border: 1px solid #DEE2E6;
+    }
+    .form-control:focus, .form-select:focus {
+      border-color: var(--epmc-orange);
+      box-shadow: 0 0 0 3px rgba(243,106,34,0.2);
+    }
+    .modal-content { border-radius: 32px; border: none; }
+    .features-table th {
+      background-color: var(--epmc-vivid-blue);
+      color: white;
+      font-weight: 700;
+      padding: 15px;
+    }
+    .features-table td { padding: 12px 15px; vertical-align: middle; }
+    .feature-check-yes { color: var(--epmc-green); font-weight: bold; }
+    .feature-check-no { color: var(--epmc-red); }
+    .feature-highlight {
+      background-color: var(--epmc-light-blue);
+      color: white;
+      border-radius: 20px;
+      padding: 4px 12px;
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    /* Hero heading styles */
+    .main-heading-line { font-size: 3rem; font-weight: 800; line-height: 1.2; }
+    .tagline-heading { font-size: 1.8rem; font-weight: 600; letter-spacing: -0.01em; }
+    @media (max-width: 768px) {
+      .main-heading-line { font-size: 2rem; }
+      .tagline-heading { font-size: 1.2rem; }
+    }
+    .hero-bg {
+      background-image: url('homepage_images/01 Building.png');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      position: relative;
+    }
+    .description-paragraph {
+      color: #00357a;
+      font-size: 1rem;
+      line-height: 1.5;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    .india-line { font-size: 1rem; font-weight: 600; margin-bottom: 0.25rem; }
+    .blue-text { color: #00357a; }
+    .orange-text { color: #f36a22; }
+    .trusted-bg { background-color: #f8f9fa; }
+    .trusted-label { color: #f36a22; font-weight: 500; font-size: 1rem; }
+    .trusted-company { color: #00357a; font-weight: 700; font-size: 1rem; display: inline-block; margin: 0 0.5rem; }
+    .project-icon-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      background: #fff;
+      border-radius: 20px;
+      padding: 1rem;
+      transition: 0.2s;
+      border: 1px solid #EFF3F0;
+      width: 140px;
+    }
+    .project-icon-item:hover {
+      transform: translateY(-5px);
+      border-color: var(--epmc-orange);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    }
+    .project-icon-img { width: 70px; height: 70px; object-fit: contain; margin-bottom: 0.75rem; }
+    .project-icon-label { font-weight: 600; color: var(--epmc-blue); font-size: 0.9rem; }
+    .projects-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; margin-top: 2rem; margin-bottom: 2rem; }
+    .orange-line { width: 80px; height: 3px; background-color: var(--epmc-orange); margin: 0.5rem auto; }
+    .section-heading-wrapper { text-align: center; }
+    .role-badge-line {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--epmc-orange);
+      letter-spacing: 0.5px;
+    }
+    .role-badge-line .separator {
+      color: var(--epmc-blue);
+      margin: 0 0.75rem;
+      font-weight: 700;
+    }
+    @media (max-width: 768px) {
+      .role-badge-line { font-size: 1.2rem; }
+      .role-badge-line .separator { margin: 0 0.4rem; }
+    }
+    /* Hero panels layout */
+    .hero-panels {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      min-height: 420px;
+    }
+    .left-panel {
+      flex: 1.2;
+    }
+    .right-panel {
+      flex: 0.8;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    .right-panel img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      display: block;
+    }
+    @media (max-width: 768px) {
+      .hero-panels {
+        flex-direction: column;
+        min-height: auto;
+      }
+      .right-panel {
+        justify-content: center;
+        margin-top: 1.5rem;
+      }
+    }
+
+    /* FOOTER STYLES - 5 columns with custom widths */
+    .footer-new {
+      background-color: #f8f9fa;
+      border: 2px solid #00357a;
+      border-radius: 20px;
+      padding: 2rem 1.5rem;
+      margin: 2rem 0;
+    }
+    .footer-logo {
+      max-height: 150px;
+      width: auto;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .footer-vertical-links a {
+      color: #00357a;
+      text-decoration: none;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .footer-vertical-links a:hover {
+      color: #f36a22;
+    }
+    .footer-contact p {
+      margin-bottom: 0.5rem;
+      color: #00357a;
+    }
+    .footer-contact i {
+      width: 25px;
+      color: #00357a;
+    }
+    .footer-map iframe {
+      width: 100%;
+      height: 180px;
+      border: 0;
+      border-radius: 12px;
+    }
+    .footer-copyright {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #dee2e6;
+      color: #6c757d;
+      font-size: 0.9rem;
+    }
+    /* 5-column layout using flex */
+    .footer-row-5 {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-col {
+      flex: 1;
+      min-width: 160px;
+    }
+    @media (max-width: 992px) {
+      .footer-col {
+        flex: 0 0 calc(33.33% - 1rem);
+      }
+    }
+    @media (max-width: 768px) {
+      .footer-col {
+        flex: 0 0 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg bg-white py-3 shadow-sm sticky-top">
+  <div class="container">
+    <a class="navbar-brand navbar-brand-custom" href="#">
+      <img src="ePMC Logo PNG File.png" alt="ePMC Logo" class="navbar-logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center gap-3">
+        <!-- Updated: "Why ePMC?" now links to whyempc.html -->
+       <li class="nav-item"><a class="nav-link-custom" href="whyepmc.html">Why ePMC?</a></li>
+        <li class="nav-item"><a class="nav-link-custom" href="#features">Features</a></li>
+        <li class="nav-item"><a class="nav-link-custom" href="#">Pricing</a></li>
+      </ul>
+      <a href="#" class="btn btn-epmc ms-lg-3 mt-2 mt-lg-0" data-bs-toggle="modal" data-bs-target="#demoModal">Book a Demo <i class="fas fa-arrow-right ms-1"></i></a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero-bg py-4">
+  <div class="container">
+    <div class="hero-panels">
+      <div class="left-panel">
+        <h1 class="mb-3">
+          <div class="main-heading-line">
+            <span style="color: #00357a;">Save</span>
+            <span style="color: #f36a22;"> 3% </span>
+            <span style="color: #00357a;">of Project Cost</span>
+          </div>
+          <div class="tagline-heading mt-2">
+            <span class="text-epmc">Every Project. Every Time.</span>
+          </div>
+        </h1>
+        <div class="description-paragraph mb-4">
+          <i class="fas fa-chart-line me-2"></i> ePMC is specifically designed for Indian Construction Industry considering local environment and working practices.<br>
+          <i class="fas fa-tasks me-2 mt-2"></i> Manage Cost, Time, Material, Quality, Progress and Site Execution – all in One Platform.<br>
+          <i class="fas fa-building me-2 mt-2"></i> From Site to Boardroom, Stay in Control. Always.
+        </div>
+        <div class="d-flex flex-wrap gap-3 mt-2">
+          <a href="#" class="btn btn-epmc px-4 py-3" data-bs-toggle="modal" data-bs-target="#demoModal">Book a Demo <i class="fas fa-arrow-right ms-1"></i></a>
+          <a href="#" class="btn btn-epmc-outline px-4 py-3">See How it Works</a>
+        </div>
+        <div class="mt-4">
+          <div class="india-line"><span class="blue-text">Made in</span> <span class="orange-text">India</span></div>
+          <div class="india-line"><span class="blue-text">Built for</span> <span class="orange-text">Indian Construction</span></div>
+        </div>
+      </div>
+      <div class="right-panel">
+        <img src="homepage_images/herosectionsubimage.png" alt="ePMC Dashboard Preview">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Trusted by Section -->
+<section class="trusted-bg py-4">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-center">
+      <span class="trusted-label me-2">Trusted by:</span>
+      <span class="trusted-company">Siddhi Ashray</span>
+      <span class="trusted-company">Amalgus</span>
+      <span class="trusted-company">Shripad</span>
+      <span class="trusted-company">Co-Build Construction</span>
+      <span class="trusted-company">PMC Construction</span>
+      <span class="trusted-company">NCC India</span>
+    </div>
+  </div>
+</section>
+
+<!-- Project Types Section -->
+<section class="py-5 bg-white">
+  <div class="container">
+    <div class="section-heading-wrapper">
+      <div class="orange-line"></div>
+      <h2 class="section-title mt-2 mb-2">Designed for all types of Projects</h2>
+      <div class="orange-line"></div>
+    </div>
+    <div class="projects-grid">
+      <div class="project-icon-item"><img src="homepage_images/Civil Construction.png" alt="Civil Construction" class="project-icon-img"><span class="project-icon-label">Civil Construction</span></div>
+      <div class="project-icon-item"><img src="homepage_images/MEPFI Projects.png" alt="MEPFI Projects" class="project-icon-img"><span class="project-icon-label">MEPFI Projects</span></div>
+      <div class="project-icon-item"><img src="homepage_images/Solar Projects.png" alt="Solar Projects" class="project-icon-img"><span class="project-icon-label">Solar Projects</span></div>
+      <div class="project-icon-item"><img src="homepage_images/Environment Projects.png" alt="Environment Projects" class="project-icon-img"><span class="project-icon-label">Environment Projects</span></div>
+      <div class="project-icon-item"><img src="homepage_images/Infra Projects.png" alt="Infra Projects" class="project-icon-img"><span class="project-icon-label">Infra Projects</span></div>
+      <div class="project-icon-item"><img src="homepage_images/Facade Projects.png" alt="Facade Projects" class="project-icon-img"><span class="project-icon-label">Facade Projects</span></div>
+      <div class="project-icon-item"><img src="homepage_images/Interior Projects.png" alt="Interior Projects" class="project-icon-img"><span class="project-icon-label">Interior Projects</span></div>
+    </div>
+    <div class="text-center mt-3">
+      <div class="role-badge-line">
+        CONTRACTORS <span class="separator">|</span> DEVELOPERS <span class="separator">|</span> PMCs
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section class="py-5 bg-epmc-soft" id="features">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-title">Everything You Need to Deliver Successful Projects</h2>
+      <p class="fs-5" style="color: #00357a;">From Planning to Handover, we have got you Covered</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4"><div class="feature-card-horizontal"><img src="homepage_images/Cost Management.png" alt="Cost Management" class="feature-icon-img"><div class="feature-content"><div class="feature-title">Cost Management</div><div class="feature-desc">Tracker Budget, BoQs, Payments and Control Cost Overruns.</div></div></div></div>
+      <div class="col-md-6 col-lg-4"><div class="feature-card-horizontal"><img src="homepage_images/Progress Monitoring.png" alt="Progress Monitoring" class="feature-icon-img"><div class="feature-content"><div class="feature-title">Progress Monitoring</div><div class="feature-desc">Monitor Real-time Progress against Plan and Milestones.</div></div></div></div>
+      <div class="col-md-6 col-lg-4"><div class="feature-card-horizontal"><img src="homepage_images/Quality Assurance.png" alt="Quality Assurance" class="feature-icon-img"><div class="feature-content"><div class="feature-title">Quality Assurance</div><div class="feature-desc">Conduct Inspections, Track issues and ensure Quality.</div></div></div></div>
+      <div class="col-md-6 col-lg-4"><div class="feature-card-horizontal"><img src="homepage_images/Site Reporting.png" alt="Site Reporting" class="feature-icon-img"><div class="feature-content"><div class="feature-title">Site Reporting</div><div class="feature-desc">Capture Daily Site Data, Photos and Updates on the GO.</div></div></div></div>
+      <div class="col-md-6 col-lg-4"><div class="feature-card-horizontal"><img src="homepage_images/Material Control.png" alt="Material Control" class="feature-icon-img"><div class="feature-content"><div class="feature-title">Material Control</div><div class="feature-desc">Manage Materials, Realtime Inventory and PO with Payments.</div></div></div></div>
+      <div class="col-md-6 col-lg-4"><div class="feature-card-horizontal"><img src="homepage_images/Analytics & Insights.png" alt="Analytics & Insights" class="feature-icon-img"><div class="feature-content"><div class="feature-title">Analytics & Insights</div><div class="feature-desc">Real-time insights and data-driven decisions. Complete Control.</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Section -->
+<section class="py-5 bg-white">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3"><div class="stats-card-blue"><img src="homepage_images/3costsavings.png" alt="3% Cost Savings" class="stats-icon"><div class="stats-number">3%</div><div class="stats-label">Average Cost Savings</div></div></div>
+      <div class="col-md-6 col-lg-3"><div class="stats-card-blue"><img src="homepage_images/50fasterdecisionmaking.png" alt="50% Faster Decision Making" class="stats-icon"><div class="stats-number">50%</div><div class="stats-label">Faster Decision Making</div></div></div>
+      <div class="col-md-6 col-lg-3"><div class="stats-card-blue"><img src="homepage_images/100realtimevisibilitycontrol.png" alt="100% Real Time Visibility" class="stats-icon"><div class="stats-number">100%</div><div class="stats-label">Real Time Visibility & Control</div></div></div>
+      <div class="col-md-6 col-lg-3"><div class="stats-card-blue"><img src="homepage_images/zerosurprizeatcomplision.png" alt="Zero Surprises" class="stats-icon"><div class="stats-number">ZERO</div><div class="stats-label">Surprises at Completion</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Design for Projects Section -->
+<section class="py-5 bg-epmc-soft">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-title" style="color: #00357a;">Design for Projects. Built for People.</h2>
+      <p class="section-subtitle" style="color: #00357a;">Simple to Use. Easy to Adopt. Powerful in Impact.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4"><div class="role-card-new"><div class="role-image-wrapper"><img src="homepage_images/forowners.png" alt="For Owners" class="role-img-full"></div><div class="role-content"><div class="role-title">For Owners</div><div class="role-desc">Get Real Time Insights and Complete Control over budgets, resources, and project health.</div></div></div></div>
+      <div class="col-md-4"><div class="role-card-new"><div class="role-image-wrapper"><img src="homepage_images/forprojectteam.png" alt="For Project Teams" class="role-img-full"></div><div class="role-content"><div class="role-title">For Project Teams</div><div class="role-desc">Collaborate, Track and Execute every Task Efficiently. Shared workflows, transparent status.</div></div></div></div>
+      <div class="col-md-4"><div class="role-card-new"><div class="role-image-wrapper"><img src="homepage_images/forsiteengineers.png" alt="For Site Engineers" class="role-img-full"></div><div class="role-content"><div class="role-title">For Site Engineers</div><div class="role-desc">Report Faster and Manage Site Activities Seamlessly. Daily logs, material tracking and QA on the go.</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="py-5 bg-white" id="testimonials">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-title">Trusted by Project Teams</h2>
+      <p class="text-secondary">Real success stories from infrastructure leaders across India</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4"><div class="testimonial-card"><i class="fas fa-quote-left fa-2x opacity-50 mb-3"></i><p>“Before ePMC, cost reports were two weeks behind. Now our director reviews live numbers every morning. Caught a ₹18 lakh variation before dispute.”</p><div><h6 class="fw-bold mt-2">Senior Project Manager</h6><small>Infrastructure Developer, Pune</small></div></div></div>
+      <div class="col-md-4"><div class="testimonial-card"><i class="fas fa-quote-left fa-2x opacity-50 mb-3"></i><p>“Real-time material inventory reduced procurement delays by 60%. Full transparency across 5 active sites.”</p><div><h6 class="fw-bold mt-2">Project Director</h6><small>Shripad Construction, Mumbai</small></div></div></div>
+      <div class="col-md-4"><div class="testimonial-card"><i class="fas fa-quote-left fa-2x opacity-50 mb-3"></i><p>“Progress monitoring improved decision speed dramatically. Zero surprises at handover — a game changer.”</p><div><h6 class="fw-bold mt-2">Construction Head</h6><small>Co-Build Developers, Ahmedabad</small></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-deliver-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="cta-title">Built to help you Deliver Better</div>
+        <div class="cta-subtitle">Book a Demo today and see how ePMC can transform your project outcomes</div>
+        <a href="#" class="btn-white-blue" data-bs-toggle="modal" data-bs-target="#demoModal">Book a Demo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER – 5 COLUMNS with LIVE MAP -->
+<div class="container">
+  <div class="footer-new">
+    <div class="footer-row-5">
+      <!-- Column 1: Logo -->
+      <div class="footer-col">
+        <img src="EPMC-Logo-File-PNG.png" alt="ePMC Logo" class="footer-logo">
+      </div>
+      <!-- Column 2: Navigation links (vertical) -->
+      <div class="footer-col">
+        <div class="footer-vertical-links">
+          <a href="#">Home</a>
+          <!-- Updated: "Why ePMC?" now links to whyempc.html -->
+         <a href="whyepmc.html">Why ePMC?</a>
+          <a href="#features">Features</a>
+          <a href="#">Pricing</a>
+          <a href="#">Profit Meter</a>
+          <a href="#">Contact Us</a>
+        </div>
+      </div>
+      <!-- Column 3: Policy links (vertical) -->
+      <div class="footer-col">
+        <div class="footer-vertical-links">
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Refund Policy</a>
+        </div>
+      </div>
+      <!-- Column 4: Contact info -->
+      <div class="footer-col">
+        <div class="footer-contact">
+          <p><i class="fas fa-phone-alt"></i> 9033281213</p>
+          <p><i class="fas fa-envelope"></i> inquiry@epmc.app</p>
+          <p><i class="fas fa-map-marker-alt"></i> 508/Shubh Universal, Vesu, Surat, Gujarat</p>
+        </div>
+      </div>
+      <!-- Column 5: Live Google Map -->
+      <div class="footer-col">
+        <div class="footer-map">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.123456789!2d72.831!3d21.170!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04e8e7a0b4f9d%3A0x8b7c1a2e3f4d5e6f!2s508%2C%20Shubh%20Universal%2C%20Vesu%2C%20Surat%2C%20Gujarat%20395007!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      © 2025 copyrights by ePMC
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="demoModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header border-0 pb-0">
+        <h5 class="modal-title fw-bold text-epmc fs-3">Request a Demo</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-4 pt-0">
+        <form action="https://formsubmit.co/company@example.com" method="POST">
+          <input type="hidden" name="_subject" value="ePMC Demo Request (Modal)">
+          <input type="hidden" name="_captcha" value="false">
+          <div class="row g-3">
+            <div class="col-md-6"><input type="text" name="Name" class="form-control" placeholder="Full Name *" required></div>
+            <div class="col-md-6"><input type="text" name="Company" class="form-control" placeholder="Company *" required></div>
+            <div class="col-md-6"><input type="email" name="Email" class="form-control" placeholder="Work Email *" required></div>
+            <div class="col-md-6"><input type="tel" name="Phone" class="form-control" placeholder="Phone *" required></div>
+            <div class="col-12"><select name="Project Type" class="form-select"><option>Civil Construction</option><option>MEPFI</option><option>Solar</option><option>Infra</option><option>Interior</option></select></div>
+            <div class="col-12"><textarea name="Message" rows="2" class="form-control" placeholder="Tell us about your project..."></textarea></div>
+            <div class="col-12"><button type="submit" class="btn btn-epmc-accent w-100 py-2"><i class="fas fa-paper-plane me-2"></i>Submit Request</button></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>console.log("Lead form ready — replace 'company@example.com' with actual email address.");</script>
+</body>
+</html>
