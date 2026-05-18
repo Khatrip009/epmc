@@ -1,713 +1,542 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>ePMC | Features – Construction Project Management</title>
-  <!-- Bootstrap 5 + Icons + Google Fonts -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <style>
-    /* Brand Colors */
-    :root {
-      --epmc-blue: #00357a;
-      --epmc-orange: #f36a22;
-      --epmc-golden: #dcb551;
-      --epmc-vivid-blue: #0058d7;
-      --epmc-green: #00b050;
-      --epmc-red: #ff0000;
-      --epmc-light-blue: #538dd5;
-      --epmc-bg-soft: #F8FAFF;
-      --epmc-text: #1A2C3C;
-    }
-    * {
-      font-family: 'Montserrat', 'Canva Sans', sans-serif;
-    }
-    body {
-      background: #ffffff;
-      scroll-behavior: smooth;
-      color: var(--epmc-text);
-    }
-    .text-epmc { color: var(--epmc-blue) !important; }
-    .bg-epmc { background-color: var(--epmc-blue) !important; }
-    .text-epmc-orange { color: var(--epmc-orange) !important; }
-    .bg-epmc-orange { background-color: var(--epmc-orange) !important; }
-    .text-epmc-golden { color: var(--epmc-golden) !important; }
-    .bg-epmc-soft { background-color: var(--epmc-bg-soft) !important; }
-
-    /* Buttons */
-    .btn-epmc {
-      background-color: var(--epmc-blue);
-      color: white;
-      border-radius: 8px;
-      padding: 10px 28px;
-      font-weight: 700;
-      border: none;
-      transition: all 0.2s ease;
-      text-decoration: none;
-      display: inline-block;
-    }
-    .btn-epmc:hover {
-      background-color: #002a5e;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,53,122,0.25);
-      color: white;
-    }
-    .btn-epmc-outline {
-      background: transparent;
-      border: 2px solid var(--epmc-blue);
-      color: var(--epmc-blue);
-      border-radius: 8px;
-      padding: 8px 26px;
-      font-weight: 700;
-      transition: all 0.2s ease;
-      text-decoration: none;
-      display: inline-block;
-    }
-    .btn-epmc-outline:hover {
-      background: var(--epmc-blue);
-      color: white;
-    }
-    .btn-epmc-accent {
-      background-color: var(--epmc-orange);
-      color: white;
-      border-radius: 8px;
-      padding: 10px 28px;
-      font-weight: 700;
-      border: none;
-    }
-    .btn-epmc-accent:hover {
-      background-color: #d45a1c;
-      transform: translateY(-2px);
-    }
-
-    /* Navbar */
-    .navbar-brand-custom {
-      display: flex;
-      align-items: center;
-    }
-    .navbar-logo {
-      max-height: 50px;
-      width: auto;
-    }
-    .nav-link-custom {
-      font-weight: 700;
-      color: #00357a !important;
-      text-decoration: none;
-      margin-right: 1.5rem;
-      transition: color 0.2s;
-    }
-    .nav-link-custom:hover {
-      color: #f36a22 !important;
-    }
-    @media (max-width: 768px) {
-      .nav-link-custom {
-        margin-right: 0;
-        margin-bottom: 0.5rem;
-      }
-      .navbar-logo { max-height: 40px; }
-    }
-
-    /* Feature module cards (updated) */
-    .feature-module-card {
-      background: white;
-      border-radius: 24px;
-      padding: 1.8rem;
-      transition: all 0.3s ease;
-      border: 1px solid #EFF3F0;
-      height: 100%;
-      text-align: center;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
-    }
-    .feature-module-card:hover {
-      transform: translateY(-6px);
-      border-color: var(--epmc-golden);
-      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
-    }
-    .feature-module-icon {
-      width: 70px;
-      height: 70px;
-      object-fit: contain;
-      margin-bottom: 1rem;
-    }
-    .feature-module-title {
-      font-size: 1.4rem;
-      font-weight: 800;
-      color: var(--epmc-blue);
-      margin-bottom: 0.5rem;
-    }
-    .title-underline {
-      width: 50px;
-      height: 3px;
-      background-color: var(--epmc-orange);
-      margin: 0 auto 1rem auto;
-      border-radius: 2px;
-    }
-    .feature-module-list {
-      list-style: none;
-      padding-left: 0;
-      margin-bottom: 0;
-      text-align: left;
-      display: inline-block;
-      width: 100%;
-    }
-    .feature-module-list li {
-      padding: 0.4rem 0;
-      font-size: 0.9rem;
-      color: var(--epmc-blue);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .feature-module-list li i {
-      color: var(--epmc-blue);
-      font-size: 0.8rem;
-    }
-
-  /* USP cards (updated) */
-.usp-card {
-  background: white;
-  border-radius: 24px;
-  padding: 2rem 1.5rem;
-  transition: all 0.3s;
-  border: 2px solid var(--epmc-blue);
-  height: 100%;
-}
-.usp-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--epmc-orange);
-}
-.usp-title {
-  font-size: 1.3rem;
-  font-weight: 800;
-  color: var(--epmc-blue);
-  margin-bottom: 0.5rem;
-  line-height: 1.3;
-}
-.usp-subtitle {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--epmc-blue);
-  margin-bottom: 1rem;
-}
-.usp-desc {
-  font-size: 0.95rem;
-  color: #4a5b6e;
-  line-height: 1.4;
-}
-.usp-link {
-  color: var(--epmc-orange);
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.9rem;
-}
-.usp-link:hover {
-  text-decoration: underline;
-}
-.usp-list {
-  list-style: none;
-  padding-left: 0;
-  margin-bottom: 0;
-}
-.usp-list li {
-  padding: 0.4rem 0;
-  font-size: 0.9rem;
-  color: var(--epmc-blue);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-    /* Comparison table */
-    .comp-table {
-      background: #fff;
-      border-radius: 24px;
-      overflow-x: auto;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-    }
-    .comp-table table {
-      width: 100%;
-      border-collapse: collapse;
-      min-width: 600px;
-    }
-    .comp-table th {
-      background-color: var(--epmc-blue);
-      color: white;
-      padding: 12px 16px;
-      font-weight: 700;
-    }
-    .comp-table td {
-      padding: 10px 16px;
-      border-bottom: 1px solid #eef2f0;
-      color: var(--epmc-text);
-    }
-    .comp-table tr:last-child td {
-      border-bottom: none;
-    }
-    .legend {
-      font-size: 0.8rem;
-      color: #6c757d;
-      margin-top: 1rem;
-      text-align: center;
-    }
-    .legend span {
-      display: inline-block;
-      margin: 0 0.5rem;
-    }
-
-    /* Benefits */
-    .benefit-item {
-      text-align: center;
-      padding: 1rem;
-    }
-    .benefit-icon {
-      width: 60px;
-      height: 60px;
-      object-fit: contain;
-      margin-bottom: 1rem;
-    }
-    .benefit-title {
-      font-weight: 800;
-      color: var(--epmc-blue);
-      margin-bottom: 0.5rem;
-    }
-    .benefit-desc {
-      font-size: 0.85rem;
-      color: #5a6e7a;
-    }
-
-    /* Footer */
-    .footer-new {
-      background-color: #f8f9fa;
-      border: 2px solid #00357a;
-      border-radius: 20px;
-      padding: 2rem 1.5rem;
-      margin: 2rem 0;
-    }
-    .footer-logo {
-      max-height: 80px;
-      width: auto;
-      margin-bottom: 1rem;
-      display: block;
-    }
-    .footer-vertical-links a {
-      color: #00357a;
-      text-decoration: none;
-      font-weight: 500;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-    .footer-vertical-links a:hover {
-      color: #f36a22;
-    }
-    .footer-contact p {
-      margin-bottom: 0.5rem;
-      color: #00357a;
-    }
-    .footer-contact i {
-      width: 25px;
-      color: #00357a;
-    }
-    .footer-map iframe {
-      width: 100%;
-      height: 180px;
-      border: 0;
-      border-radius: 12px;
-    }
-    .footer-copyright {
-      text-align: center;
-      margin-top: 2rem;
-      padding-top: 1rem;
-      border-top: 1px solid #dee2e6;
-      color: #6c757d;
-      font-size: 0.9rem;
-    }
-    .footer-row-5 {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    .footer-col {
-      flex: 1;
-      min-width: 160px;
-    }
-    @media (max-width: 992px) {
-      .footer-col {
-        flex: 0 0 calc(33.33% - 1rem);
-      }
-    }
-    @media (max-width: 768px) {
-      .footer-col {
-        flex: 0 0 100%;
-      }
-    }
-
-    /* Modal */
-    .modal-content { border-radius: 32px; border: none; }
-    .form-control, .form-select {
-      border-radius: 16px;
-      padding: 12px 16px;
-      border: 1px solid #DEE2E6;
-    }
-    .form-control:focus, .form-select:focus {
-      border-color: var(--epmc-orange);
-      box-shadow: 0 0 0 3px rgba(243,106,34,0.2);
-    }
-
-    /* Main heading badge */
-    .features-badge {
-      display: inline-block;
-      padding: 0.4rem 1.2rem;
-      border: 2px solid var(--epmc-blue);
-      border-radius: 40px;
-      color: var(--epmc-blue);
-      font-weight: 700;
-      letter-spacing: 1px;
-      font-size: 0.9rem;
-      background: transparent;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>ePMC | Features – Construction Project Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/Features.css">
 </head>
 <body>
 
-<!-- ==================== NAVIGATION ==================== -->
-<nav class="navbar navbar-expand-lg bg-white py-3 shadow-sm sticky-top">
-  <div class="container">
-    <a class="navbar-brand navbar-brand-custom" href="index.html">
-      <img src="ePMC Logo PNG File.png" alt="ePMC Logo" class="navbar-logo">
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center gap-3">
-        <li class="nav-item"><a class="nav-link-custom" href="whyepmc.html">Why ePMC?</a></li>
-        <li class="nav-item"><a class="nav-link-custom" href="features.html">Features</a></li>
-        <li class="nav-item"><a class="nav-link-custom" href="#">Pricing</a></li>
-      </ul>
-      <a href="#" class="btn btn-epmc ms-lg-3 mt-2 mt-lg-0" data-bs-toggle="modal" data-bs-target="#demoModal">Book a Demo <i class="fas fa-arrow-right ms-1"></i></a>
-    </div>
-  </div>
-</nav>
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav class="navbar navbar-expand-lg bg-white py-3 shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand navbar-brand-custom" href="index.html">
+                <img src="ePMC Logo PNG File.png" alt="ePMC Logo" class="navbar-logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center gap-3">
+                    <li class="nav-item"><a class="nav-link-custom" href="whyepmc.html">Why ePMC?</a></li>
+                    <li class="nav-item"><a class="nav-link-custom" href="Features.html">Features</a></li>
+                    <li class="nav-item"><a class="nav-link-custom" href="Pricing.html">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link-custom" href="ROI.html">ROI</a></li>
+                </ul>
+                <a href="#" class="btn btn-epmc ms-lg-3 mt-2 mt-lg-0" data-bs-toggle="modal" data-bs-target="#demoModal">Book a Demo <i class="fas fa-arrow-right ms-1"></i></a>
+            </div>
+        </div>
+    </nav>
 
-<!-- ==================== MAIN HEADING SECTION ==================== -->
-<section class="py-5 bg-white">
-  <div class="container text-center">
-    <div class="mb-3">
-      <span class="features-badge">FEATURES</span>
-    </div>
-    <h1 class="display-4 fw-bold mb-2" style="color: var(--epmc-blue);">
-      Everything You Need to
-    </h1>
-    <h2 class="display-5 fw-bold mb-2" style="color: var(--epmc-blue);">
-      Plan Better. Execute Better. <span style="color: var(--epmc-orange);">Deliver Better.</span>
-    </h2>
-    <p class="fs-5 mx-auto" style="max-width: 800px; color: var(--epmc-blue);">
-      ePMC brings all critical project management capabilities into one platform, designed specifically for construction execution. With each of your team member working (Unlimited Users) on the same page, control your projects from finger tip.
-    </p>
-  </div>
-</section>
+    <!-- ==================== MAIN HEADING SECTION ==================== -->
+    <section class="py-5 bg-white">
+        <div class="container text-center">
+            <div class="mb-3">
+                <span class="features-badge">FEATURES</span>
+            </div>
+            <h1 class="display-4 fw-bold mb-2" style="color: var(--epmc-blue);">
+                Everything You Need to
+            </h1>
+            <h2 class="display-5 fw-bold mb-2" style="color: var(--epmc-blue);">
+                Plan Better. Execute Better. <span style="color: var(--epmc-orange);">Deliver Better.</span>
+            </h2>
+            <p class="fs-5 mx-auto" style="max-width: 800px; color: var(--epmc-blue);">
+                ePMC brings all critical project management capabilities into one platform, designed specifically for construction execution. With each of your team member working (Unlimited Users) on the same page, control your projects from finger tip.
+            </p>
+        </div>
+    </section>
 
-<!-- ==================== FEATURE MODULES (6 cards, no title, new icons, blue text) ==================== -->
-<section class="py-5 bg-epmc-soft">
-  <div class="container">
-    <div class="row g-4">
-      <!-- Cost Control -->
-      <div class="col-md-6 col-lg-4">
-        <div class="feature-module-card">
-          <img src="features/costcontrol.png" alt="Cost Control" class="feature-module-icon" onerror="this.src='https://placehold.co/70x70?text=💰'">
-          <div class="feature-module-title">COST CONTROL</div>
-          <div class="title-underline"></div>
-          <ul class="feature-module-list">
-            <li><i class="fas fa-check-circle"></i> BOQ based budgeting & estimation</li>
-            <li><i class="fas fa-check-circle"></i> Real-time Cost Tracking</li>
-            <li><i class="fas fa-check-circle"></i> Plan vs Actual</li>
-            <li><i class="fas fa-check-circle"></i> Variance Analysis</li>
-            <li><i class="fas fa-check-circle"></i> Cost reports & Dashboard</li>
-          </ul>
-        </div>
-      </div>
-      <!-- Delay Control System -->
-      <div class="col-md-6 col-lg-4">
-        <div class="feature-module-card">
-          <img src="features/delaycontrolsystem.png" alt="Delay Control" class="feature-module-icon" onerror="this.src='https://placehold.co/70x70?text=⏱️'">
-          <div class="feature-module-title">DELAY CONTROL SYSTEM</div>
-          <div class="title-underline"></div>
-          <ul class="feature-module-list">
-            <li><i class="fas fa-check-circle"></i> Baseline Schedule</li>
-            <li><i class="fas fa-check-circle"></i> Daily Progress Tracking</li>
-            <li><i class="fas fa-check-circle"></i> Plan vs Actual Report</li>
-            <li><i class="fas fa-check-circle"></i> Delay Identification</li>
-            <li><i class="fas fa-check-circle"></i> Look ahead Plan</li>
-            <li><i class="fas fa-check-circle"></i> Risk Issue Control System</li>
-            <li><i class="fas fa-check-circle"></i> Time Control Dashboard</li>
-          </ul>
-        </div>
-      </div>
-      <!-- Material Management -->
-      <div class="col-md-6 col-lg-4">
-        <div class="feature-module-card">
-          <img src="features/materialmanagement.png" alt="Material Management" class="feature-module-icon" onerror="this.src='https://placehold.co/70x70?text=📦'">
-          <div class="feature-module-title">MATERIAL MANAGEMENT</div>
-          <div class="title-underline"></div>
-          <ul class="feature-module-list">
-            <li><i class="fas fa-check-circle"></i> Material Planning & Indents</li>
-            <li><i class="fas fa-check-circle"></i> PO / WO management</li>
-            <li><i class="fas fa-check-circle"></i> Inward / receipt management</li>
-            <li><i class="fas fa-check-circle"></i> Real time inventory</li>
-            <li><i class="fas fa-check-circle"></i> OTP based verification</li>
-          </ul>
-        </div>
-      </div>
-      <!-- Reworks Control -->
-      <div class="col-md-6 col-lg-4">
-        <div class="feature-module-card">
-          <img src="features/reworkscontrol.png" alt="Reworks Control" class="feature-module-icon" onerror="this.src='https://placehold.co/70x70?text=🔧'">
-          <div class="feature-module-title">REWORKS CONTROL</div>
-          <div class="title-underline"></div>
-          <ul class="feature-module-list">
-            <li><i class="fas fa-check-circle"></i> Dynamic Quality Checklists</li>
-            <li><i class="fas fa-check-circle"></i> Real-time Quality Assurance</li>
-            <li><i class="fas fa-check-circle"></i> Responsibility Assignment</li>
-            <li><i class="fas fa-check-circle"></i> Non-compliance Tracking</li>
-            <li><i class="fas fa-check-circle"></i> Quality Dashboards</li>
-          </ul>
-        </div>
-      </div>
-      <!-- Meeting Management -->
-      <div class="col-md-6 col-lg-4">
-        <div class="feature-module-card">
-          <img src="features/meetingmanagement.png" alt="Meeting Management" class="feature-module-icon" onerror="this.src='https://placehold.co/70x70?text=📅'">
-          <div class="feature-module-title">MEETING MANAGEMENT</div>
-          <div class="title-underline"></div>
-          <ul class="feature-module-list">
-            <li><i class="fas fa-check-circle"></i> Meeting Scheduling & Agenda</li>
-            <li><i class="fas fa-check-circle"></i> Master & User MoM Tracker</li>
-            <li><i class="fas fa-check-circle"></i> Action items & responsibility tracking</li>
-            <li><i class="fas fa-check-circle"></i> Real-time Dashboard</li>
-          </ul>
-        </div>
-      </div>
-      <!-- Scope Management -->
-      <div class="col-md-6 col-lg-4">
-        <div class="feature-module-card">
-          <img src="features/scopemanagement.png" alt="Scope Management" class="feature-module-icon" onerror="this.src='https://placehold.co/70x70?text=🎯'">
-          <div class="feature-module-title">SCOPE MANAGEMENT</div>
-          <div class="title-underline"></div>
-          <ul class="feature-module-list">
-            <li><i class="fas fa-check-circle"></i> Detailed Scope Statement</li>
-            <li><i class="fas fa-check-circle"></i> Stakeholder Details</li>
-            <li><i class="fas fa-check-circle"></i> Technical Specifications</li>
-            <li><i class="fas fa-check-circle"></i> On-site Conditions</li>
-            <li><i class="fas fa-check-circle"></i> Type of Works</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- ==================== FEATURE MODULES (6 cards) ==================== -->
+    <section class="py-5 bg-epmc-soft">
+        <div class="container">
+            <div class="row g-4">
 
-<!-- ==================== USP SECTION (exactly as per image) ==================== -->
-<section class="py-5 bg-white">
-  <div class="container">
-    <div class="text-center mb-5">
-      <h2 class="display-5 fw-bold" style="color: var(--epmc-blue);">OUR USP – VALUES YOU GET WITH ePMC</h2>
-    </div>
-    <div class="row g-4">
-      <!-- Card 1: Complimentary Planning -->
-      <div class="col-md-4">
-        <div class="usp-card h-100">
-          <div class="usp-title">COMPLIMENTARY PLANNING & SCHEDULING SERVICES</div>
-          <div class="usp-subtitle" style="font-weight: 800; color: var(--epmc-blue); margin-bottom: 1rem;">FOR 1ST FIVE PROJECTS</div>
-          <div class="usp-desc">
-            Leverage our 22+ years of Construction Management Experience. We will prepare detailed <strong>Project Plan & Schedule</strong> for your first 5 Projects on ePMC.
-          </div>
-          <div class="mt-3">
-            <a href="#" class="usp-link">Post that available as Paid Service</a>
-          </div>
-        </div>
-      </div>
-      <!-- Card 2: Unlimited Users -->
-      <div class="col-md-4">
-        <div class="usp-card h-100">
-          <div class="usp-title">Unlimited Users</div>
-          <div class="usp-subtitle" style="font-weight: 600; color: var(--epmc-blue); margin-bottom: 1rem;">Always Included</div>
-          <ul class="usp-list">
-            <li><i class="fas fa-check-circle" style="color: var(--epmc-orange); font-size: 0.9rem;"></i> Add as many team members as you need</li>
-            <li><i class="fas fa-check-circle" style="color: var(--epmc-orange); font-size: 0.9rem;"></i> No User limitations</li>
-            <li><i class="fas fa-check-circle" style="color: var(--epmc-orange); font-size: 0.9rem;"></i> No Extra Cost</li>
-            <li><i class="fas fa-check-circle" style="color: var(--epmc-orange); font-size: 0.9rem;"></i> Collaborate Freely across your project</li>
-          </ul>
-        </div>
-      </div>
-      <!-- Card 3: All Modules -->
-      <div class="col-md-4">
-        <div class="usp-card h-100">
-          <div class="usp-title">All Modules</div>
-          <div class="usp-subtitle" style="font-weight: 600; color: var(--epmc-blue); margin-bottom: 1rem;">Always Included</div>
-          <ul class="usp-list">
-            <li><i class="fas fa-check-circle" style="color: var(--epmc-orange); font-size: 0.9rem;"></i> Every Module, Every Feature.</li>
-            <li><i class="fas fa-check-circle" style="color: var(--epmc-orange); font-size: 0.9rem;"></i> Included in all Packages.</li>
-            <li><i class="fas fa-check-circle" style="color: var(--epmc-orange); font-size: 0.9rem;"></i> No feature restrictions. No hidden limits.</li>
-            <li><i class="fas fa-check-circle" style="color: var(--epmc-orange); font-size: 0.9rem;"></i> Everything you need, right from the start.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+                <!-- Cost Control -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-module-card">
+                        <img src="features/costcontrol.png" alt="Cost Control" class="feature-module-icon" onerror="this.src='https://placehold.co/70x70?text=%F0%9F%92%B0'">
+                        <div class="feature-module-title">COST CONTROL</div>
+                        <div class="title-underline"></div>
+                        <ul class="feature-module-list">
+                            <li><i class="fas fa-check-circle"></i> BOQ based budgeting & estimation</li>
+                            <li><i class="fas fa-check-circle"></i> Real-time Cost Tracking</li>
+                            <li><i class="fas fa-check-circle"></i> Plan vs Actual</li>
+                            <li><i class="fas fa-check-circle"></i> Variance Analysis</li>
+                            <li><i class="fas fa-check-circle"></i> Cost reports & Dashboard</li>
+                        </ul>
+                    </div>
+                </div>
 
-<!-- ==================== COMPETITORS COMPARISON TABLE ==================== -->
-<section class="py-5 bg-epmc-soft">
-  <div class="container">
-    <div class="text-center mb-5">
-      <h2 class="display-5 fw-bold" style="color: var(--epmc-blue);">ePMC vs Competitors — Feature & Execution Comparison</h2>
-      <p class="text-secondary">Competitors Compared: Procore, Strategic ERP, Visilean, On‑Site, Farvision, Asana</p>
-    </div>
-    <div class="comp-table">
-      <table>
-        <thead>
-          <tr><th>Category</th><th>ePMC</th><th>Traditional / Others</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><strong>Unlimited Users</strong></td><td>✓ Included</td><td>✕ Per‑user pricing</td></tr>
-          <tr><td><strong>All Modules Included</strong></td><td>✓ Yes</td><td>◐ Often tiered / extra cost</td></tr>
-          <tr><td><strong>Project Scheduling & Progress Report</strong></td><td>✓ Real‑time</td><td>◐ Weekly / monthly</td></tr>
-          <tr><td><strong>One Click Progress Tracking</strong></td><td>✓ Yes</td><td>◐ Manual entry</td></tr>
-          <tr><td><strong>Risk Issue Log & LA Report</strong></td><td>✓ Yes</td><td>◐ Limited</td></tr>
-          <tr><td><strong>Quality Checklists & Approval Workflow</strong></td><td>✓ Yes</td><td>◐ Basic / paper</td></tr>
-          <tr><td><strong>Procurement: MR, PO, WO, OTP Inventory</strong></td><td>✓ Yes</td><td>◐ Disconnected systems</td></tr>
-          <tr><td><strong>Cost Management (BOQ, Cash Flow)</strong></td><td>✓ Yes</td><td>◐ Finance‑only / post‑facto</td></tr>
-          <tr><td><strong>Meeting Management (MoM, Accountability)</strong></td><td>✓ Yes</td><td>◐ Email / WhatsApp</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="legend">
-      <span>✓ = Available / Strong</span> <span>◐ = Partial / Limited</span> <span>✕ = Not Available / Not Core</span>
-      <div class="mt-2 small text-muted">Comparison are indicative and based on publicly available information, standard platform offerings, and typical implementation scenarios.</div>
-    </div>
-    <div class="text-center mt-5">
-      <a href="#" class="btn btn-epmc-accent btn-lg px-5 py-3">Check Price Comparative <i class="fas fa-arrow-right ms-2"></i></a>
-    </div>
-  </div>
-</section>
+                <!-- Delay Control System -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-module-card">
+                        <img src="features/delaycontrolsystem.png" alt="Delay Control" class="feature-module-icon" onerror="this.src='https://placehold.co/70x70?text=%E2%8F%B1%EF%B8%8F'">
+                        <div class="feature-module-title">DELAY CONTROL SYSTEM</div>
+                        <div class="title-underline"></div>
+                        <ul class="feature-module-list">
+                            <li><i class="fas fa-check-circle"></i> Baseline Schedule</li>
+                            <li><i class="fas fa-check-circle"></i> Daily Progress Tracking</li>
+                            <li><i class="fas fa-check-circle"></i> Plan vs Actual Report</li>
+                            <li><i class="fas fa-check-circle"></i> Delay Identification</li>
+                            <li><i class="fas fa-check-circle"></i> Look ahead Plan</li>
+                            <li><i class="fas fa-check-circle"></i> Risk Issue Control System</li>
+                            <li><i class="fas fa-check-circle"></i> Time Control Dashboard</li>
+                        </ul>
+                    </div>
+                </div>
 
-<!-- ==================== ADDITIONAL BENEFITS ==================== -->
-<section class="py-5 bg-white">
-  <div class="container">
-    <div class="text-center mb-5">
-      <h2 class="display-5 fw-bold" style="color: var(--epmc-blue);">Additional Benefits</h2>
-    </div>
-    <div class="row g-4">
-      <div class="col-sm-6 col-lg-3">
-        <div class="benefit-item">
-          <img src="features/cloud.png" alt="Cloud Based" class="benefit-icon" onerror="this.src='https://placehold.co/60x60?text=☁️'">
-          <div class="benefit-title">Cloud Based</div>
-          <div class="benefit-desc">Access Anytime, Anywhere</div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-3">
-        <div class="benefit-item">
-          <img src="features/mobile.png" alt="Mobile First" class="benefit-icon" onerror="this.src='https://placehold.co/60x60?text=📱'">
-          <div class="benefit-title">Mobile First</div>
-          <div class="benefit-desc">Built for Site Teams in the Field</div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-3">
-        <div class="benefit-item">
-          <img src="features/secure.png" alt="Secure & Reliable" class="benefit-icon" onerror="this.src='https://placehold.co/60x60?text=🔒'">
-          <div class="benefit-title">Secure & Reliable</div>
-          <div class="benefit-desc">Enterprise-grade Security you can Trust</div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-3">
-        <div class="benefit-item">
-          <img src="features/support.png" alt="Dedicated Support" class="benefit-icon" onerror="this.src='https://placehold.co/60x60?text=🎧'">
-          <div class="benefit-title">Dedicated Support</div>
-          <div class="benefit-desc">We are here, when you need us</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+                <!-- Material Management -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-module-card">
+                        <img src="features/materialmanagement.png" alt="Material Management" class="feature-module-icon" onerror="this.src='https://placehold.co/70x70?text=%F0%9F%93%A6'">
+                        <div class="feature-module-title">MATERIAL MANAGEMENT</div>
+                        <div class="title-underline"></div>
+                        <ul class="feature-module-list">
+                            <li><i class="fas fa-check-circle"></i> Material Planning & Indents</li>
+                            <li><i class="fas fa-check-circle"></i> PO / WO management</li>
+                            <li><i class="fas fa-check-circle"></i> Inward / receipt management</li>
+                            <li><i class="fas fa-check-circle"></i> Real time inventory</li>
+                            <li><i class="fas fa-check-circle"></i> OTP based verification</li>
+                        </ul>
+                    </div>
+                </div>
 
-<!-- ==================== FOOTER ==================== -->
-<div class="container">
-  <div class="footer-new">
-    <div class="footer-row-5">
-      <div class="footer-col">
-        <img src="EPMC-Logo-File-PNG.png" alt="ePMC Logo" class="footer-logo">
-      </div>
-      <div class="footer-col">
-        <div class="footer-vertical-links">
-          <a href="index.html">Home</a>
-          <a href="whyepmc.html">Why ePMC?</a>
-          <a href="features.html">Features</a>
-          <a href="#">Pricing</a>
-          <a href="#">Profit Meter</a>
-          <a href="#">Contact Us</a>
+                <!-- Reworks Control -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-module-card">
+                        <img src="features/reworkscontrol.png" alt="Reworks Control" class="feature-module-icon" onerror="this.src='https://placehold.co/70x70?text=%F0%9F%94%A7'">
+                        <div class="feature-module-title">REWORKS CONTROL</div>
+                        <div class="title-underline"></div>
+                        <ul class="feature-module-list">
+                            <li><i class="fas fa-check-circle"></i> Dynamic Quality Checklists</li>
+                            <li><i class="fas fa-check-circle"></i> Real-time Quality Assurance</li>
+                            <li><i class="fas fa-check-circle"></i> Responsibility Assignment</li>
+                            <li><i class="fas fa-check-circle"></i> Non-compliance Tracking</li>
+                            <li><i class="fas fa-check-circle"></i> Quality Dashboards</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Meeting Management -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-module-card">
+                        <img src="features/meetingmanagement.png" alt="Meeting Management" class="feature-module-icon" onerror="this.src='https://placehold.co/70x70?text=%F0%9F%93%85'">
+                        <div class="feature-module-title">MEETING MANAGEMENT</div>
+                        <div class="title-underline"></div>
+                        <ul class="feature-module-list">
+                            <li><i class="fas fa-check-circle"></i> Meeting Scheduling & Agenda</li>
+                            <li><i class="fas fa-check-circle"></i> Master & User MoM Tracker</li>
+                            <li><i class="fas fa-check-circle"></i> Action items & responsibility tracking</li>
+                            <li><i class="fas fa-check-circle"></i> Real-time Dashboard</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Scope Management -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="feature-module-card">
+                        <img src="features/scopemanagement.png" alt="Scope Management" class="feature-module-icon" onerror="this.src='https://placehold.co/70x70?text=%F0%9F%8E%AF'">
+                        <div class="feature-module-title">SCOPE MANAGEMENT</div>
+                        <div class="title-underline"></div>
+                        <ul class="feature-module-list">
+                            <li><i class="fas fa-check-circle"></i> Detailed Scope Statement</li>
+                            <li><i class="fas fa-check-circle"></i> Stakeholder Details</li>
+                            <li><i class="fas fa-check-circle"></i> Technical Specifications</li>
+                            <li><i class="fas fa-check-circle"></i> On-site Conditions</li>
+                            <li><i class="fas fa-check-circle"></i> Type of Works</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
         </div>
-      </div>
-      <div class="footer-col">
-        <div class="footer-vertical-links">
-          <a href="#">Terms & Conditions</a>
-          <a href="#">Privacy Policy</a>
-          <a href="#">Refund Policy</a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <div class="footer-contact">
-          <p><i class="fas fa-phone-alt"></i> 9033281213</p>
-          <p><i class="fas fa-envelope"></i> inquiry@epmc.app</p>
-          <p><i class="fas fa-map-marker-alt"></i> 508/Shubh Universal, Vesu, Surat, Gujarat</p>
-        </div>
-      </div>
-      <div class="footer-col">
-        <div class="footer-map">
-          <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.123456789!2d72.831!3d21.170!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04e8e7a0b4f9d%3A0x8b7c1a2e3f4d5e6f!2s508%2C%20Shubh%20Universal%2C%20Vesu%2C%20Surat%2C%20Gujarat%20395007!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
-            allowfullscreen="" 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
-        </div>
-      </div>
-    </div>
-    <div class="footer-copyright">
-      © 2025 copyrights by ePMC
-    </div>
-  </div>
+    </section>
+
+    <!-- ==================== NEW USP SECTION (with uspback.png background) ==================== -->
+    <section class="usp-new">
+        <div class="usp-wrapper">
+
+            <!-- TOP LABEL -->
+            <div class="top-label">
+    <img src="features/start.png" alt="" class="star-icon">
+    <img src="features/start.png" alt="" class="star-icon">
+    OUR USP - VALUES YOU GET WITH ePMC
+    <img src="features/start.png" alt="" class="star-icon">
+    <img src="features/start.png" alt="" class="star-icon">
 </div>
+            <!-- MAIN BOX -->
+            <div class="custom-box">
 
-<!-- ==================== MODAL ==================== -->
-<div class="modal fade" id="demoModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content">
-      <div class="modal-header border-0 pb-0">
-        <h5 class="modal-title fw-bold text-epmc fs-3">Request a Demo</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body p-4 pt-0">
-        <form action="https://formsubmit.co/company@example.com" method="POST">
-          <input type="hidden" name="_subject" value="ePMC Demo Request (Modal)">
-          <input type="hidden" name="_captcha" value="false">
-          <div class="row g-3">
-            <div class="col-md-6"><input type="text" name="Name" class="form-control" placeholder="Full Name *" required></div>
-            <div class="col-md-6"><input type="text" name="Company" class="form-control" placeholder="Company *" required></div>
-            <div class="col-md-6"><input type="email" name="Email" class="form-control" placeholder="Work Email *" required></div>
-            <div class="col-md-6"><input type="tel" name="Phone" class="form-control" placeholder="Phone *" required></div>
-            <div class="col-12"><select name="Project Type" class="form-select"><option>Civil Construction</option><option>MEPFI</option><option>Solar</option><option>Infra</option><option>Interior</option></select></div>
-            <div class="col-12"><textarea name="Message" rows="2" class="form-control" placeholder="Tell us about your project..."></textarea></div>
-            <div class="col-12"><button type="submit" class="btn btn-epmc-accent w-100 py-2"><i class="fas fa-paper-plane me-2"></i>Submit Request</button></div>
-          </div>
-        </form>
-      </div>
+                <!-- RIBBON -->
+                <div class="best-value">
+                    Best<br>Value
+                </div>
+
+                <!-- CONTENT -->
+                <div class="content">
+                    <div class="usp-columns">
+
+                        <!-- COLUMN 1 -->
+                        <div class="usp-cards">
+
+                            <!-- CARD 1 -->
+                            <div class="usp-card">
+                                <!-- TOP ROW -->
+                                <div class="usp-top-row">
+                                    <!-- ICON -->
+                                    <img
+                                    src="features/firstfiveprojects.png"
+                                    class="usp-icon"
+                                    alt=""
+                                    >
+                                    <!-- TEXT -->
+                                    <div class="usp-title-area">
+                                        <h2 class="usp-heading">
+                                            COMPLIMENTARY PLANNING &
+                                            SCHEDULING SERVICES
+                                        </h2>
+                                        <div class="usp-subheading">
+                                            FOR 1ST FIVE PROJECTS
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- DESCRIPTION -->
+                                <p class="usp-description">
+                                    Leverage our 22+ years of Construction
+                                    Management Experience. We will prepare
+                                    detailed Project Plan & Schedule for your
+                                    first 5 projects on ePMC.
+                                </p>
+                                <!-- BUTTON -->
+                                <div class="usp-button">
+                                    Past that available as Paid Service
+                                </div>
+                            </div>
+
+                            <!-- CARD 2 -->
+                            <div class="usp-card">
+                                <!-- TOP ROW -->
+                                <div class="usp-top-row">
+                                    <!-- ICON -->
+                                    <img
+                                    src="features/unlimitedusers.png"
+                                    class="usp-icon"
+                                    alt=""
+                                    >
+                                    <!-- TITLE -->
+                                    <div class="usp-title-area">
+                                        <h2 class="usp-heading">
+                                            Unlimited Users
+                                        </h2>
+                                        <div class="usp-golden-box">
+                                            Always Included
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- BULLETS -->
+                                <ul class="usp-list">
+                                    <li>Add as many team members as you need</li>
+                                    <li>No User restriction</li>
+                                    <li>No Extra Cost</li>
+                                    <li>Collaborate freely across your project</li>
+                                </ul>
+                            </div>
+
+                            <!-- CARD 3 -->
+                            <div class="usp-card">
+                                <!-- TOP ROW -->
+                                <div class="usp-top-row">
+                                    <!-- ICON -->
+                                    <img
+                                    src="features/allmodule.png"
+                                    class="usp-icon"
+                                    alt=""
+                                    >
+                                    <!-- TITLE -->
+                                    <div class="usp-title-area">
+                                        <h2 class="usp-heading">
+                                            All Modules
+                                        </h2>
+                                        <div class="usp-golden-box">
+                                            Always Included
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- BULLETS -->
+                                <ul class="usp-list">
+                                    <li>Every Module, Every Feature</li>
+                                    <li>Included in all Packages</li>
+                                    <li>No premium restrictions, no hidden limits</li>
+                                    <li>Everything you need, right from the start</li>
+                                </ul>
+                            </div>
+
+                        </div><!-- /usp-cards -->
+                    </div><!-- /usp-columns -->
+                </div><!-- /content -->
+            </div><!-- /custom-box -->
+        </div><!-- /usp-wrapper -->
+    </section>
+
+    <!-- ==================== COMPETITORS COMPARISON TABLE ==================== -->
+    <section class="comparison-section">
+        <!-- TITLE -->
+        <div class="comparison-title">
+            ePMC vs Competitors — Feature & Execution Comparison
+        </div>
+
+        <!-- TABLE -->
+        <div class="table-wrapper">
+            <table class="comparison-table" id="comparisonTable">
+                <thead id="tableHead"></thead>
+                <tbody id="tableBody"></tbody>
+            </table>
+        </div>
+
+        <!-- LEGEND -->
+        <div class="comparison-legend">
+            <span>✔ = Available / Strong</span>
+            <span>◐ = Partial / Limited</span>
+            <span>✕ = Not Available / Not Core</span>
+        </div>
+
+        <!-- FOOTNOTE -->
+        <div class="comparison-note">
+            Comparisons are indicative and based on publicly available information,
+            standard platform offerings, and typical implementation scenarios.
+            Actual functionality may vary based on subscription plans,
+            integrations, customization, and deployment scope.
+        </div>
+
+        <!-- CTA RECTANGLE -->
+        <div class="comparison-cta">
+            <div class="comparison-rectangle">
+                Check Price Comparative
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== ADDITIONAL BENEFITS ==================== -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="row g-4">
+
+                <!-- ITEM 1 -->
+                <div class="col-sm-6 col-lg-3">
+                    <div class="benefit-item">
+                        <img
+                        src="features/cloudbase.png"
+                        alt="Cloud Based"
+                        class="benefit-icon"
+                        >
+                        <div class="benefit-text">
+                            <div class="benefit-title">
+                                Cloud Based
+                            </div>
+                            <div class="benefit-desc">
+                                Access Anytime, Anywhere
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ITEM 2 -->
+                <div class="col-sm-6 col-lg-3">
+                    <div class="benefit-item">
+                        <img
+                        src="features/mobilefirst.png"
+                        alt="Mobile First"
+                        class="benefit-icon"
+                        >
+                        <div class="benefit-text">
+                            <div class="benefit-title">
+                                Mobile First
+                            </div>
+                            <div class="benefit-desc">
+                                Built for Site Teams in the Field
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ITEM 3 -->
+                <div class="col-sm-6 col-lg-3">
+                    <div class="benefit-item">
+                        <img
+                        src="features/secureandreliable.png"
+                        alt="Secure & Reliable"
+                        class="benefit-icon"
+                        >
+                        <div class="benefit-text">
+                            <div class="benefit-title">
+                                Secure & Reliable
+                            </div>
+                            <div class="benefit-desc">
+                                Enterprise-grade Security you can Trust
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ITEM 4 -->
+                <div class="col-sm-6 col-lg-3">
+                    <div class="benefit-item">
+                        <img
+                        src="features/dedicatedsupport.png"
+                        alt="Dedicated Support"
+                        class="benefit-icon"
+                        >
+                        <div class="benefit-text">
+                            <div class="benefit-title">
+                                Dedicated Support
+                            </div>
+                            <div class="benefit-desc">
+                                We are here, when you need us
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer-new">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Column 1: Logo -->
+                <div>
+                    <img src="EPMC-Logo-File-PNG.png" alt="ePMC Logo" class="footer-logo">
+                </div>
+                <!-- Column 2: Description text -->
+                <div>
+                    <div class="footer-description">
+                        ePMC is a construction project management platform built specifically for the construction industry. Designed from 22+ years of real project execution experience, ePMC helps teams control cost, delays, quality, reporting, and project coordination through one connected system.
+                    </div>
+                </div>
+                <!-- Column 3: Navigation Links -->
+                <div>
+                    <div class="footer-vertical-links">
+                        <a href="#">Home</a>
+                        <a href="whyepmc.html">Why ePMC?</a>
+                        <a href="Features.html">Features</a>
+                        <a href="Pricing.html">Pricing</a>
+                        <a href="roi.html">ROI</a>
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#demoModal">Book a Demo</a>
+                    </div>
+                </div>
+                <!-- Column 4: Policy Links + Contact Information -->
+                <div>
+                    <div class="footer-vertical-links">
+                        <a href="#">Terms & Conditions</a>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Refund Policy</a>
+                    </div>
+                    <div class="footer-contact-info mt-3">
+                        <p><i class="fas fa-phone-alt me-2"></i> 9033281213</p>
+                        <p><i class="fas fa-envelope me-2"></i> inquiry@epmc.app</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                © 2025 copyrights by ePMC
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== DEMO MODAL ==================== -->
+    <div class="modal fade" id="demoModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold text-epmc fs-3">Request a Demo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 pt-0">
+                    <form action="https://formsubmit.co/company@example.com" method="POST">
+                        <input type="hidden" name="_subject" value="ePMC Demo Request (Modal)">
+                        <input type="hidden" name="_captcha" value="false">
+                        <div class="row g-3">
+                            <div class="col-md-6"><input type="text" name="Name" class="form-control" placeholder="Full Name *" required></div>
+                            <div class="col-md-6"><input type="text" name="Company" class="form-control" placeholder="Company *" required></div>
+                            <div class="col-md-6"><input type="email" name="Email" class="form-control" placeholder="Work Email *" required></div>
+                            <div class="col-md-6"><input type="tel" name="Phone" class="form-control" placeholder="Phone *" required></div>
+                            <div class="col-12"><select name="Project Type" class="form-select"><option>Civil Construction</option><option>MEPFI</option><option>Solar</option><option>Infra</option><option>Interior</option></select></div>
+                            <div class="col-12"><textarea name="Message" rows="2" class="form-control" placeholder="Tell us about your project..."></textarea></div>
+                            <div class="col-12"><button type="submit" class="btn btn-epmc-accent w-100 py-2"><i class="fas fa-paper-plane me-2"></i>Submit Request</button></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-<script>console.log("Features page ready — replace form email address.");</script>
+    <!-- ==================== SCRIPTS ==================== -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js">
+    </script>
+    <script>
+        console.log("Features page updated with new USP background and icons");
+
+        fetch("features/epmc_comparison_table.json")
+            .then(function(response) { return response.json(); })
+            .then(function(data) {
+                var tableHead = document.getElementById("tableHead");
+                var tableBody = document.getElementById("tableBody");
+
+                /* HEADER */
+                var headHTML = "<tr>";
+                data.columns.forEach(function(column) {
+                    headHTML += "<th>" + column + "</th>";
+                });
+                headHTML += "</tr>";
+                tableHead.innerHTML = headHTML;
+
+                /* BODY */
+                var bodyHTML = "";
+                data.sections.forEach(function(section) {
+                    /* CATEGORY */
+                    bodyHTML += "<tr class='category-row'>";
+                    bodyHTML += "<td colspan='" + data.columns.length + "'>" + section.category + "</td>";
+                    bodyHTML += "</tr>";
+
+                    /* FEATURES */
+                    section.features.forEach(function(feature) {
+                        bodyHTML += "<tr>";
+                        feature.forEach(function(cell, index) {
+                            if (index === 0) {
+                                bodyHTML += "<td class='feature-name'>" + cell + "</td>";
+                            } else {
+                                var symbolClass = "";
+                                if (cell === "✓") { symbolClass = "check"; }
+                                if (cell === "◐") { symbolClass = "partial"; }
+                                if (cell === "✕") { symbolClass = "cross"; }
+                                bodyHTML += "<td class='symbol " + symbolClass + "'>" + cell + "</td>";
+                            }
+                        });
+                        bodyHTML += "</tr>";
+                    });
+                });
+
+                /* TOTALS */
+                Object.entries(data.totals).forEach(function(entry) {
+                    var key = entry[0];
+                    var values = entry[1];
+                    bodyHTML += "<tr class='total-row'>";
+                    bodyHTML += "<td>" + key + "</td>";
+                    values.forEach(function(value) {
+                        bodyHTML += "<td class='symbol'>" + value + "</td>";
+                    });
+                    bodyHTML += "</tr>";
+                });
+
+                tableBody.innerHTML = bodyHTML;
+            });
+    </script>
+
 </body>
 </html>
