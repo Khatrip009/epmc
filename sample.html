@@ -2,602 +2,1028 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>ePMC | ROI & Savings – Example Scenario</title>
-  <!-- Google Fonts: Montserrat (exact as original design) -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <!-- Font Awesome 6 for minimal icons (optional but matches style) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>ePMC | Why ePMC?</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
-/* ========================================= */
-/* ROI GLANCE SECTION */
-/* ========================================= */
-
-.roi-glance-section {
-    background: #f4f4f4;
-}
-
-/* MAIN BOX */
-
-.roi-wrapper {
-    background: #f7f7f7;
-    border: 2px solid #3147a8;
-    border-radius: 40px;
-    padding: 35px 40px;
-}
-
-/* ========================================= */
-/* LEFT SIDE */
-/* ========================================= */
-
-.scenario-badge {
-    width: fit-content;
-    background: #071f92;
-    color: #fff;
-    padding: 14px 55px;
-    border-radius: 16px;
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: .5px;
-}
-
-.project-info {
-    gap: 20px;
-}
-
-.rupee-circle {
-    min-width: 120px;
-    height: 120px;
-    background: #dce7fb;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #1560b7;
-    font-size: 60px;
-    font-weight: 700;
-}
-
-.project-text h5 {
-    font-size: 22px;
-    color: #0b3d8f;
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-
-.project-text h2 {
-    font-size: 56px;
-    font-weight: 800;
-    color: #073b8d;
-    line-height: 1;
-    margin-bottom: 10px;
-}
-
-.project-text span {
-    font-size: 28px;
-    color: #0b3d8f;
-    font-weight: 700;
-}
-
-/* ========================================= */
-/* SAVING CIRCLE */
-/* ========================================= */
-
-.saving-circle-wrapper {
-    position: relative;
-    display: inline-block;
-}
-
-.saving-circle {
-    width: 360px;
-    height: 360px;
-    background: #e7f0de;
-    border: 16px solid #c9d7f2;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.saving-inner h6 {
-    font-size: 22px;
-    font-weight: 800;
-    color: #083d8f;
-    line-height: 1.4;
-    margin-bottom: 25px;
-}
-
-.saving-percent {
-    font-size: 110px;
-    font-weight: 900;
-    color: #00a94f;
-    line-height: 1;
-}
-
-.saving-icon {
-    font-size: 70px;
-    color: #00a94f;
-    margin-top: -15px;
-}
-
-.saving-amount-box {
-    position: absolute;
-    left: 50%;
-    bottom: -25px;
-    transform: translateX(-50%);
-    width: 320px;
-    background: #2cab4d;
-    border-radius: 26px;
-    text-align: center;
-    padding: 12px 20px;
-    border: 3px solid #c8d9ff;
-}
-
-.saving-amount-box h3 {
-    color: #fff;
-    font-size: 56px;
-    font-weight: 800;
-    margin: 0;
-    border-bottom: 2px solid rgba(255,255,255,.5);
-    padding-bottom: 10px;
-}
-
-.saving-amount-box p {
-    color: #fff;
-    font-size: 28px;
-    margin: 10px 0 0;
-}
-
-/* ========================================= */
-/* DIVIDER */
-/* ========================================= */
-
-.roi-divider {
-    width: 2px;
-    height: 430px;
-    background: #d2d2d2;
-}
-
-/* ========================================= */
-/* RIGHT SIDE */
-/* ========================================= */
-
-.roi-right-content {
-    padding-left: 20px;
-}
-
-.roi-badge {
-    width: fit-content;
-    background: #2daa4b;
-    color: #fff;
-    padding: 14px 55px;
-    border-radius: 16px;
-    font-size: 20px;
-    font-weight: 700;
-    margin-left: auto;
-    margin-bottom: 30px;
-}
-
-.roi-card {
-    background: #f9f9f9;
-    border: 2px solid #d9d9d9;
-    border-radius: 35px;
-    padding: 25px 40px;
-}
-
-.roi-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 28px 0;
-    border-bottom: 1px solid #e4e4e4;
-}
-
-.roi-item-left {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-}
-
-.roi-item-left img {
-    width: 52px;
-}
-
-.roi-item-left span {
-    font-size: 28px;
-    font-weight: 700;
-    color: #073b8d;
-}
-
-.roi-item-right {
-    font-size: 30px;
-    font-weight: 800;
-    color: #073b8d;
-    text-align: right;
-}
-
-.green-text {
-    color: #19aa50;
-}
-
-.roi-big-text {
-    font-size: 68px;
-    line-height: 1;
-    color: #18aa4f;
-    font-weight: 900;
-}
-
-.roi-item-right small {
-    display: block;
-    font-size: 18px;
-    color: #073b8d;
-    font-weight: 700;
-}
-
-/* ========================================= */
-/* NOTE */
-/* ========================================= */
-
-.roi-note {
-    max-width: 1500px;
-    margin: 28px auto 0;
-    text-align: center;
-    font-size: 20px;
-    line-height: 1.5;
-    color: #1c3f92;
-    font-weight: 500;
-}
-
-/* ========================================= */
-/* RESPONSIVE */
-/* ========================================= */
-
-@media (max-width: 1400px) {
-
-    .project-text h2 {
-        font-size: 42px;
+    /* ----------------------------- BRAND COLORS ----------------------------- */
+    :root {
+      --epmc-blue: #00357a;
+      --epmc-orange: #f36a22;
+      --epmc-golden: #dcb551;
+      --epmc-vivid-blue: #0058d7;
+      --epmc-green: #00b050;
+      --epmc-red: #ff0000;
+      --epmc-light-blue: #538dd5;
+      --epmc-bg-soft: #F8FAFF;
+      --epmc-text: #1A2C3C;
     }
-
-    .saving-circle {
-        width: 300px;
-        height: 300px;
+    * {
+      font-family: 'Montserrat', 'Canva Sans', sans-serif;
     }
-
-    .saving-percent {
-        font-size: 90px;
+    body {
+      background: #ffffff;
+      scroll-behavior: smooth;
+      color: var(--epmc-text);
     }
-
-    .saving-amount-box {
-        width: 270px;
+    /* ----------------------------- BUTTONS ----------------------------- */
+    .btn-epmc {
+      background-color: var(--epmc-blue);
+      color: white;
+      border-radius: 8px;
+      padding: 10px 28px;
+      font-weight: 700;
+      border: none;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      display: inline-block;
     }
-
-    .saving-amount-box h3 {
-        font-size: 44px;
+    .btn-epmc:hover {
+      background-color: #002a5e;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,53,122,0.25);
+      color: white;
     }
-
-    .roi-item-left span {
-        font-size: 22px;
+    .btn-epmc-outline {
+      background: transparent;
+      border: 2px solid var(--epmc-blue);
+      color: var(--epmc-blue);
+      border-radius: 8px;
+      padding: 8px 26px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      display: inline-block;
     }
-}
-
-@media (max-width: 991px) {
-
-    .roi-wrapper {
-        padding: 30px 20px;
+    .btn-epmc-outline:hover {
+      background: var(--epmc-blue);
+      color: white;
     }
-
-    .scenario-badge,
-    .roi-badge {
-        margin: auto;
+    .btn-epmc-accent {
+      background-color: var(--epmc-orange);
+      color: white;
+      border-radius: 8px;
+      padding: 10px 28px;
+      font-weight: 700;
+      border: none;
     }
-
-    .project-info {
-        justify-content: center;
-        margin-bottom: 40px;
+    .btn-epmc-accent:hover {
+      background-color: #d45a1c;
+      transform: translateY(-2px);
     }
-
-    .roi-right-content {
-        padding-left: 0;
-        margin-top: 60px;
+    /* ----------------------------- NAVBAR ----------------------------- */
+    .navbar-brand-custom {
+      display: flex;
+      align-items: center;
     }
-
-    .saving-circle {
-        width: 280px;
-        height: 280px;
+    .navbar-logo {
+      max-height: 30px;
+      width: auto;
     }
-
-    .saving-percent {
-        font-size: 80px;
+    .nav-link-custom {
+      font-weight: 700;
+      color: #00357a !important;
+      text-decoration: none;
+      margin-right: 1.5rem;
+      transition: color 0.2s;
     }
-
-    .saving-amount-box {
-        width: 250px;
+    .nav-link-custom:hover {
+      color: #f36a22 !important;
     }
-
-    .saving-amount-box h3 {
-        font-size: 36px;
+    @media (max-width: 768px) {
+      .nav-link-custom {
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+      }
+      .navbar-logo { max-height: 25px; }
     }
-
-    .saving-amount-box p {
-        font-size: 22px;
+            /* Footer */
+            .footer-logo {
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+            }
+            .footer-description {
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .footer-vertical-links, .footer-contact-info { text-align: center; }
+            .footer-copyright { font-size: 1rem; }
+            .footer-grid { grid-template-columns: 1fr; gap: 1.8rem; text-align: center; }
+            .footer-new { padding: 1.5rem; }
+        } 
+    /* ----------------------------- MODAL ----------------------------- */
+    .modal-content { border-radius: 32px; border: none; }
+    .form-control, .form-select {
+      border-radius: 16px;
+      padding: 12px 16px;
+      border: 1px solid #DEE2E6;
     }
-
-    .roi-card {
-        padding: 20px;
+    .form-control:focus, .form-select:focus {
+      border-color: var(--epmc-orange);
+      box-shadow: 0 0 0 3px rgba(243,106,34,0.2);
     }
-
-    .roi-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
+    /* ----------------------------- HERO CARDS ----------------------------- */
+    .why-card {
+      background: rgb(241, 241, 241);
+      border-radius: 18px;
+      padding: 1rem;
+      transition: all 0.2s;
+      border: 3px solid var(--epmc-blue);
+      height: 100%;
+      display: flex;
+      align-items: flex-start;
+      gap: 30px;
+      box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.3);
     }
-
-    .roi-item-right {
-        width: 100%;
-        text-align: left;
+    .why-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--epmc-golden);
+      box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.15);
     }
-
-    .roi-item-left span {
-        font-size: 20px;
+    .why-card-icon {
+      width: 55px;
+      height: 55px;
+      object-fit: contain;
+      flex-shrink: 0;
     }
-
-    .roi-note {
-        font-size: 15px;
-        padding: 0 10px;
+    .why-card-content {
+      flex: 1;
     }
-}
-
-@media (max-width: 576px) {
-
-    .scenario-badge,
-    .roi-badge {
-        width: 100%;
+    .why-card-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      line-height: 1.3;
+    }
+    .why-card-desc {
+      font-size: 0.9rem;
+      line-height: 1;
+      color: var(--epmc-blue);
+    }
+    .title-orange {
+      color: var(--epmc-orange);
+    }
+    .title-blue {
+      color: var(--epmc-blue);
+    }
+    .card-orange .why-card-title {
+      color: var(--epmc-orange);
+    }
+    .why-small-orange {
+      color: var(--epmc-orange);
+      font-size: 2rem;
+      font-weight: 650;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.5rem;
+    }
+    .why-big-heading {
+      font-size: 3.3rem;
+      font-weight: 700;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+    .blue-text { color: var(--epmc-blue); }
+    .orange-text { color: var(--epmc-orange);}
+    .small-savings {
+      font-size: 1.8rem;
+      color: var(--epmc-blue);
+      font-weight: 400;
+      margin-top: 1.5rem;
+    }
+    @media (max-width: 768px) {
+      .why-big-heading { font-size: 2rem; }
+    }
+    /* Hero background */
+    .why-hero-bg {
+      background-image: url('/yepmc/hero-back-yepmc.png');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      position: relative;
+    }
+    .hero-bottom-center {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    /* ----------------------------- LINE DECORATIONS (Our experience spans...) ----------------------------- */
+    .d-flex.align-items-center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .line-left, .line-right {
+      position: relative;
+      width: 180px;
+      height: 0;
+      border-top: 2px solid var(--epmc-blue);
+      margin-top: 15px;   /* optical alignment – adjust if needed */
+    }
+    .line-left::before, .line-right::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 10px;
+      height: 10px;
+      background-color: var(--epmc-blue);
+      border-radius: 50%;
+    }
+    .line-left::before {
+      left: -5px;
+    }
+    .line-right::after {
+      right: -5px;
+    }
+    .mx-3 {
+      display: inline-flex;
+      align-items: center;
+      line-height: 1.2;
+    }
+    @media (max-width: 768px) {
+      .line-left, .line-right {
+        width: 60px;
+      }
+      .line-left::before, .line-right::after {
+        width: 8px;
+        height: 8px;
+        left: -4px;
+        right: -4px;
+      }
+      .mx-3 {
+        white-space: normal;
         text-align: center;
-        font-size: 16px;
-        padding: 12px 20px;
+        font-size: 1.2rem;
+      }
     }
-
-    .project-info {
+    /* ----------------------------- SEPARATOR (arrow circle + single line) ----------------------------- */
+    .separator-circle {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      margin: 0 8px;
+    }
+    /* Single vertical line above the circle */
+    .separator-circle::before {
+      content: '';
+      width: 3px;
+      background-color: #adb5bd;
+      opacity: 0.7;
+      min-height: 30px;
+      margin-bottom: 0;
+    }
+    /* No line below */
+    .separator-circle::after {
+      content: '';
+      width: 3px;
+      background-color: #adb5bd;
+      opacity: 0.7;
+      min-height: 100px;
+      margin-bottom: 0;
+    }
+    .circle-icon {
+      width: 38px;
+      height: 38px;
+      background-color: #e9ecef;       /* light grey */
+      border: 2px solid black; /* orange border */
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: black;
+      font-weight: bold;
+      font-size: 1.3rem;
+      font-family: monospace;
+    
+    }
+    /* ----------------------------- FLOW ITEMS (icons + text) ----------------------------- */
+    .flow-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      min-width: 140px;
+      max-width: 160px;
+      width: 100%;
+      text-align: center;
+    }
+    .flow-item .icon-wrapper {
+      background-color: #e9ecef;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 0.75rem auto;
+      transition: all 0.2s ease;
+    }
+    .flow-item .icon-wrapper img {
+      width: 75px;
+      height: 75px;
+      object-fit: contain;
+    }
+    .flow-item .mt-2 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      line-height: 1.3;
+      min-height: 2.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .flow-item:hover .icon-wrapper {
+      background-color: #dee2e6;
+      transform: scale(1.02);
+    }
+    /* Parent flex container */
+    .d-flex.flex-wrap {
+      align-items: stretch !important;
+    }
+    .separator-circle {
+      align-self: center;
+    }
+    /* ----------------------------- BUILT WORKFLOW SECTION ----------------------------- */
+    .built-workflow-bg {
+      background-image: url('/yepmc/construction workflow.png');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      max-width: 1200px;
+      margin: 0 auto;
+      border-radius: 28px;
+      overflow: hidden;
+    }
+    .built-workflow-divider {
+      width: 2px;
+      height: 60px;
+      background-color: white;
+      margin: 0 20px;
+      flex-shrink: 0;
+    }
+    .built-workflow-text {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: white;
+      line-height: 1.3;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    }
+    @media (max-width: 768px) {
+      .built-workflow-overlay {
+        padding: 1rem 0;
+      }
+      .built-workflow-divider {
+        height: 2px;
+        width: 60px;
+        margin: 15px 0;
+      }
+      .built-workflow-flex {
         flex-direction: column;
+        align-items: center;
         text-align: center;
+      }
+      .built-workflow-text {
+        font-size: 1.2rem;
+        text-align: center;
+      }
     }
-
-    .rupee-circle {
-        min-width: 90px;
-        height: 90px;
-        font-size: 46px;
+    /* ----------------------------- CHALLENGES SECTION ----------------------------- */
+    .challenges-flow {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: stretch;
+      gap: 0;
+      max-width: 1200px;
+      margin: 0 auto;
     }
-
-    .project-text h5 {
-        font-size: 18px;
+    .challenge-block {
+      flex: 1 1 180px;
+      text-align: center;
+      padding: 1rem 0.8rem;
+      position: relative;
     }
-
-    .project-text h2 {
-        font-size: 34px;
+    /* Vertical separator between blocks */
+    .challenge-block:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 180px;
+      width: 3px;
+      background-color: lightgrey;
+      opacity: 0.4;
     }
-
-    .project-text span {
-        font-size: 20px;
+    .challenge-icon {
+      width: 75px;
+      height: 75px;
+      object-fit: contain;
+      margin-bottom: 0.8rem;
     }
-
-    .saving-circle {
-        width: 230px;
-        height: 230px;
-        border-width: 10px;
+    .challenge-title {
+      font-family: "canvasans", "Canva Sans", sans-serif;
+      font-weight: 650;
+      color: var(--epmc-blue);
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+      margin-bottom: 0.3rem;
     }
-
-    .saving-inner h6 {
-        font-size: 16px;
+    .challenge-desc {
+      font-family: "canvasans", "Canva Sans", sans-serif;
+      font-size: 1rem;
+      color: var(--epmc-blue);
+      line-height: 1.4;
     }
-
-    .saving-percent {
-        font-size: 65px;
+    .challenges-heading {
+      margin-top: 0;
     }
-
-    .saving-icon {
-        font-size: 45px;
+    @media (max-width: 768px) {
+      .challenges-flow {
+        flex-direction: column;
+        align-items: center;
+      }
+      .challenge-block {
+        width: 100%;
+        max-width: 260px;
+        padding: 1rem 0;
+      }
+      .challenge-block:not(:last-child)::after {
+        display: none;
+      }
+      .challenge-block:not(:last-child) {
+        border-bottom: 2px solid var(--epmc-orange);
+        margin-bottom: 0.5rem;
+        padding-bottom: 1rem;
+      }
     }
-
-    .saving-amount-box {
-        width: 210px;
-        bottom: -15px;
+    /* ----------------------------- WHY DIFFERENT SECTION ----------------------------- */
+    .why-different-box {
+      background-color: var(--epmc-blue);
+      border-radius: 32px;
+      padding: 3rem 2rem;
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.2);
     }
-
-    .saving-amount-box h3 {
-        font-size: 28px;
+    .different-card {
+      background: rgb(236, 235, 235);
+      border-radius: 20px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     }
-
-    .saving-amount-box p {
-        font-size: 18px;
+    .different-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 25px -10px rgba(0,0,0,0.1);
     }
-
-    .roi-item-left span {
-        font-size: 17px;
+    .different-icon-img {
+      width: 75px;
+      height: 75px;
+      object-fit: contain;
+      flex-shrink: 0;
     }
-
-    .roi-item-right {
-        font-size: 24px;
+    .different-title {
+      font-weight: 800;
+      color: var(--epmc-blue);
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
     }
-
-    .roi-big-text {
-        font-size: 48px;
+    .different-desc {
+      color: #4a5b6e;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      margin-bottom: 0;
     }
+    /* ----------------------------- COMPARISON CARDS ----------------------------- */
+    .compare-card {
+      background: #ffffff;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid #eef2f0;
+    }
+    .compare-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 25px -10px rgba(0,0,0,0.1);
+    }
+    .compare-header {
+      padding: 1.2rem;
+      font-weight: 800;
+      font-size: 1.3rem;
+      text-align: center;
+    }
+    .compare-list {
+      list-style: none;
+      padding: 1.5rem;
+      margin: 0;
+    }
+    .compare-list li {
+      padding: 0.6rem 0;
+      border-bottom: 1px solid #f0f2f5;
+      font-size: 0.9rem;
+      color: var(--epmc-text);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .compare-list li:last-child {
+      border-bottom: none;
+    }
+    .list-icon {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+    @media (max-width: 768px) {
+      .compare-header {
+        font-size: 1.1rem;
+        padding: 1rem;
+      }
+      .compare-list {
+        padding: 1rem;
+      }
+      .compare-list li {
+        font-size: 0.8rem;
+      }
+      .list-icon {
+        width: 18px;
+        height: 18px;
+      }
+    }
+    /* ----------------------------- IMPACT ORANGE CONTAINER ----------------------------- */
+    /* Impact orange container – horizontal items */
+.impact-orange-container {
+  margin-top: 0;
+  background-color: var(--epmc-orange);
+  border-radius: 32px;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+ box-shadow: 0 12px 28px 8px rgba(45, 44, 44, 0.4);;
+}
+.impact-item {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex: 1;
+  min-width: 200px;
+}
+.impact-icon {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.impact-text {
+  display: flex;
+  flex-direction: column;
+}
+.impact-number {
+  font-size: 2rem;
+  font-weight: 800;
+  color: white;
+  line-height: 1.2;
+  margin-bottom: 0.2rem;
+}
+.impact-label {
+  font-size: 0.9rem;
+  color: white;
+  font-weight: 500;
+  opacity: 0.95;
+}
+@media (max-width: 768px) {
+  .impact-orange-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.5rem;
+  }
+  .impact-item {
+    min-width: auto;
+  }
+}
+    /* ----------------------------- FINAL CTA ----------------------------- */
+.final-cta-box-left {
+  background-image: url('/yepmc/takecontrol.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 30px;
+  padding: 2rem 2rem;
+  color: white;
+  box-shadow: 0 15px 30px -12px rgba(0, 0, 0, 0.25);
+}
+    .cta-content {
+      max-width: 600px;
+    }
+    .cta-content h2, .cta-content p {
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+    @media (max-width: 768px) {
+      .final-cta-box-left {
+        padding: 2rem 1.5rem;
+      }
+      /* Mobile flow items adjustments */
+      .flow-item {
+        min-width: 120px;
+        max-width: 140px;
+      }
+      .flow-item .icon-wrapper {
+        width: 80px;
+        height: 80px;
+      }
+      .flow-item .icon-wrapper img {
+        width: 48px;
+        height: 48px;
+      }
+      .flow-item .mt-2 {
+        font-size: 0.85rem;
+        min-height: 2.4rem;
+      }
+      .separator-circle {
+        width: 100px;
+        flex-direction: row;
+        margin: 8px 0;
+        border-top: 2px solid #adb5bd;
+      }
+      .separator-circle .circle-icon {
+        display: none;
+      }
+      .separator-circle::before {
+        content: none;
+      }
+    }
+    .btn-white-blue {
+  background-color: white;
+  color: var(--epmc-blue);
+  border-radius: 8px;
+  padding: 10px 26px;
+  font-weight: 600;
+  font-family: 'Canva Sans', sans-serif;
+  border: none;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.5rem;
+}
+.btn-white-blue:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  color: var(--epmc-blue);
 }
   </style>
 </head>
 <body>
-<!-- ========================================= -->
-<!-- ROI EXAMPLE SCENARIO SECTION -->
-<!-- ========================================= -->
 
-<section class="roi-glance-section py-5">
-    <div class="container-fluid px-lg-5 px-3">
-
-        <div class="roi-wrapper">
-
-            <div class="row g-0 align-items-center">
-
-                <!-- ================================= -->
-                <!-- LEFT SIDE -->
-                <!-- ================================= -->
-                <div class="col-lg-6">
-
-                    <div class="roi-left-content">
-
-                        <!-- TOP LABEL -->
-                        <div class="scenario-badge">
-                            EXAMPLE SCENARIO
-                        </div>
-
-                        <div class="row align-items-center mt-5">
-
-                            <!-- PROJECT VALUE -->
-                            <div class="col-md-5">
-
-                                <div class="project-info d-flex align-items-center">
-
-                                    <div class="rupee-circle">
-                                        ₹
-                                    </div>
-
-                                    <div class="project-text">
-                                        <h5>Annual Project Turnover</h5>
-
-                                        <h2>₹ 5,00,00,000</h2>
-
-                                        <span>(₹ 5 Crore)</span>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <!-- SAVING CIRCLE -->
-                            <div class="col-md-7 text-center">
-
-                                <div class="saving-circle-wrapper">
-
-                                    <div class="saving-circle">
-
-                                        <div class="saving-inner">
-
-                                            <h6>
-                                                ESTIMATED <br>
-                                                SAVINGS WITH ePMC
-                                            </h6>
-
-                                            <div class="saving-percent">
-                                                3%
-                                            </div>
-
-                                            <div class="saving-icon">
-                                                ↗
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="saving-amount-box">
-
-                                        <h3>₹ 15,00,000</h3>
-
-                                        <p>(15 Lac)</p>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <!-- DIVIDER -->
-                <div class="col-lg-1 d-none d-lg-flex justify-content-center">
-                    <div class="roi-divider"></div>
-                </div>
-
-                <!-- ================================= -->
-                <!-- RIGHT SIDE -->
-                <!-- ================================= -->
-                <div class="col-lg-5">
-
-                    <div class="roi-right-content">
-
-                        <!-- TOP LABEL -->
-                        <div class="roi-badge">
-                            ROI AT A GLANCE
-                        </div>
-
-                        <div class="roi-card">
-
-                            <!-- ITEM -->
-                            <div class="roi-item">
-                                <div class="roi-item-left">
-                                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135706.png"
-                                        alt="">
-                                    <span>Typical ePMC Investment</span>
-                                </div>
-
-                                <div class="roi-item-right">
-                                    ₹ 1,50,000
-                                </div>
-                            </div>
-
-                            <!-- ITEM -->
-                            <div class="roi-item">
-                                <div class="roi-item-left">
-                                    <img src="https://cdn-icons-png.flaticon.com/512/3063/3063822.png"
-                                        alt="">
-                                    <span>Estimated Annual Savings (3%)</span>
-                                </div>
-
-                                <div class="roi-item-right green-text">
-                                    ₹ 15,00,000
-                                </div>
-                            </div>
-
-                            <!-- ITEM -->
-                            <div class="roi-item border-0">
-                                <div class="roi-item-left">
-                                    <img src="https://cdn-icons-png.flaticon.com/512/681/681392.png"
-                                        alt="">
-                                    <span>Estimated ROI Potential</span>
-                                </div>
-
-                                <div class="roi-item-right">
-
-                                    <div class="roi-big-text">
-                                        10 X+
-                                    </div>
-
-                                    <small>Return on Investment</small>
-
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- NOTE -->
-        <div class="roi-note">
-            * Savings are indicative and based on internal analysis, operational assumptions and effective
-            utilization of ePMC Platform. Actual results may vary depending on project type, size,
-            processes and execution.
-        </div>
-
+<!-- ==================== NAVIGATION ==================== -->
+<nav class="navbar navbar-expand-lg bg-white py-3 shadow-sm sticky-top">
+  <div class="container">
+    <a class="navbar-brand navbar-brand-custom" href="index.html">
+      <img src="ePMC Logo PNG File.png" alt="ePMC Logo" class="navbar-logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center gap-3">
+        <li class="nav-item"><a class="nav-link-custom" href="whyepmc.html">Why ePMC?</a></li>
+        <li class="nav-item"><a class="nav-link-custom" href="Features.html">Features</a></li>
+        <li class="nav-item"><a class="nav-link-custom" href="Pricing.html">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link-custom" href="ROI.html">ROI</a></li>
+      </ul>
+      <a href="#" class="btn btn-epmc ms-lg-3 mt-2 mt-lg-0" data-bs-toggle="modal" data-bs-target="#demoModal">Book a Demo <i class="fas fa-arrow-right ms-1"></i></a>
     </div>
+  </div>
+</nav>
+
+<!-- ==================== HERO SECTION ==================== -->
+<section class="why-hero-bg">
+  <div class="why-hero-overlay">
+    <div class="container py-4">
+      <div class="row g-5">
+        <div class="col-lg-6">
+          <div class="why-small-orange">Why ePMC?</div>
+          <div class="why-big-heading">
+            <span class="blue-text">Because</span>
+            <span class="orange-text"> 3% </span>
+            <span class="blue-text">can</span><br>
+            <span class="blue-text">Change Everything</span>
+          </div>
+          <div class="small-savings">
+            <p>Even a Small Savings today, Creates</p>
+            <p>a strong impact tomorrow</p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="row g-3">
+            <div class="col-md-6"><div class="why-card"><img src="yepmc/highprofitibility.svg" alt="Higher Profitability" class="why-card-icon"><div class="why-card-content"><div class="why-card-title title-blue">Higher Profitability</div><div class="why-card-desc">Improve Project Profit Margins</div></div></div></div>
+            <div class="col-md-6"><div class="why-card"><img src="yepmc/bettercashblow.png" alt="Better Cash Flow" class="why-card-icon"><div class="why-card-content"><div class="why-card-title title-blue">Better Cash Flow</div><div class="why-card-desc">Improve Project Profit Margins</div></div></div></div>
+            <div class="col-md-6"><div class="why-card"><img src="yepmc/compititiveedge.png" alt="Competitive Edge" class="why-card-icon"><div class="why-card-content"><div class="why-card-title title-blue">Competitive Edge</div><div class="why-card-desc">Deliver more value to your client</div></div></div></div>
+            <div class="col-md-6"><div class="why-card"><img src="yepmc/strongerproject.png" alt="Stronger Project" class="why-card-icon"><div class="why-card-content"><div class="why-card-title title-blue">Stronger Project</div><div class="why-card-desc">Complete on Time, within Budget</div></div></div></div>
+            <div class="col-md-6"><div class="why-card"><img src="yepmc/qualityfirst.svg" alt="Quality First" class="why-card-icon"><div class="why-card-content"><div class="why-card-title title-blue">Quality First</div><div class="why-card-desc">Avoid Reworks. Save Cost & Time</div></div></div></div>
+            <div class="col-md-6"><div class="why-card card-orange"><img src="yepmc/costsaving.png" alt="Cost Savings" class="why-card-icon"><div class="why-card-content"><div class="why-card-title title-orange">3% Cost Savings</div><div class="why-card-desc" style="color: var(--epmc-orange);">Can recover multiple times the software investment</div></div></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-bottom-center">
+        <div style="margin-bottom: 1rem;">
+          <span class="blue-text" style="font-family: 'Canva Sans', sans-serif; font-size: 2rem; font-weight: 700;">Made in</span>
+          <span class="orange-text" style="font-family: 'Canva Sans', sans-serif; font-size: 2rem; font-weight: 700;">India</span>.
+          <span class="blue-text" style="font-family: 'Canva Sans', sans-serif; font-size: 2rem; font-weight: 700;">Built for</span>
+          <span class="orange-text" style="font-family: 'Canva Sans', sans-serif; font-size: 2rem; font-weight: 700;">Global Construction</span>
+        </div>
+        <div><a href="#" class="btn btn-epmc me-3" data-bs-toggle="modal" data-bs-target="#demoModal">Book a Demo <i class="fas fa-arrow-right ms-1"></i></a><a href="#" class="btn btn-epmc-outline">See How it Works</a></div>
+      </div>
+    </div>
+  </div>
 </section>
+
+<!-- ==================== BUILT FROM REAL CONSTRUCTION EXPERIENCE ==================== -->
+<section class="py-5 bg-white">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="mb-2"><span style="color: var(--epmc-orange); font-weight: 700; font-size: 1.7rem; letter-spacing: 1px;">BUILT FROM REAL CONSTRUCTION EXPERIENCE</span></div>
+      <h2 class="display-5 fw-bold mb-3" style="font-family: 'Cooper Black', 'Cooper Black Std', 'Cooper', serif; color: var(--epmc-blue); font-size: 3rem; text-shadow: 2px 2px 4px rgba(47, 79, 79, 0.5);">22+ Years of Real Construction</h2>
+      <h2 class="display-5 fw-bold mb-3" style="font-family: 'Cooper Black', 'Cooper Black Std', 'Cooper', serif; color: var(--epmc-blue); font-size: 3rem; text-shadow: 2px 2px 4px rgba(47, 79, 79, 0.5);">Experience behind ePMC</h2>
+      <div class="d-flex align-items-center justify-content-center flex-wrap">
+        <div class="line-left"></div>
+        <span class="mx-3" style="color: var(--epmc-blue); font-size: 1.5rem; font-weight: 500;">Our experience Spans Diverse Construction Segments</span>
+        <div class="line-right"></div>
+      </div>
+    </div>
+    <!-- Horizontal flow items -->
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <div class="d-flex flex-wrap align-items-center justify-content-center gap-3">
+          <div class="text-center flow-item"><div class="icon-wrapper"><img src="yepmc/interior.png" alt="Interior Projects"></div><div class="mt-2 fw-bold" style="color: var(--epmc-blue);">Interior Projects</div></div>
+          <div class="separator-circle"><div class="circle-icon">&gt;</div></div>
+          <div class="text-center flow-item"><div class="icon-wrapper"><img src="yepmc/residencial.png" alt="Residential  Commercial  Hospital  Institutional"></div><div class="mt-2 fw-bold" style="color: var(--epmc-blue);">Residential  Commercial<br>Hospital  Institutional</div></div>
+          <div class="separator-circle"><div class="circle-icon">&gt;</div></div>
+          <div class="text-center flow-item"><div class="icon-wrapper"><img src="yepmc/roadsandinfra.png" alt="Roads / Services / Infra"></div><div class="mt-2 fw-bold" style="color: var(--epmc-blue);">Roads  Services<br>Infra</div></div>
+          <div class="separator-circle"><div class="circle-icon">&gt;</div></div>
+          <div class="text-center flow-item"><div class="icon-wrapper"><img src="yepmc/bulletmetro.png" alt="Bullet Train / Metro / Railways"></div><div class="mt-2 fw-bold" style="color: var(--epmc-blue);">Bullet Train  Metro<br>Railways</div></div>
+          <div class="separator-circle"><div class="circle-icon">&gt;</div></div>
+          <div class="text-center flow-item"><div class="icon-wrapper"><img src="yepmc/airports.png" alt="Airports"></div><div class="mt-2 fw-bold" style="color: var(--epmc-blue);">Airports</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== BUILT SPECIFICALLY FOR INDIAN WORKFLOWS ==================== -->
+<section class="built-workflow-bg">
+  <div class="built-workflow-overlay">
+    <div class="container py-3">
+      <div class="row justify-content-start">
+        <div class="col-lg-10">
+          <div class="d-flex align-items-center gap-3 built-workflow-flex">
+            <img src="yepmc/constructionworkflow.png" alt="Construction Workflow Icon" style="width: 80px; height: auto; flex-shrink: 0;">
+            <div class="built-workflow-divider"></div>
+            <div class="built-workflow-text">Built specifically around Indian Construction Workflows,<br>execution practices and real project requirements.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CONSTRUCTION INDUSTRY CHALLENGES ==================== -->
+<section class="py-5 bg-white" style="padding-top: 4rem;">
+  <div class="container" style="background-color: rgb(243, 243, 243); max-width: 100%;">
+    <div class="text-center mb-5">
+        <div style="height: 2rem;"></div>
+      <h2 class="display-5 fw-bold challenges-heading" style="color: var(--epmc-blue); font-size: 2rem;">The Construction Industry Challenges</h2>
+    </div>
+    <div class="challenges-flow">
+      <div class="challenge-block"><img src="yepmc/delayeddecisions.png" alt="Delayed Decisions" class="challenge-icon"><div class="challenge-title">Delayed Decisions</div><div class="challenge-desc">Issues are detected after it’s too late</div></div>
+      <div class="challenge-block"><img src="yepmc/overruns.png" alt="Cost Overruns" class="challenge-icon"><div class="challenge-title">Cost Overruns</div><div class="challenge-desc">Leakages and wastages go undetected</div></div>
+      <div class="challenge-block"><img src="yepmc/poorvisibility.png" alt="Poor Visibility" class="challenge-icon"><div class="challenge-title">Poor Visibility</div><div class="challenge-desc">Data exist, but not in a usable form</div></div>
+      <div class="challenge-block"><img src="yepmc/fragmentedcoordination.png" alt="Fragmented Coordination" class="challenge-icon"><div class="challenge-title">Fragmented Coordination</div><div class="challenge-desc">Teams, Vendors and Sites work in silos</div></div>
+      <div class="challenge-block"><img src="yepmc/noaccountability.png" alt="No Accountability" class="challenge-icon"><div class="challenge-title">No Accountability</div><div class="challenge-desc">No Real Time Tracking, No Ownership</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== WHY ePMC IS DIFFERENT ==================== -->
+<section class="py-5">   <!-- reduced from py-5 to py-3 -->
+  <div class="container" style="max-width: 1250px; padding: 0 1rem;">
+    <div class="why-different-box" style="padding: 1.5rem 2rem;">   <!-- reduced inner padding -->
+      <div class="text-center mb-3">   <!-- reduced margin-bottom -->
+        <h2 class="display-5 fw-bold text-white" style="font-size: 1.6rem; margin-bottom: 0.5rem;">Why ePMC is different?</h2>
+        <p class="text-white mx-auto" style="max-width: 900px; font-size: 1.1rem; margin-bottom: 0;">Most project management tools were built for IT teams or generic industries based on ERP concept.<br>ePMC was built from the ground up for Indian Construction — and it shows.</p>
+      </div>
+      <div class="row g-3" style="margin: 0;">   <!-- reduced gap and removed margin -->
+        <div class="col-md-4">
+          <div class="different-card h-150 d-flex align-items-start gap-2" style="padding: 1.1rem;">   <!-- reduced card padding -->
+            <img src="yepmc/designexecution.png" alt="Designed for Execution" class="different-icon-img" style="width: 45px; height: 45px;">
+            <div>
+              <h3 class="different-title" style="font-size: 1.1rem; margin-bottom: 0.5rem;">Designed for Execution</h3>
+              <p class="different-desc" style="font-size: 0.85rem; margin-bottom: 0;">Built for Site Teams and Project Manager to use every day.</p>
+            </div>
+          </div>
+        </div>
+        <!-- repeat for other two cards with same inline styles -->
+        <div class="col-md-4">
+          <div class="different-card h-150 d-flex align-items-start gap-2" style="padding: 1.1rem;">
+            <img src="yepmc/realtime control.svg" alt="Real Time Control" class="different-icon-img" style="width: 45px; height: 45px;">
+            <div>
+              <h3 class="different-title" style="font-size: 1.1rem; margin-bottom: 0.5rem;">Real Time Control</h3>
+              <p class="different-desc" style="font-size: 0.85rem; margin-bottom: 0;">Live Dashboards, Instant Alerts and Proactive Insights.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="different-card h-150 d-flex align-items-start gap-2" style="padding: 1.1rem;">
+            <img src="yepmc/actionorientedplatform.png" alt="Action Oriented Platform" class="different-icon-img" style="width: 45px; height: 45px;">
+            <div>
+              <h3 class="different-title" style="font-size: 1.1rem; margin-bottom: 0.5rem;">Action Oriented Platform</h3>
+              <p class="different-desc" style="font-size: 0.85rem; margin-bottom: 0;">Not just Data. Clear Next Steps to keep Project on Track.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Table Section -->
+<!-- ==================== HOW ePMC COMPARES (TABLE VERSION) ==================== -->
+<section class="py-5 bg-white">
+  <div class="container">
+    <div style="overflow-x: auto;">
+      <table style="width: 100%; border-collapse: collapse;  overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.05); background: white;">
+        <!-- Table Headers -->
+        <thead>
+          <tr>
+            <th style="background-color: #093B52; color: white; padding: 1rem; text-align: center; font-weight: 700; font-size: 1.5rem;text-align: center;">Capability</th>
+            <th style="background-color: #DFE4E3; color: #1A2C3C; padding: 1rem; text-align: center; font-weight: 700; font-size: 1.5rem;">Traditional System</th>
+            <th style="background-color: #00357a; color: white; padding: 1rem; text-align: center; font-weight: 700; font-size: 1.5rem;">
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <img src="yepmc/epmcwhite.png" alt="ePMC Logo" style="height: 60px; width: auto;">
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Row 1: Real Time Visibility -->
+          <tr style="border-bottom: 1px solid #eef2f0;">
+            <td style="padding: 0.5rem;"><div style="display: flex; align-items: center; gap: 10px; font-size: 1.3rem; font-family: 'canvasans', 'Canva Sans', sans-serif; color: var(--epmc-blue);"><img src="yepmc/realtimevisibility.png" class="list-icon" style="width: 40px; height: 40px;"> Real Time Visibility</div></td>
+            <td style="padding: 0.5rem;background-color: rgb(244, 244, 244);"><div style="display: flex; align-items: center; gap: 10px; font-size: 1.3rem; font-family: 'canvasans', 'Canva Sans', sans-serif"><img src="yepmc/false.svg" class="list-icon" style="width: 30px; height: 30px;"> Weekly / Monthly reports, stale data</div></td>
+            <td style="padding: 0.5rem;background-color: rgb(255, 222, 227); color: var(--epmc-blue);"><div style="display: flex; align-items: center; gap: 10px; font-weight:650; font-size:  1.3rem; font-family: 'canvasans', 'Canva Sans', sans-serif"><img src="yepmc/true.svg" class="list-icon" style="width: 30px; height: 30px;"> Live dashboards, instant updates</div></td>
+          </tr>
+          <!-- Row 2: Data Entry Burden -->
+          <tr style="border-bottom: 1px solid #eef2f0;">
+            <td style="padding: 1rem;"><div style="display: flex; align-items: center; gap: 10px;font-size: 1.3rem; font-family: 'canvasans', 'Canva Sans', sans-serif; color: var(--epmc-blue);"><img src="yepmc/dataentryburden.png" class="list-icon" style="width: 40px; height: 40px;"> Data Entry Burden</div></td>
+            <td style="padding: 1rem;background-color: rgb(244, 244, 244)"><div style="display: flex; align-items: center; gap: 10px;font-size: 1.3rem; font-family: 'canvasans', 'Canva Sans', sans-serif"><img src="yepmc/false.svg" class="list-icon" style="width: 30px; height: 30px;"> Heavy manual input, spreadsheets</div></td>
+            <td style="padding: 0.5rem;background-color: rgb(255, 222, 227); color: var(--epmc-blue);"><div style="display: flex; align-items: center; gap: 10px; font-weight:650; font-size:  1.3rem; font-family: 'canvasans', 'Canva Sans', sans-serif"><img src="yepmc/true.svg" class="list-icon" style="width: 30px; height: 30px;"> Minimal, Mobile-first Capture</div></td>
+          </tr>
+          <!-- Row 3: Insights Quality -->
+          <tr style="border-bottom: 1px solid #eef2f0;">
+            <td style="padding: 1rem;"><div style="display: flex; align-items: center; gap: 10px;font-size: 1.3rem; font-family: 'canvasans', 'Canva Sans', sans-serif; color: var(--epmc-blue);"><img src="yepmc/insightsquality.png" class="list-icon" style="width: 40px; height: 40px;"> Insights Quality</div></td>
+            <td style="padding: 1rem;background-color: rgb(244, 244, 244)"><div style="display: flex; align-items: center; gap: 10px;font-size: 1.3rem; font-family: 'canvasans', 'Canva Sans', sans-serif"><img src="yepmc/false.svg" class="list-icon" style="width: 30px; height: 30px;"> Raw data dumps, no context</div></td>
+            <td style="padding: 0.5rem;background-color: rgb(255, 222, 227); color: var(--epmc-blue);"><div style="display: flex; align-items: center; gap: 10px; font-weight:650; font-size:  1.3rem; font-family: 'canvasans', 'Canva Sans', sans-serif"><img src="yepmc/true.svg" class="list-icon" style="width: 30px; height: 30px;"> Action-oriented alerts and trends</div></td>
+          </tr>
+          <!-- Row 4: Dependency -->
+          <tr style="border-bottom: 1px solid #eef2f0;">
+            <td style="padding: 1rem;"><div style="display: flex; align-items: center; gap: 10px;font-size: 1.3rem; font-family: 'canvasans', 'Canva Sans', sans-serif; color: var(--epmc-blue);"><img src="yepmc/dependency.png" class="list-icon" style="width: 40px; height: 40px;"> Dependency</div></td>
+            <td style="padding: 1rem;background-color: rgb(244, 244, 244)"><div style="display: flex; align-items: center; gap: 10px;font-size: 1.3rem; font-family: 'canvasans', 'Canva Sans', sans-serif"><img src="yepmc/false.svg" class="list-icon" style="width: 30px; height: 30px;"> High dependency on Individuals</div></td>
+            <td style="padding: 0.5rem;background-color: rgb(255, 222, 227); color: var(--epmc-blue);"><div style="display: flex; align-items: center; gap: 10px; font-weight:650; font-size:  1.3rem; font-family: 'canvasans', 'Canva Sans', sans-serif"><img src="yepmc/true.svg" class="list-icon" style="width: 30px; height: 30px;"> System-driven Accountability</div></td>
+          </tr>
+          <!-- Row 5: Issues / Risks -->
+          <tr style="border-bottom: 1px solid #eef2f0;">
+            <td style="padding: 1rem;"><div style="display: flex; align-items: center; gap: 10px;font-size: 1.3rem; font-family: 'canvasans', 'Canva Sans', sans-serif; color: var(--epmc-blue);"><img src="yepmc/issuesrisks.png" class="list-icon" style="width: 40px; height: 40px;"> Issues / Risks</div></td>
+            <td style="padding: 1rem;background-color: rgb(244, 244, 244)"><div style="display: flex; align-items: center; gap: 10px;font-size: 1.3rem; font-family: 'canvasans', 'Canva Sans', sans-serif"><img src="yepmc/false.svg" class="list-icon" style="width: 30px; height: 30px;"> Reactive problem solving</div></td>
+            <td style="padding: 0.5rem;background-color: rgb(255, 222, 227); color: var(--epmc-blue);"><div style="display: flex; align-items: center; gap: 10px; font-weight:650; font-size:  1.3rem; font-family: 'canvasans', 'Canva Sans', sans-serif"><img src="yepmc/true.svg" class="list-icon"style="width: 30px; height: 30px;"> Proactive Risk Prevention</div></td>
+          </tr>
+          <!-- Row 6: Cost Tracking -->
+          <tr style="border-bottom: 1px solid #eef2f0;">
+            <td style="padding: 1rem;"><div style="display: flex; align-items: center; gap: 10px;font-size: 1.3rem; font-family: 'canvasans', 'Canva Sans', sans-serif; color: var(--epmc-blue);"><img src="yepmc/costtracking.png" class="list-icon" style="width: 40px; height: 40px;"> Cost Tracking</div></td>
+            <td style="padding: 1rem;background-color: rgb(244, 244, 244)"><div style="display: flex; align-items: center; gap: 10px;font-size: 1.3rem; font-family: 'canvasans', 'Canva Sans', sans-serif"><img src="yepmc/false.svg" class="list-icon" style="width: 30px; height: 30px;"> Finance-only, post-facto</div></td>
+            <td style="padding: 0.5rem;background-color: rgb(255, 222, 227); color: var(--epmc-blue);"><div style="display: flex; align-items: center; gap: 10px; font-weight:650; font-size:  1.3rem; font-family: 'canvasans', 'Canva Sans', sans-serif"><img src="yepmc/true.svg" class="list-icon" style="width: 30px; height: 30px;"> BOQ-linked, Real-time Variance</div></td>
+          </tr>
+          <!-- Row 7: Site Reporting -->
+          <tr style="border-bottom: 1px solid #eef2f0;">
+            <td style="padding: 1rem;"><div style="display: flex; align-items: center; gap: 10px;font-size: 1.3rem; font-family: 'canvasans', 'Canva Sans', sans-serif; color: var(--epmc-blue);"><img src="yepmc/sitereporting.svg" style="width: 40px; height: 40px;"> Site Reporting</div></td>
+            <td style="padding: 1rem;background-color: rgb(244, 244, 244)"><div style="display: flex; align-items: center; gap: 10px;font-size: 1.3rem; font-family: 'canvasans', 'Canva Sans', sans-serif"><img src="yepmc/false.svg" class="list-icon" style="width: 30px; height: 30px;"> Email attachments, WhatsApp</div></td>
+            <td style="padding: 0.5rem;background-color: rgb(255, 222, 227); color: var(--epmc-blue);"><div style="display: flex; align-items: center; gap: 10px; font-weight:650; font-size:  1.3rem; font-family: 'canvasans', 'Canva Sans', sans-serif"><img src="yepmc/true.svg" class="list-icon"style="width: 30px; height: 30px;"> Structured Digital Reports with Photos</div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ==================== FINAL IMPACT & CTA ==================== -->
+<section class="pt-2 pb-5 bg-white">   <!-- changed from py-5 to pt-2 pb-5 -->
+  <div class="container">
+    <div class="text-center mb-4">     <!-- reduced margin from mb-5 to mb-4 -->
+      <h2 class="display-4 fw-bold" style="color: var(--epmc-blue); font-size: 1.8rem;">The Impact You can Measure</h2>
+    </div>
+
+    <div class="impact-orange-container">
+      <!-- Item 1 -->
+      <div class="impact-item">
+        <img src="yepmc/averagecostsaving.png" class="impact-icon" alt="Cost Savings">
+        <div class="impact-text">
+          <div class="impact-number">3%</div>
+          <div class="impact-label">Average Cost Savings</div>
+        </div>
+      </div>
+      <!-- Item 2 -->
+      <div class="impact-item">
+        <img src="yepmc/50faster.png" class="impact-icon" alt="Faster Decisions">
+        <div class="impact-text">
+          <div class="impact-number">50%</div>
+          <div class="impact-label">Faster Decision Making</div>
+        </div>
+      </div>
+      <!-- Item 3 -->
+      <div class="impact-item">
+        <img src="yepmc/100visibilitycontrol.png" class="impact-icon" alt="Visibility">
+        <div class="impact-text">
+          <div class="impact-number">100%</div>
+          <div class="impact-label">Real Time Visibility & Control</div>
+        </div>
+      </div>
+      <!-- Item 4 -->
+      <div class="impact-item">
+        <img src="yepmc/zerosurprizecomplision.png" class="impact-icon" alt="Zero Surprises">
+        <div class="impact-text">
+          <div class="impact-number">ZERO</div>
+          <div class="impact-label">Surprises at Completion</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center my-3">
+      <p class="fs-3 fw-bold" style="color: var(--epmc-blue);">On a ₹ 10 Crore Project, 3% Savings = <span style="color: var(--epmc-orange);">₹ 30 lac</span></p>
+    </div>
+
+    <div class="final-cta-box-left">
+      <div class="cta-content">
+        <h2 class="display-6 fw-bold mb-3">Take Control. Deliver Better.</h2>
+        <p class="fs-5 mb-4" style="max-width: 500px;">ePMC empowers your teams with visibility, accountability and action - all in one platform</p>
+        <a href="#" class="btn-white-blue btn-lg px-5 py-3" data-bs-toggle="modal" data-bs-target="#demoModal">
+          Book a Demo <i class="fas fa-arrow-right ms-2"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="container">
+  <div class="footer-new">
+    <div class="footer-grid">
+      <div><img src="EPMC-Logo-File-PNG.png" alt="ePMC Logo" class="footer-logo"></div>
+      <div><div class="footer-description">ePMC is a construction project management platform built specifically for the construction industry. Designed from 22+ years of real project execution experience, ePMC helps teams control cost, delays, quality, reporting, and project coordination through one connected system.</div></div>
+      <div><div class="footer-vertical-links"><a href="#">Home</a><a href="whyepmc.html">Why ePMC?</a><a href="Features.html">Features</a><a href="Pricing.html">Pricing</a><a href="roi.html">ROI</a><a href="#" data-bs-toggle="modal" data-bs-target="#demoModal">Book a Demo</a></div></div>
+      <div><div class="footer-vertical-links"><a href="#">Terms & Conditions</a><a href="#">Privacy Policy</a><a href="#">Refund Policy</a></div><div class="footer-contact-info mt-3"><p><i class="fas fa-phone-alt me-2"></i> 9033281213</p><p><i class="fas fa-envelope me-2"></i> inquiry@epmc.app</p></div></div>
+    </div>
+    <div class="footer-copyright">© 2025 copyrights by ePMC</div>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal fade" id="demoModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header border-0 pb-0"><h5 class="modal-title fw-bold text-epmc fs-3">Request a Demo</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+      <div class="modal-body p-4 pt-0">
+        <form action="https://formsubmit.co/company@example.com" method="POST">
+          <input type="hidden" name="_subject" value="ePMC Demo Request (Modal)">
+          <input type="hidden" name="_captcha" value="false">
+          <div class="row g-3">
+            <div class="col-md-6"><input type="text" name="Name" class="form-control" placeholder="Full Name *" required></div>
+            <div class="col-md-6"><input type="text" name="Company" class="form-control" placeholder="Company *" required></div>
+            <div class="col-md-6"><input type="email" name="Email" class="form-control" placeholder="Work Email *" required></div>
+            <div class="col-md-6"><input type="tel" name="Phone" class="form-control" placeholder="Phone *" required></div>
+            <div class="col-12"><select name="Project Type" class="form-select"><option>Civil Construction</option><option>MEPFI</option><option>Solar</option><option>Infra</option><option>Interior</option></select></div>
+            <div class="col-12"><textarea name="Message" rows="2" class="form-control" placeholder="Tell us about your project..."></textarea></div>
+            <div class="col-12"><button type="submit" class="btn btn-epmc-accent w-100 py-2"><i class="fas fa-paper-plane me-2"></i>Submit Request</button></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
