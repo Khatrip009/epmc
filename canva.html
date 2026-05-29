@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Rectangle - Balanced Columns with ROI Card</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #f0f4f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 2rem;
+            font-family: 'Montserrat', system-ui, sans-serif;
+        }
+        .main-rectangle {
+            max-width: 1200px;
+            width: 100%;
+            background: #ffffff;
+            border: 2px solid #2740a3;
+            border-radius: 32px;
+            display: flex;
+            align-items: stretch;
+            overflow: hidden;
+        }
+        /* LEFT COLUMN */
+        .left-column {
+            flex: 1;
+            padding: 2rem 0 0.5rem 2rem;   /* left padding 2rem, right padding 0 */
+            display: flex;
+            flex-direction: column;
+            gap: 0rem;
+        }
+        /* RIGHT COLUMN - increased padding for balance */
+        .right-column {
+            flex: 0.9;                     /* slightly increased to give more space */
+            padding: 2rem 2rem 2rem 1.5rem; /* right padding 2rem, left 1.5rem for balance */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.2rem;
+        }
+        .divider {
+            width: 2.5px;
+            height: 300px;
+            background: #cecccc;
+            align-self: center;
+            margin: 0;
+        }
+        /* Left side components */
+        .example-badge {
+            background-color: #00357a;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+            padding: 12px 50px;
+            border-radius: 15px;
+            display: inline-block;
+            width: fit-content;
+            white-space: nowrap;
+            margin-bottom: 35px;
+        }
+        .info-row {
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        .turnover-block {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+        }
+        .turnover-icon {
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .turnover-icon img {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+        }
+        .turnover-info {
+            display: flex;
+            flex-direction: column;
+        }
+        .turnover-label {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #073b8d;
+            margin-bottom: 6px;
+        }
+        .turnover-amount {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: #00357a;
+            line-height: 1.2;
+        }
+        .turnover-sub {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #1f2d84;
+            margin-top: 4px;
+        }
+        .circle-wrapper {
+            position: relative;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .savings-circle {
+            margin-top: -50px;
+            width: 225px;
+            height: 225px;
+            border-radius: 50%;
+            border: 12px solid #d0dcf5;
+            background: #f0f4ed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            flex-shrink: 0;
+        }
+        .savings-title {
+            margin-top: -35px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #073b8d;
+            margin-bottom: 8px;
+        }
+        .percent-wrapper {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 6px;
+        }
+        .percent-number {
+            font-size: 4rem;
+            font-weight: 700;
+            color: #00aa4f;
+        }
+        .percent-icon img {
+            width: 42px;
+            height: 42px;
+        }
+        .green-rectangle {
+            margin-top: -35px;
+            background-color: #00aa4f;
+            border-radius: 25px;
+            width: 250px;
+            text-align: center;
+            padding: 5px 5px 5px;
+            margin-top: -45px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border: 1px solid #b8e0a5;
+        }
+        .green-amount {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.2;
+        }
+        .green-divider {
+            width: 100%;
+            height: 1.5px;
+            background: #ffffff;
+            margin: 8px auto;
+        }
+        .green-sub {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #ffffff;
+        }
+        /* Right column elements */
+        .roi-at-glance {
+            margin-top: 0;
+            background-color: #2cab4d;
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            padding: 12px 32px;
+            border-radius: 15px;
+            display: inline-block;
+            text-align: center;
+            width: auto;
+            min-width: 200px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        .roi-card {
+            background: #fafafa;
+            border: 1px solid #e0e4e8;
+            border-radius: 32px;
+            width: 100%;
+            max-width: 550px;
+            padding: 0.8rem 1.2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+        .roi-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.9rem 0;
+            border-bottom: 1px solid #e6e9ef;
+        }
+        .roi-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0.4rem;
+        }
+        .roi-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .roi-icon {
+            width: 44px;
+            height: 44px;
+            background: #eef2fa;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .roi-icon img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+        .roi-label {
+            font-size: 1.1rem;
+            font-weight: 650;
+            color: #073b8d;
+        }
+        .roi-value {
+            font-size: 1.3rem;
+            font-weight: 650;
+            color: #00357a;
+        }
+        .roi-value.green {
+            color: #16aa4f;
+        }
+        .roi-potential {
+            text-align: right;
+        }
+        .roi-big-number {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #16aa4f;
+            line-height: 1;
+        }
+        .roi-small-text {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #073b8d;
+            margin-top: 4px;
+        }
+        /* Responsive */
+        @media (max-width: 900px) {
+            .main-rectangle { flex-direction: column; }
+            .divider { display: none; }
+            .info-row { flex-wrap: wrap; justify-content: center; gap: 1.5rem; }
+            .turnover-block { justify-content: center; }
+            .example-badge { white-space: normal; text-align: center; }
+            .green-rectangle { width: 200px; }
+            .green-amount { font-size: 1.5rem; }
+            .left-column { padding: 1.5rem; }
+            .right-column { padding: 1.5rem; align-items: center; }
+            .roi-at-glance { white-space: normal; font-size: 1rem; padding: 10px 20px; min-width: 160px; }
+            .roi-card { max-width: 100%; }
+        }
+        @media (max-width: 550px) {
+            .savings-circle { width: 160px; height: 160px; }
+            .percent-number { font-size: 2.2rem; }
+            .green-rectangle { width: 180px; padding: 8px 12px; }
+            .green-amount { font-size: 1.3rem; }
+            .roi-value { font-size: 1.2rem; }
+            .roi-big-number { font-size: 1.8rem; }
+            .roi-label { font-size: 0.85rem; }
+            .roi-icon { width: 38px; height: 38px; }
+            .roi-icon img { width: 22px; height: 22px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-rectangle">
+        <!-- LEFT COLUMN -->
+        <div class="left-column">
+            <div class="example-badge">EXAMPLE SCENARIO</div>
+            <div class="info-row">
+                <div class="turnover-block">
+                    <div class="turnover-icon">
+                        <img src="roi/anualprojectturnover.png" alt="Turnover Icon">
+                    </div>
+                    <div class="turnover-info">
+                        <div class="turnover-label">Annual Project Turnover</div>
+                        <div class="turnover-amount">₹ 5,00,00,000</div>
+                        <div class="turnover-sub">(₹ 5 Crore)</div>
+                    </div>
+                </div>
+                <div class="circle-wrapper">
+                    <div class="savings-circle">
+                        <div class="savings-title">ESTIMATED<br>SAVINGS WITH ePMC</div>
+                        <div class="percent-wrapper">
+                            <span class="percent-number">3%</span>
+                            <span class="percent-icon"><img src="roi/graph.png" alt="graph"></span>
+                        </div>
+                    </div>
+                    <div class="green-rectangle">
+                        <div class="green-amount">₹ 15,00,000</div>
+                        <div class="green-divider"></div>
+                        <div class="green-sub">(15 Lac)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VERTICAL DIVIDER -->
+        <div class="divider"></div>
+
+        <!-- RIGHT COLUMN (balanced spacing) -->
+        <div class="right-column">
+            <div class="roi-at-glance">ROI AT A GLANCE</div>
+            <div class="roi-card">
+                <div class="roi-row">
+                    <div class="roi-left">
+                        <div class="roi-icon">
+                            <img src="roi/coins.png" alt="coins">
+                        </div>
+                        <span class="roi-label">Typical ePMC Investment</span>
+                    </div>
+                    <div class="roi-value">₹ 1,50,000</div>
+                </div>
+                <div class="roi-row">
+                    <div class="roi-left">
+                        <div class="roi-icon">
+                            <img src="roi/savings.png" alt="savings">
+                        </div>
+                        <span class="roi-label">Estimated Annual Savings (3%)</span>
+                    </div>
+                    <div class="roi-value green">₹ 15,00,000</div>
+                </div>
+                <div class="roi-row">
+                    <div class="roi-left">
+                        <div class="roi-icon">
+                            <img src="roi/graph.png" alt="roi graph">
+                        </div>
+                        <span class="roi-label">Estimated ROI Potential</span>
+                    </div>
+                    <div class="roi-potential">
+                        <div class="roi-big-number">10 X+</div>
+                        <div class="roi-small-text">Return on Investment</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

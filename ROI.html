@@ -4,15 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>ePMC | Construction Project Management | Pricing & ROI</title>
-    
+
     <!-- Bootstrap 5 + Font Awesome + Google Fonts -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <!-- ========== EMBEDDED CSS (all styles) ========== -->
+
     <style>
-        /* ---------- CSS Custom Properties (Brand Colors) ---------- */
+        /* ---------- Brand Colors ---------- */
         :root {
             --epmc-blue: #00357a;
             --epmc-orange: #f36a22;
@@ -24,31 +23,20 @@
             --epmc-bg-soft: #F8FAFF;
             --epmc-text: #1A2C3C;
         }
-
-        /* ---------- Global Reset & Base ---------- */
-        *, *::before, *::after { box-sizing: border-box; }
-        * { font-family: 'Montserrat', 'Canva Sans', sans-serif; }
-        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+        * {
+            font-family: 'Montserrat', 'Canva Sans', sans-serif;
+        }
         body {
             background: #ffffff;
+            scroll-behavior: smooth;
             color: var(--epmc-text);
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            overflow-x: hidden;
         }
-
-        /* ---------- Utility Classes ---------- */
         .text-epmc { color: var(--epmc-blue) !important; }
         .bg-epmc { background-color: var(--epmc-blue) !important; }
         .text-epmc-orange { color: var(--epmc-orange) !important; }
         .bg-epmc-orange { background-color: var(--epmc-orange) !important; }
         .text-epmc-golden { color: var(--epmc-golden) !important; }
         .bg-epmc-soft { background-color: var(--epmc-bg-soft) !important; }
-        .border-epmc { border-color: var(--epmc-blue) !important; }
-        .bg-epmc-gradient { background: linear-gradient(105deg, var(--epmc-blue) 0%, #0A3EA0 100%); }
-        .blue-text { color: #00357a; }
-        .orange-text { color: #f36a22; }
 
         /* ---------- Buttons ---------- */
         .btn-epmc {
@@ -61,9 +49,6 @@
             transition: all 0.2s ease;
             text-decoration: none;
             display: inline-block;
-            cursor: pointer;
-            font-size: 1rem;
-            line-height: 1.5;
         }
         .btn-epmc:hover {
             background-color: #002a5e;
@@ -81,9 +66,11 @@
             transition: all 0.2s ease;
             text-decoration: none;
             display: inline-block;
-            cursor: pointer;
         }
-        .btn-epmc-outline:hover { background: var(--epmc-blue); color: white; }
+        .btn-epmc-outline:hover {
+            background: var(--epmc-blue);
+            color: white;
+        }
         .btn-epmc-accent {
             background-color: var(--epmc-orange);
             color: white;
@@ -91,12 +78,11 @@
             padding: 10px 28px;
             font-weight: 700;
             border: none;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            display: inline-block;
-            font-size: 1rem;
         }
-        .btn-epmc-accent:hover { background-color: #d45a1c; transform: translateY(-2px); }
+        .btn-epmc-accent:hover {
+            background-color: #d45a1c;
+            transform: translateY(-2px);
+        }
         .btn-white-blue {
             background-color: white;
             color: var(--epmc-blue);
@@ -108,7 +94,6 @@
             text-decoration: none;
             display: inline-block;
             font-size: 1.1rem;
-            cursor: pointer;
         }
         .btn-white-blue:hover {
             background-color: #f0f0f0;
@@ -118,37 +103,42 @@
         }
 
         /* ---------- Navbar ---------- */
-        .navbar { background-color: #ffffff !important; }
-        .navbar-brand-custom { display: flex; align-items: center; }
-        .navbar-logo { max-height: 50px; width: auto; display: block; }
+        .navbar-brand-custom {
+            display: flex;
+            align-items: center;
+        }
+        .navbar-logo {
+            max-height: 30px;
+            width: auto;
+        }
         .nav-link-custom {
             font-weight: 700;
             color: #00357a !important;
             text-decoration: none;
             margin-right: 1.5rem;
             transition: color 0.2s;
-            font-size: 0.95rem;
         }
-        .nav-link-custom:hover { color: #f36a22 !important; }
-        @media (max-width: 991.98px) {
-            .nav-link-custom { margin-right: 0; margin-bottom: 0.5rem; }
-            .navbar-logo { max-height: 40px; }
-            .navbar .btn-epmc { width: 100%; text-align: center; margin-top: 0.5rem; }
+        .nav-link-custom:hover {
+            color: #f36a22 !important;
+        }
+        @media (max-width: 768px) {
+            .nav-link-custom {
+                margin-right: 0;
+                margin-bottom: 0.5rem;
+            }
+            .navbar-logo { max-height: 25px; }
         }
 
-        /* ---------- Hero Section (Pricing Page) ---------- */
+        /* ---------- Hero Section ---------- */
         .hero-bg {
             position: relative;
             min-height: 250px;
-            background-image: url("pricing_images/hero_back.png");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            background-color: #ffffff;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 4rem 0;
+            padding: 2rem 0;
         }
         .hero-bg .container { position: relative; z-index: 2; }
         .pricing-label {
@@ -158,29 +148,12 @@
             width: 450px;
             height: 50px;
             margin: 40px auto;
-            border: 3px solid #00b050;
+            border: 2px solid #00b050;
             border-radius: 30px;
             background: white;
             color: #00b050;
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 700;
-            font-family: 'Montserrat', sans-serif;
-        }
-        .hero-bg h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: bold;
-            font-size: 36px;
-            margin-bottom: 0.5rem;
-        }
-        .hero-bg h2:first-of-type { color: #00357a; }
-        .hero-bg h2:nth-of-type(2) { color: #0058D7; }
-        .hero-bg p {
-            font-family: 'Montserrat', sans-serif;
-            color: #00357a;
-            margin-bottom: 48px;
-            padding-bottom: 0;
-            font-size: 1.05rem;
-            line-height: 1.6;
         }
         @media (max-width: 768px) {
             .hero-bg { padding: 2.5rem 1rem; }
@@ -193,1223 +166,735 @@
             .pricing-label { width: 170px; height: 38px; font-size: 13px; border-width: 2px; }
         }
 
-        /* ---------- CTA Section ---------- */
-        .cta-deliver-bg {
-            background-image: url('homepage_images/DelieverBetter.png');
+        /* ---------- New ROI Section (Balanced Columns) ---------- */
+        .new-roi-section {
+            display: flex;
+            justify-content: center;
+            padding: 2rem 1rem;
+        }
+        .main-rectangle {
+            max-width: 1200px;
+            width: 100%;
+            background: #ffffff;
+            border: 2px solid #2740a3;
+            border-radius: 32px;
+            display: flex;
+            align-items: stretch;
+            overflow: hidden;
+            box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.3);
+        }
+        .left-column {
+            flex: 1;
+            padding: 2rem 0 0.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0rem;
+        }
+        .right-column {
+            flex: 0.9;
+            padding: 2rem 2rem 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.2rem;
+        }
+        .divider {
+            width: 2.5px;
+            height: 300px;
+            background: #cecccc;
+            align-self: center;
+            margin: 0;
+        }
+        .example-badge {
+            background-color: #00357a;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+            padding: 12px 50px;
+            border-radius: 15px;
+            display: inline-block;
+            width: fit-content;
+            white-space: nowrap;
+            margin-bottom: 35px;
+        }
+        .info-row {
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        .turnover-block {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+        }
+        .turnover-icon {
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .turnover-icon img {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+        }
+        .turnover-info {
+            display: flex;
+            flex-direction: column;
+        }
+        .turnover-label {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #073b8d;
+            margin-bottom: 6px;
+        }
+        .turnover-amount {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: #00357a;
+            line-height: 1.2;
+        }
+        .turnover-sub {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #1f2d84;
+            margin-top: 4px;
+        }
+        .circle-wrapper {
+            position: relative;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .savings-circle {
+            margin-top: -50px;
+            width: 225px;
+            height: 225px;
+            border-radius: 50%;
+            border: 12px solid #d0dcf5;
+            background: #f0f4ed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            flex-shrink: 0;
+        }
+        .savings-title {
+            margin-top: -15px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #073b8d;
+            margin-bottom: 8px;
+        }
+        .percent-wrapper {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 6px;
+        }
+        .percent-number {
+          margin-top: -25px;
+            font-size: 4rem;
+            font-weight: 700;
+            color: #00aa4f;
+        }
+        .percent-icon img {
+            width: 42px;
+            height: 42px;
+        }
+        .green-rectangle {
+            background-color: #00aa4f;
+            border-radius: 25px;
+            width: 250px;
+            text-align: center;
+            padding: 5px 5px;
+            margin-top: -45px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border: 1px solid #b8e0a5;
+        }
+        .green-amount {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.2;
+        }
+        .green-divider {
+            width: 100%;
+            height: 1.5px;
+            background: #ffffff;
+            margin: 8px auto;
+        }
+        .green-sub {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #ffffff;
+        }
+        .roi-at-glance {
+            margin-top: 0;
+            background-color: #2cab4d;
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            padding: 12px 32px;
+            border-radius: 15px;
+            display: inline-block;
+            text-align: center;
+            width: auto;
+            min-width: 200px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        .roi-card-new {
+            background: #fafafa;
+            border: 1px solid #e0e4e8;
+            border-radius: 32px;
+            width: 100%;
+            max-width: 550px;
+            padding: 0.8rem 1.2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+        .roi-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.9rem 0;
+            border-bottom: 1px solid #e6e9ef;
+        }
+        .roi-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0.4rem;
+        }
+        .roi-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .roi-icon {
+            width: 44px;
+            height: 44px;
+            background: #eef2fa;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .roi-icon img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+        .roi-label {
+            font-size: 1.1rem;
+            font-weight: 650;
+            color: #073b8d;
+        }
+        .roi-value {
+            font-size: 1.3rem;
+            font-weight: 650;
+            color: #00357a;
+        }
+        .roi-value.green {
+            color: #16aa4f;
+        }
+        .roi-potential {
+            text-align: right;
+        }
+        .roi-big-number {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #16aa4f;
+            line-height: 1;
+        }
+        .roi-small-text {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #073b8d;
+            margin-top: 4px;
+        }
+        @media (max-width: 900px) {
+            .main-rectangle { flex-direction: column; }
+            .divider { display: none; }
+            .info-row { flex-wrap: wrap; justify-content: center; gap: 1.5rem; }
+            .turnover-block { justify-content: center; }
+            .example-badge { white-space: normal; text-align: center; }
+            .green-rectangle { width: 200px; }
+            .green-amount { font-size: 1.5rem; }
+            .left-column { padding: 1.5rem; }
+            .right-column { padding: 1.5rem; align-items: center; }
+            .roi-at-glance { white-space: normal; font-size: 1rem; padding: 10px 20px; min-width: 160px; }
+            .roi-card-new { max-width: 100%; }
+        }
+        @media (max-width: 550px) {
+            .savings-circle { width: 160px; height: 160px; }
+            .percent-number { font-size: 2.2rem; }
+            .green-rectangle { width: 180px; padding: 8px 12px; }
+            .green-amount { font-size: 1.3rem; }
+            .roi-value { font-size: 1.2rem; }
+            .roi-big-number { font-size: 1.8rem; }
+            .roi-label { font-size: 0.85rem; }
+            .roi-icon { width: 38px; height: 38px; }
+            .roi-icon img { width: 22px; height: 22px; }
+        }
+
+        /* ---------- Comparison Section ---------- */
+        .comparison-section {
+            background: #f5f5f5;
+            display: flex;
+            justify-content: center;
+        }
+        .comparison-wrapper {
+            max-width: 1200px;
+            margin: auto;
+        }
+        .comparison-card {
+            width: 550px;
+            height: 600px;
+            border-radius: 20px;
+            padding: 25px;
+            position: relative;
+            z-index: 2;
+        }
+        .without-card {
+            background: #fdf0f0;
+            box-shadow: 20px 25px 25px rgba(0,0,0,0.18);
+        }
+        .with-card {
+            background: #eefbe5;
+            box-shadow: 10px 15px 15px rgba(0,0,0,0.18);
+        }
+        .comparison-title {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+        .red-title { color: #ff0000; }
+        .green-title { color: #14aa4f; }
+        .comparison-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+            padding: 10px 0;
+            border-bottom: 2px solid rgba(242,141,141,0.625);
+        }
+        .comparison-icon {
+            width: 30px;
+            height: 30px;
+            min-width: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-top: 4px;
+        }
+        .red-icon { background: #ff1d1d; }
+        .green-icon { background: #09c51c; }
+        .comparison-content h4 {
+            font-size: 1.3rem;
+            color: #001c8c;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        .comparison-content p {
+            font-size: 1rem;
+            color: #1f2d84;
+            margin: 0;
+            line-height: 1.2;
+        }
+        .vs-circle {
+            position: absolute;
+            margin-top: -80px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 90px;
+            height: 90px;
+            background: #001c8c;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: 700;
+            z-index: 5;
+            box-shadow: 0 12px 20px rgba(0,0,0,0.2);
+        }
+        @media (max-width: 1199px) {
+            .comparison-content h4 { font-size: 22px; }
+            .vs-circle { width: 110px; height: 110px; font-size: 42px; }
+        }
+        @media (max-width: 991px) {
+            .comparison-card { padding: 35px 25px; }
+            .with-card { margin-top: 90px; }
+            .vs-circle { top: 50%; }
+        }
+
+        /* ---------- ROI CTA Section ---------- */
+        .roi-cta-section {
+            background: #f5f5f5;
+            justify-content: center;
+        }
+        .roi-cta-wrapper {
+            background: #f7f8fa;
+            border: 2px solid #2740a3;
+            border-radius: 42px;
+            padding: 20px 50px;
+            width: 100%;
+            max-width: 1200px;
+        }
+        .roi-cta-left {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        .roi-cta-image img {
+            width: 200px;
+        }
+        .roi-cta-content h2 {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: #001c8c;
+            margin-bottom: 26px;
+        }
+        .roi-cta-content p {
+            font-size: 1.2rem;
+            color: #1f2d84;
+        }
+        .roi-cta-divider {
+            width: 2px;
+            height: 180px;
+            background: #bdbdbd;
+        }
+        .roi-cta-right {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .roi-cta-btn {
+            width: 100%;
+            min-width: 180px;
+            height: 72px;
+            background: #2cad4d;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 700;
+            transition: .3s;
+        }
+        .roi-cta-btn:hover {
+            transform: translateY(-3px);
+            color: #fff;
+        }
+        .roi-time {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 35px;
+        }
+        .roi-time img {
+            width: 35px;
+        }
+        .roi-time span {
+            font-size: 14px;
+            font-weight: 700;
+            color: #001c8c;
+        }
+        @media (max-width: 991px) {
+            .roi-cta-wrapper { padding: 35px 25px; }
+            .roi-cta-left { flex-direction: column; text-align: center; }
+            .roi-cta-divider { display: none; }
+            .roi-cta-right { margin-top: 50px; }
+        }
+
+        /* ---------- Additional Benefits ---------- */
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 0.5rem;
+        }
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+        .benefit-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .benefit-title {
+            font-weight: 650;
+            color: var(--epmc-blue);
+            margin-bottom: 0.20rem;
+            font-size: 1.5rem;
+            white-space: nowrap;
+        }
+        .benefit-desc {
+            font-size: 1.1rem;
+            color: var(--epmc-blue);
+            line-height: 1;
+        }
+
+        /* ---------- Final CTA ---------- */
+        .final-cta-box-left {
+            background-image: url('/yepmc/takecontrol.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            padding: 4rem 0;
-            transition: all 0.3s ease;
-        }
-        .cta-deliver-bg:hover {
-            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.2);
-            transform: scale(1.01);
-        }
-        .cta-title { font-size: 3rem; font-weight: 800; color: white; margin-bottom: 1rem; text-shadow: 1px 1px 3px rgba(0,0,0,0.3); }
-        .cta-subtitle { font-size: 1.3rem; color: white; margin-bottom: 2rem; font-weight: 500; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); }
-        @media (max-width: 768px) {
-            .cta-title { font-size: 2rem; }
-            .cta-subtitle { font-size: 1rem; }
-            .btn-white-blue { padding: 10px 24px; font-size: 1rem; }
-        }
-
-        /* ---------- Section Headings / Role Badge ---------- */
-        .section-heading-wrapper { text-align: center; }
-        .role-badge-line {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--epmc-orange);
-            letter-spacing: 0.5px;
-        }
-        .role-badge-line .separator { color: var(--epmc-blue); margin: 0 0.75rem; font-weight: 700; }
-        .role-title { font-size: 1.5rem; }
-        @media (max-width: 768px) {
-            .role-badge-line { font-size: 1.2rem; }
-            .role-badge-line .separator { margin: 0 0.4rem; }
-            .role-title { font-size: 1.2rem; }
-        }
-
-        /* ---------- Main Heading / Tagline ---------- */
-        .main-heading-line { font-size: 3rem; font-weight: 800; line-height: 1.2; }
-        .tagline-heading { font-size: 1.8rem; font-weight: 600; letter-spacing: -0.01em; }
-        @media (max-width: 768px) {
-            .main-heading-line { font-size: 2rem; }
-            .tagline-heading { font-size: 1.2rem; }
-        }
-
-        /* ---------- Description / India Line ---------- */
-        .description-paragraph { color: #00357a; font-size: 1rem; line-height: 1.5; font-weight: 500; margin-bottom: 1rem; }
-        .india-line { font-size: 1rem; font-weight: 600; margin-bottom: 0.25rem; }
-
-        /* ---------- Trusted By Section ---------- */
-        .trusted-bg { background-color: #f8f9fa; }
-        .trusted-label { color: #f36a22; font-weight: 500; font-size: 1rem; }
-        .trusted-company { color: #00357a; font-weight: 700; font-size: 1rem; display: inline-block; margin: 0 0.5rem; }
-
-        /* ---------- Project Icon Items ---------- */
-        .project-icon-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            background: #fff;
-            border-radius: 20px;
-            padding: 1rem;
-            transition: 0.2s;
-            border: 1px solid #EFF3F0;
-            width: 140px;
-        }
-        .project-icon-item:hover { transform: translateY(-5px); border-color: var(--epmc-orange); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-        .project-icon-img { width: 70px; height: 70px; object-fit: contain; margin-bottom: 0.75rem; }
-        .project-icon-label { font-weight: 600; color: var(--epmc-blue); font-size: 0.9rem; }
-        .projects-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; margin-top: 2rem; margin-bottom: 2rem; }
-        .orange-line { width: 80px; height: 3px; background-color: var(--epmc-orange); margin: 0.5rem auto; }
-
-        /* ---------- Form Controls ---------- */
-        .form-control, .form-select {
-            border-radius: 16px;
-            padding: 12px 16px;
-            border: 1px solid #DEE2E6;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.95rem;
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
-        .form-control:focus, .form-select:focus { border-color: var(--epmc-orange); box-shadow: 0 0 0 3px rgba(243,106,34,0.2); outline: none; }
-
-        /* ---------- Modal ---------- */
-        .modal-content { border-radius: 32px; border: none; overflow: hidden; }
-        .modal-header { border-bottom: none; }
-        .modal-title { font-weight: 800; color: var(--epmc-blue); }
-
-        /* ===================================== */
-        /* PRICING SECTION – Smaller cards, equal height, OR overlapping */
-        /* ===================================== */
-        .pricing-section {
-            background: #001b8e;
-            padding: 60px 20px;
-            overflow: visible;
-        }
-        .pricing-container {
-            max-width: 1200px;
-            margin: auto;
-            display: flex;
-            align-items: stretch;
-            justify-content: center;
-            gap: 12px;
-            position: relative;
-        }
-        .pricing-card {
-            margin-top: -60px;
-            flex: 0 0 300px;
-            min-width: 350px;
-            max-width: 350px;
-            background: #efefef;
-            border-radius: 22px;
-            position: relative;
-            padding-top: 70px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.18);
-            display: flex;
-            flex-direction: column;
-        }
-        .pricing-top {
-            position: absolute;
-            top: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80%;
-            height: 60px;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 26px;
-            font-weight: 800;
+            border-radius: 40px;
+            padding: 2rem 2rem;
             color: white;
-            box-shadow: 0 8px 0 rgba(0,0,0,0.25);
+            max-width: 85%;
+            margin: 2rem auto;
         }
-        .project-bg { background: #003d5a; }
-        .enterprise-bg { background: #dcdcdc; color: #003d5a; }
-        .enterprise-plus-bg { background: #f36a22; }
-        .pricing-content {
-            padding: 20px 20px 16px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
+        .cta-content {
+            max-width: 600px;
         }
-        .pricing-price {
-            font-size: 44px;
-            font-weight: 800;
-            color: #0058d7;
-            margin-bottom: 20px;
+        .cta-content h2,
+        .cta-content p {
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
-        .pricing-list {
-            padding-left: 24px;
-            margin-bottom: 20px;
+        .cta-content p {
+            color: rgba(255, 255, 255, 0.95);
         }
-        .pricing-list li {
-            font-size: 16px;
-            line-height: 1.6;
-            color: #003d5a;
-            margin-bottom: 8px;
-        }
-        .bundle-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: #003d5a;
-            margin-bottom: 10px;
-        }
-        .bundle-list li {
-            display: flex;
-            justify-content: space-between;
-            gap: 16px;
-            font-size: 15px;
-        }
-        .conditions {
-            text-align: right;
-            margin-top: auto;
-            font-size: 14px;
-            color: #003d5a;
-            padding-top: 8px;
-        }
-        .or-circle {
-            width: 72px;
-            height: 72px;
-            min-width: 72px;
-            border-radius: 50%;
-            background: #6f93a7;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 28px;
-            font-weight: 800;
-            box-shadow: 0 6px 16px rgba(0,0,0,0.18);
-            align-self: center;
-            position: relative;
-            z-index: 2;
-            margin-left: -40px;
-            margin-right: -40px;
-        }
-
-        @media (max-width: 1100px) {
-            .pricing-container { flex-direction: column; align-items: center; }
-            .pricing-card { flex: 0 0 auto; width: 100%; max-width: 450px; margin-top: 0; }
-            .or-circle {
-                width: 64px; height: 64px; min-width: 64px;
-                font-size: 24px;
-                margin: 10px 0;
+        @media (max-width: 768px) {
+            .final-cta-box-left {
+                padding: 2rem 1.5rem;
+                max-width: 95%;
             }
         }
-        @media (max-width: 768px) {
-            .pricing-section { padding: 50px 16px; }
-            .pricing-card { width: 100%; max-width: 100%; padding-top: 60px; }
-            .pricing-top { height: 54px; font-size: 22px; }
-            .pricing-price { font-size: 36px; }
-            .pricing-list li { font-size: 14px; }
-            .bundle-title { font-size: 18px; }
-        }
 
-/* ========================================= */
-/* ROI SECTION */
-/* ========================================= */
-.roi-section{
-    background:#f5f5f5;
-}
-
-.roi-wrapper{
-    border:2px solid #2740a3;
-    border-radius:40px;
-    background:#f7f7f7;
-    padding:20px 20px;
-    overflow:visible;
-    width:100%;
-    max-width:1300px;
-}
-
-/* ================================= */
-/* BUTTONS */
-/* ================================= */
-
-.scenario-btn,
-.roi-btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    height:58px;
-    border-radius:16px;
-    color:#fff;
-    font-size:20px;
-    font-weight:700;
-    padding:0 45px;
-}
-
-.scenario-btn{
-    background:#001c8c;
-}
-
-.roi-btn{
-    background:#2cab4d;
-    margin-left:auto;
-    margin-bottom:25px;
-}
-
-/* ================================= */
-/* PROJECT INFO */
-/* ================================= */
-
-.project-box{
-    height:100%;
-    display:flex;
-    align-items:center;
-}
-
-.rupee-icon{
-    width:90px;
-    height:90px;
-    min-width:90px;
-    background:#dfe9fb;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.rupee-icon img{
-    width:90px;
-    height:90px;
-    object-fit:contain;
-}
-
-.project-content{
-    margin-left:22px;
-}
-
-.project-content h5{
-    font-size:18px;
-    color:#073b8d;
-    font-weight:500;
-    margin-bottom:8px;
-}
-
-.project-content h2{
-    font-size:36px;
-    font-weight:600;
-    color:#073b8d;
-    line-height:1;
-    margin-bottom:10px;
-}
-
-.project-content span{
-    font-size:20px;
-    color:#073b8d;
-    font-weight:700;
-}
-
-/* ================================= */
-/* SAVING CIRCLE */
-/* ================================= */
-.left-area{
-    width:100%;
-}
-.saving-wrapper{
-    position:relative;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    overflow:visible;
-    width:100%;
-    flex-shrink:0;
-}
-
-.saving-circle{
-    width:250px;
-    height:250px;
-
-    min-width:250px;
-    min-height:250px;
-
-    flex-shrink:0;
-    
-    border-radius:50%;
-    background:#edf4e8;
-    border:12px solid #d0dcf5;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.saving-inner{
-    text-align:center;
-}
-
-.saving-inner h6{
-    font-size:13px;
-    line-height:1.4;
-    color:#073b8d;
-    font-weight:800;
-    margin-bottom:20px;
-}
-
-.saving-flex{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
-}
-
-.saving-percent{
-    font-size:65px;
-    color:#00aa4f;
-    font-weight:800;
-    line-height:1;
-}
-
-.saving-chart{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.saving-chart img{
-    width:50px;
-    height:auto;
-    object-fit:contain;
-}
-
-/* ================================= */
-/* PRICE BOX */
-/* ================================= */
-
-.saving-price-box{
-    position:absolute;
-    bottom:-60px;
-    left:50%;
-    transform:translateX(-50%);
-    width:260px;
-    height:100px;
-    background:#2cad4d;
-    border-radius:24px;
-    overflow:hidden;
-    border:2px solid #d0dcf5;
-    text-align:center;
-}
-
-.saving-price-box h3{
-    color:#fff;
-    font-size:28px;
-    font-weight:700;
-    margin:0;
-    padding:8px 10px;
-    border-bottom:3px solid white;
-
-    text-align:center;
-}
-
-
-.saving-price-box p{
-    color:#fff;
-    font-size:22px;
-    font-weight:500;    
-    margin:0;
-    padding:8px 0;
-}
-
-/* ================================= */
-/* DIVIDER */
-/* ================================= */
-
-.vertical-divider{
-    width:2px;
-    height:420px;
-    background:#d7d7d7;
-}
-
-/* ================================= */
-/* RIGHT CARD */
-/* ================================= */
-
-.roi-card{
-    background:#fafafa;
-    border:2px solid #dedede;
-    border-radius:36px;
-    padding:25px 35px;
-}
-
-.roi-item{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:22px 0;
-    border-bottom:1px solid #e7e7e7;
-}
-
-.roi-left-item{
-    display:flex;
-    align-items:center;
-    gap:14px;
-}
-
-.roi-left-item img{
-    width:46px;
-}
-
-.roi-left-item span{
-    font-size:18px;
-    font-weight:700;
-    color:#073b8d;
-}
-
-.roi-right-item{
-    font-size:24px;
-    font-weight:800;
-    color:#073b8d;
-}
-
-.green{
-    color:#16aa4f;
-}
-
-.roi-big{
-    font-size:56px;
-    color:#16aa4f;
-    font-weight:900;
-    line-height:1;
-}
-
-.roi-right-item small{
-    display:block;
-    font-size:15px;
-    color:#073b8d;
-    font-weight:700;
-}
-
-/* ================================= */
-/* NOTE */
-/* ================================= */
-
-.roi-note{
-    text-align:center;
-    max-width:1500px;
-    margin:28px auto 0;
-    color:#1d3f92;
-    font-size:16px;
-    line-height:1.5;
-}
-
-/* ================================= */
-/* MOBILE */
-/* ================================= */
-
-@media(max-width:991px){
-
-    .roi-wrapper{
-        padding:30px 20px;
-    }
-
-    .scenario-btn,
-    .roi-btn{
-        width:100%;
-        margin:auto;
-    }
-
-    .project-box{
-        justify-content:center;
-        margin-bottom:50px;
-    }
-
-    .saving-circle{
-        width:280px;
-        height:280px;
-    }
-
-    .saving-percent{
-        font-size:70px;
-    }
-
-    .saving-chart{
-        font-size:55px;
-    }
-
-    .saving-price-box{
-        width:240px;
-    }
-
-    .saving-price-box h3{
-        font-size:34px;
-    }
-
-    .right-area{
-        margin-top:70px;
-    }
-
-    .roi-card{
-        padding:20px;
-    }
-
-    .roi-item{
-        flex-direction:column;
-        align-items:flex-start;
-        gap:15px;
-    }
-
-    .roi-right-item{
-        width:100%;
-        text-align:left;
-    }
-}
-
-@media(max-width:576px){
-
-    .project-content h2{
-        font-size:30px;
-    }
-
-    .project-content span{
-        font-size:18px;
-    }
-
-    .saving-circle{
-        width:230px;
-        height:230px;
-    }
-
-    .saving-inner h6{
-        font-size:14px;
-    }
-
-    .saving-percent{
-        font-size:54px;
-    }
-
-    .saving-chart{
-        font-size:40px;
-    }
-
-    .saving-price-box{
-        width:200px;
-    }
-
-    .saving-price-box h3{
-        font-size:26px;
-    }
-
-    .saving-price-box p{
-        font-size:16px;
-    }
-}
-       
-
-/* ========================================= */
-/* COMPARISON SECTION */
-/* ========================================= */
-
-.comparison-section{
-    background:#f5f5f5;
-    display:flex;
-    justify-content:center;
-}
-.comparison-wrapper{
-    max-width:1600px;
-    margin:auto;
-}
-/* ========================================= */
-/* CARD */
-/* ========================================= */
-
-.comparison-card{
-    width:600px;
-    border-radius:40px;
-    padding:45px 40px;
-    position:relative;
-    z-index:2;
-}
-
-/* LEFT CARD */
-
-.without-card{
-    background:#fdf0f0;
-    box-shadow:20px 25px 25px rgba(0,0,0,0.18);
-}
-
-/* RIGHT CARD */
-
-.with-card{
-    background:#eef7e8;
-    box-shadow:10px 15px 15px rgba(0,0,0,0.18);
-}
-
-/* ========================================= */
-/* TITLES */
-/* ========================================= */
-
-.comparison-title{
-    text-align:center;
-    font-size:32px;
-    font-weight:700;
-    margin-bottom:45px;
-}
-
-.red-title{
-    color:#ff0000;
-}
-
-.green-title{
-    color:#14aa4f;
-}
-
-/* ========================================= */
-/* ITEMS */
-/* ========================================= */
-
-.comparison-item{
-    display:flex;
-    align-items:flex-start;
-    gap:20px;
-    padding:18px 0;
-    border-bottom:2px solid rgba(0,0,0,0.08);
-}
-
-/* ICONS */
-
-.comparison-icon{
-    width:40px;
-    height:40px;
-    min-width:40px;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:#fff;
-    font-size:28px;
-    font-weight:600;
-    margin-top:4px;
-}
-
-.red-icon{
-    background:#ff1d1d;
-}
-
-.green-icon{
-    background:#09c51c;
-}
-
-/* CONTENT */
-
-.comparison-content h4{
-    font-size:22px;
-    color:#001c8c;
-    font-weight:700;
-    margin-bottom:8px;
-}
-
-.comparison-content p{
-    font-size:16px;
-    color:#1f2d84;
-    margin:0;
-    line-height:1.5;
-}
-
-/* ========================================= */
-/* VS CIRCLE */
-/* ========================================= */
-
-.vs-circle{
-    position:absolute;
-    left:50%;
-    top:50%;
-    transform:translate(-50%, -50%);
-    width:100px;
-    height:100px;
-    background:#001c8c;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:#fff;
-    font-size:40px;
-    font-weight:600;
-    z-index:5;
-    box-shadow:0 12px 20px rgba(0,0,0,0.2);
-}
-
-/* ========================================= */
-/* RESPONSIVE */
-/* ========================================= */
-
-@media(max-width:1199px){
-
-    .comparison-content h4{
-        font-size:22px;
-    }
-
-    .comparison-title{
-        font-size:34px;
-    }
-
-    .vs-circle{
-        width:110px;
-        height:110px;
-        font-size:42px;
-    }
-}
-
-@media(max-width:991px){
-
-    .comparison-card{
-        padding:35px 25px;
-    }
-
-    .with-card{
-        margin-top:90px;
-    }
-
-    .vs-circle{
-        top:50%;
-    }
-
-    .comparison-title{
-        font-size:30px;
-    }
-
-    .comparison-content h4{
-        font-size:20px;
-    }
-}
-
-@media(max-width:576px){
-
-    .comparison-card{
-        border-radius:25px;
-        padding:30px 20px;
-    }
-
-    .comparison-item{
-        gap:14px;
-    }
-
-    .comparison-icon{
-        width:42px;
-        height:42px;
-        min-width:42px;
-        font-size:24px;
-    }
-
-    .comparison-content h4{
-        font-size:18px;
-    }
-
-    .comparison-content p{
-        font-size:14px;
-    }
-
-    .vs-circle{
-        width:85px;
-        height:85px;
-        font-size:32px;
-    }
-}        
-
-/* ========================================= */
-/* ROI CTA SECTION */
-/* ========================================= */
-
-.roi-cta-section{
-    background:#f5f5f5;
-    justify-content:center;
-}
-
-/* MAIN WRAPPER */
-
-.roi-cta-wrapper{
-    background:#f7f8fa;
-    border:2px solid #2740a3;
-    border-radius:42px;
-    padding:28px 50px;
-    width:100%;
-    max-width:1300px;
-    
-}
-
-/* ========================================= */
-/* LEFT SIDE */
-/* ========================================= */
-
-.roi-cta-left{
-    display:flex;
-    align-items:center;
-    gap:40px;
-}
-
-/* IMAGE */
-
-.roi-cta-image img{
-    width:220px;
-    height:auto;
-    object-fit:contain;
-}
-
-/* CONTENT */
-
-.roi-cta-content h2{
-    font-size:36px;
-    line-height:1.1;
-    font-weight:700;
-    color:#001c8c;
-    margin-bottom:26px;
-}
-
-.roi-cta-content p{
-    
-    font-size:22px;
-    line-height:1.5;
-    color:#1f2d84;
-    margin:0;
-    max-width:900px;
-}
-
-/* ========================================= */
-/* DIVIDER */
-/* ========================================= */
-
-.roi-cta-divider{
-    width:2px;
-    height:240px;
-    background:#bdbdbd;
-}
-
-/* ========================================= */
-/* RIGHT SIDE */
-/* ========================================= */
-
-.roi-cta-right{
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    height:100%;
-}
-
-/* BUTTON */
-
-.roi-cta-btn{
-    width:100%;
-    max-width:520px;
-    height:92px;
-    background:#2cad4d;
-    border-radius:22px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:18px;
-
-    color:#fff;
-    text-decoration:none;
-
-    font-size:24px;
-    font-weight:700;
-
-    transition:.3s;
-}
-
-.roi-cta-btn:hover{
-    transform:translateY(-3px);
-    color:#fff;
-}
-
-.roi-cta-btn span{
-    font-size:60px;
-    line-height:0;
-}
-
-/* TIME */
-
-.roi-time{
-    display:flex;
-    align-items:center;
-    gap:16px;
-    margin-top:35px;
-}
-
-.roi-time img{
-    width:52px;
-    height:52px;
-    object-fit:contain;
-}
-
-.roi-time span{
-    font-size:18px;
-    font-weight:700;
-    color:#001c8c;
-}
-
-/* ========================================= */
-/* RESPONSIVE */
-/* ========================================= */
-
-@media(max-width:1400px){
-
-    .roi-cta-content h2{
-        font-size:48px;
-    }
-
-    .roi-cta-content p{
-        font-size:22px;
-    }
-
-    .roi-cta-btn{
-        font-size:28px;
-        height:82px;
-    }
-}
-
-@media(max-width:991px){
-
-    .roi-cta-wrapper{
-        padding:35px 25px;
-    }
-
-    .roi-cta-left{
-        flex-direction:column;
-        text-align:center;
-        gap:30px;
-    }
-
-    .roi-cta-image img{
-        width:200px;
-    }
-
-    .roi-cta-content h2{
-        font-size:40px;
-    }
-
-    .roi-cta-content p{
-        font-size:20px;
-    }
-
-    .roi-cta-right{
-        margin-top:50px;
-    }
-
-    .roi-cta-btn{
-        max-width:100%;
-        height:72px;
-        font-size:24px;
-    }
-
-    .roi-time{
-        justify-content:center;
-    }
-
-    .roi-time span{
-        font-size:22px;
-    }
-}
-
-@media(max-width:576px){
-
-    .roi-cta-wrapper{
-        border-radius:28px;
-        padding:25px 18px;
-    }
-
-    .roi-cta-image img{
-        width:160px;
-    }
-
-    .roi-cta-content h2{
-        font-size:30px;
-    }
-
-    .roi-cta-content p{
-        font-size:16px;
-    }
-
-    .roi-cta-btn{
-        height:60px;
-        border-radius:16px;
-        font-size:20px;
-    }
-
-    .roi-cta-btn span{
-        font-size:28px;
-    }
-
-    .roi-time img{
-        width:38px;
-        height:38px;
-    }
-
-    .roi-time span{
-        font-size:18px;
-    }
-}
-
-/* ========== ADDITIONAL BENEFITS ========== */
-
-.benefit-item {
-
-display:flex;
-
-align-items:flex-start;
-
-gap:16px;
-
-padding:1rem;
-
-
-}
-
-/* ICON */
-
-.benefit-icon {
-
-width:60px;
-
-height:60px;
-
-object-fit:contain;
-
-flex-shrink:0;
-
-
-}
-
-/* TEXT AREA */
-
-.benefit-text{
-
-display:flex;
-
-flex-direction:column;
-
-justify-content:center;
-
-
-}
-
-
-/* TITLE */
-
-.benefit-title {
-
-
-font-weight:800;
-
-color:var(--epmc-blue);
-
-margin-bottom:0.35rem;
-
-font-size:1.15rem;
-
-
-}
-
-/* DESCRIPTION */
-
-.benefit-desc {
-
-font-size:0.9rem;
-
-color:#5a6e7a;
-
-line-height:1.5;
-
-
-}
-
-
-/* Final CTA – left aligned, background image, no overlay */
-.final-cta-box-left {
-  background-image: url('yepmc/takecontrol.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  border-radius: 40px;
-  padding: 4rem 3rem;
-  color: white;
-   width:100%;
-    max-width:1300px;
-    margin:0 auto;
-}
-.cta-content {
-  max-width: 600px;
-}
-.cta-content h2,
-.cta-content p {
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-}
-.cta-content p {
-  color: rgba(255, 255, 255, 0.95);
-}
-@media (max-width: 768px) {
-  .final-cta-box-left {
-    padding: 2rem 1.5rem;
-  }
-}
-        /* ---------- FOOTER (4‑Column Layout) ---------- */
+ /* ========== FOOTER ========== */
         .footer-new {
-            background-color: #f8f9fa;
-            border: 2px solid #00357a;
-            border-radius: 28px;
-            padding: 2rem 2rem 1.5rem;
-            margin: 2rem 0;
+            margin-left: calc(-50vw + 50%);
+            margin-right: calc(-50vw + 50%);
+            margin-top: 4rem;
+            background-color: rgb(237, 236, 236);
+            width: 100vw;
+            border-radius: 0;
         }
-        .footer-grid { display: grid; grid-template-columns: 1fr 1.8fr 1fr 1.2fr; gap: 2rem; }
-        .footer-logo { max-height: 130px; width: auto; margin-bottom: 1rem; display: block; }
-        .footer-description { font-size: 0.9rem; line-height: 1.5; color: #1f2a3e; margin-top: 0.5rem; }
+
+        .footer-logo {
+            max-height: 200px;
+            width: auto;
+            margin-left: 13rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .footer-description {
+            font-size: 1rem;
+            line-height: 1.5;
+            max-width: 400px;
+            color: #00357a;
+            margin-top: 2rem;
+            text-align: justify;
+        }
+
         .footer-vertical-links a {
+            margin-top: 0.5rem;
+            line-height: 1.5;
             color: #00357a;
             text-decoration: none;
+            font-size: 1.2rem;
             font-weight: 500;
             display: block;
-            margin-bottom: 0.6rem;
+            margin-bottom: 0.2rem;
             transition: color 0.2s;
-            font-size: 0.9rem;
         }
-        .footer-vertical-links a:hover { color: #f36a22; }
-        .footer-contact-info { margin-top: 1rem; }
-        .footer-contact-info p { margin-bottom: 0.6rem; color: #00357a; font-weight: 500; font-size: 0.9rem; }
-        .footer-contact-info i { width: 28px; color: #f36a22; }
+
+        .footer-vertical-links a:hover {
+            color: #f36a22;
+        }
+
+        .footer-contact-info p {
+            margin-bottom: 0.6rem;
+            font-size: 1.2rem;
+            color: #00357a;
+            font-weight: 500;
+        }
+
+        .footer-contact-info i {
+            width: 28px;
+            color: #f36a22;
+        }
+
         .footer-copyright {
             text-align: center;
             margin-top: 2rem;
             padding-top: 1rem;
             border-top: 1px solid #dee2e6;
-            color: #6c757d;
-            font-size: 0.85rem;
-        }
-        @media (max-width: 992px) {
-            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
-            .footer-logo { max-height: 100px; }
-        }
-        @media (max-width: 768px) {
-            .footer-grid { grid-template-columns: 1fr; gap: 1.8rem; }
-            .footer-new { padding: 1.5rem; border-radius: 20px; }
-            .footer-logo { max-height: 80px; margin: 0 auto; }
-            .footer-description { text-align: center; }
-            .footer-vertical-links { text-align: center; }
-            .footer-contact-info { text-align: center; }
+            color: #00357a;
+            font-size: 1.6rem;
         }
 
-        /* ---------- Additional Utility / Spacing ---------- */
-        .mt-6 { margin-top: 4rem; }
-        .mb-6 { margin-bottom: 4rem; }
-        .py-6 { padding-top: 4rem; padding-bottom: 4rem; }
-
-        a:focus-visible, button:focus-visible, input:focus-visible,
-        select:focus-visible, textarea:focus-visible {
-            outline: 2px solid var(--epmc-orange);
-            outline-offset: 2px;
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.8fr 1fr 1.2fr;
+            gap: 2rem;
         }
+        /* ========== FOOTER ========== */
+.footer-new {
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    margin-top: 4rem;
+    background-color: rgb(237, 236, 236);
+    width: 100vw;
+    border-radius: 0;
+}
 
-        @media print {
-            .navbar, .btn-epmc, .btn-epmc-accent, .btn-epmc-outline,
-            .btn-white-blue, .footer-new, .modal { display: none !important; }
-            body { font-size: 12pt; color: #000; background: #fff; }
-            .hero-bg { background-image: none !important; padding: 1rem 0; }
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.8fr 1fr 1.2fr;
+    gap: 2rem;
+    padding: 2rem 2rem 0 2rem;  /* added horizontal padding for better spacing */
+}
+
+.footer-logo {
+    max-height: 200px;
+    width: auto;
+    margin-left: 13rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.footer-description {
+    font-size: 1rem;
+    line-height: 1.5;
+    max-width: 400px;
+    color: #00357a;
+    margin-top: 2rem;
+    text-align: justify;
+}
+
+.footer-vertical-links a {
+    margin-top: 0.5rem;
+    line-height: 1.5;
+    color: #00357a;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 0.2rem;
+    transition: color 0.2s;
+}
+
+.footer-vertical-links a:hover {
+    color: #f36a22;
+}
+
+.footer-contact-info p {
+    margin-bottom: 0.6rem;
+    font-size: 1.2rem;
+    color: #00357a;
+    font-weight: 500;
+}
+
+.footer-contact-info i {
+    width: 28px;
+    color: #f36a22;
+}
+
+.footer-copyright {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #dee2e6;
+    color: #00357a;
+    font-size: 1.6rem;
+}
+
+/* ===== MOBILE RESPONSIVENESS (max-width: 768px) ===== */
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;   /* single column */
+        gap: 1.5rem;
+        text-align: center;
+        padding: 1.5rem;
+    }
+
+    .footer-logo {
+        margin-left: auto;
+        margin-right: auto;
+        max-height: 120px;
+    }
+
+    .footer-description {
+        max-width: 100%;
+        text-align: center;
+        margin-top: 0;
+        padding: 0 1rem;
+    }
+
+    .footer-vertical-links a {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .footer-contact-info p {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .footer-contact-info i {
+        width: auto;
+        margin-right: 8px;
+    }
+
+    .footer-copyright {
+        font-size: 1rem;
+        margin-top: 1rem;
+        padding-top: 0.8rem;
+    }
+}
+
+    /* Extra small devices (max-width: 480px) */
+    @media (max-width: 480px) {
+        .footer-grid {
+            padding: 1rem;
+        }
+        
+        .footer-description {
+            font-size: 0.9rem;
+        }
+        
+        .footer-vertical-links a,
+        .footer-contact-info p {
+            font-size: 0.9rem;
+        }
+        
+        .footer-copyright {
+            font-size: 0.8rem;
+        }
+    }
+
+        /* ---------- Modal ---------- */
+        .modal-content {
+            border-radius: 32px;
+        }
+        .form-control, .form-select {
+            border-radius: 16px;
+            padding: 12px 16px;
+            border: 1px solid #DEE2E6;
+        }
+        .form-control:focus, .form-select:focus {
+            border-color: var(--epmc-orange);
+            box-shadow: 0 0 0 3px rgba(243,106,34,0.2);
         }
     </style>
 </head>
@@ -1426,827 +911,236 @@ line-height:1.5;
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center gap-3">
-                <li class="nav-item"><a class="nav-link-custom" href="whyepmc.html">Why ePMC?</a></li>
-                <li class="nav-item"><a class="nav-link-custom" href="#features">Features</a></li>
+                <li class="nav-item"><a class="nav-link-custom" href="#">Why ePMC?</a></li>
+                <li class="nav-item"><a class="nav-link-custom" href="#">Features</a></li>
                 <li class="nav-item"><a class="nav-link-custom" href="#">Pricing</a></li>
+                <li class="nav-item"><a class="nav-link-custom" href="#">ROI</a></li>
             </ul>
-            <a href="#" class="btn btn-epmc ms-lg-3 mt-2 mt-lg-0" data-bs-toggle="modal" data-bs-target="#demoModal">Book a Demo <i class="fas fa-arrow-right ms-1"></i></a>
+            <a href="#" class="btn btn-epmc ms-lg-3 mt-2 mt-lg-0" onclick="openGoogleFormPopup(event)">Book a Demo <i class="fas fa-arrow-right ms-1"></i></a>
         </div>
     </div>
 </nav>
 
 <!-- Hero Section -->
 <section class="hero-bg py-4">
-    <div class="container h-100">
-        <div class="text-center my-4">
-            <div class="pricing-label d-inline-flex align-items-center justify-content-center">
-               MEASURABLE IMPACT. REAL RESULTS
-            </div>
-            <div class="row h-100">
-                <div class="col-md-10 col-xl-9 text-center d-flex justify-content-center align-items-center mx-auto">
-                    <div>
-                        <h2 class="fw-bold mb-2" style="font-family: Montserrat, sans-serif; font-size: 36px; color: #00357a;">
-                            Real Savings. Measurable <span style="color: #00b050;">ROI.</span>  
-                        </h2>
-                        
-                        
-                        <p class="mb-4" style="font-family: Montserrat, sans-serif; color: #00357a;">
-                            Effective use of ePMC can help you save 3% of your project cost through better control, visibility and smarter execution
-                        </p>
-                    </div>
-                </div>
-            </div>
+    <div class="container">
+        <div class="text-center">
+            <div class="pricing-label">MEASURABLE IMPACT. REAL RESULTS</div>
+            <h2 class="fw-bold mb-2" style="font-size: 3rem; color:#00357a;">Real Savings. Measurable <span style="color:#00b050;">ROI.</span></h2>
+            <p style="font-size: 1.2rem; color:#00357a; max-width: 850px; margin: 0 auto;">Effective use of ePMC can help you save 3% of your project cost through better control, visibility and smarter execution</p>
         </div>
     </div>
 </section>
 
-<!-- ========================================= -->
-<!-- ROI EXAMPLE SCENARIO SECTION -->
-<!-- ========================================= -->
-<!-- ========================================= -->
-<!-- ROI SECTION -->
-<!-- ========================================= -->
-<section class="roi-section py-5">
-
-    <div class="container-fluid px-4 d-flex justify-content-center">
-
-        <div class="roi-wrapper">
-
-            <div class="row align-items-center gx-0">
-
-                <!-- LEFT SIDE -->
-                <div class="col-lg-6">
-
-                    <div class="left-area">
-
-                        <!-- BUTTON -->
-                        <div class="scenario-btn">
-                            EXAMPLE SCENARIO
-                        </div>
-
-                        <!-- CONTENT -->
-                        <div class="row align-items-center mt-7">
-
-                            <!-- LEFT INFO -->
-                            <div class="col-lg-5">
-
-                                <div class="project-box">
-
-                                    <div class="d-flex align-items-center">
-
-                                        <div class="rupee-icon">
-                                            <img src="roi/anualprojectturnover.png" alt="">
-                                        </div>
-
-                                        <div class="project-content">
-
-                                            <h5>Annual Project Turnover</h5>
-
-                                            <h2>₹ 5,00,00,000</h2>
-
-                                            <span>(₹ 5 Crore)</span>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <!-- RIGHT CIRCLE -->
-                            <div class="col-lg-7">
-
-                                <div class="saving-wrapper">
-
-                                    <div class="saving-circle">
-
-                                        <div class="saving-inner">
-
-                                            <h6>
-                                                ESTIMATED <br>
-                                                SAVINGS WITH ePMC
-                                            </h6>
-
-                                            <div class="saving-flex">
-
-                                                <div class="saving-percent">
-                                                    3%
-                                                </div>
-
-                                                <div class="saving-chart">
-                                                    <img src="ROI/graph.png" alt="Graph">
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="saving-price-box">
-
-                                        <h3>₹ 15,00,000</h3>
-
-                                        <p>(15 Lac)</p>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
+<!-- New ROI Section (Balanced Columns) -->
+<div class="new-roi-section">
+    <div class="main-rectangle">
+        <!-- LEFT COLUMN -->
+        <div class="left-column">
+            <div class="example-badge">EXAMPLE SCENARIO</div>
+            <div class="info-row">
+                <div class="turnover-block">
+                    <div class="turnover-icon">
+                        <img src="roi/anualprojectturnover.png" alt="Turnover Icon">
                     </div>
-
-                </div>
-
-                <!-- DIVIDER -->
-                <div class="col-lg-1 d-none d-lg-flex justify-content-center">
-                    <div class="vertical-divider"></div>
-                </div>
-
-                <!-- RIGHT SIDE -->
-                <div class="col-lg-5">
-
-                    <div class="right-area">
-
-                        <div class="roi-btn">
-                            ROI AT A GLANCE
-                        </div>
-
-                        <div class="roi-card">
-
-                            <!-- ITEM -->
-                            <div class="roi-item">
-
-                                <div class="roi-left-item">
-
-                                    <img src="ROI/coins.png">
-
-                                    <span>Typical ePMC Investment</span>
-
-                                </div>
-
-                                <div class="roi-right-item">
-                                    ₹ 1,50,000
-                                </div>
-
-                            </div>
-
-                            <!-- ITEM -->
-                            <div class="roi-item">
-
-                                <div class="roi-left-item">
-
-                                    <img src="ROI/savings.png">
-
-                                    <span>Estimated Annual Savings (3%)</span>
-
-                                </div>
-
-                                <div class="roi-right-item green">
-                                    ₹ 15,00,000
-                                </div>
-
-                            </div>
-
-                            <!-- ITEM -->
-                            <div class="roi-item border-0">
-
-                                <div class="roi-left-item">
-
-                                    <img src="ROI/graph.png">
-
-                                    <span>Estimated ROI Potential</span>
-
-                                </div>
-
-                                <div class="roi-right-item">
-
-                                    <div class="roi-big">
-                                        10 X+
-                                    </div>
-
-                                    <small>Return on Investment</small>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
+                    <div class="turnover-info">
+                        <div class="turnover-label">Annual Project Turnover</div>
+                        <div class="turnover-amount">₹ 5,00,00,000</div>
+                        <div class="turnover-sub">(₹ 5 Crore)</div>
                     </div>
-
                 </div>
-
+                <div class="circle-wrapper">
+                    <div class="savings-circle">
+                        <div class="savings-title">ESTIMATED<br>SAVINGS WITH ePMC</div>
+                        <div class="percent-wrapper">
+                            <span class="percent-number">3%</span>
+                            <span class="percent-icon"><img src="roi/graph.png" alt="graph"></span>
+                        </div>
+                    </div>
+                    <div class="green-rectangle">
+                        <div class="green-amount">₹ 15,00,000</div>
+                        <div class="green-divider"></div>
+                        <div class="green-sub">(15 Lac)</div>
+                    </div>
+                </div>
             </div>
-
         </div>
-
-       
-
+        <!-- VERTICAL DIVIDER -->
+        <div class="divider"></div>
+        <!-- RIGHT COLUMN -->
+        <div class="right-column">
+            <div class="roi-at-glance">ROI AT A GLANCE</div>
+            <div class="roi-card-new">
+                <div class="roi-row">
+                    <div class="roi-left">
+                        <div class="roi-icon"><img src="roi/coins.png" alt="coins"></div>
+                        <span class="roi-label">Typical ePMC Investment</span>
+                    </div>
+                    <div class="roi-value">₹ 1,50,000</div>
+                </div>
+                <div class="roi-row">
+                    <div class="roi-left">
+                        <div class="roi-icon"><img src="roi/savings.png" alt="savings"></div>
+                        <span class="roi-label">Estimated Annual Savings (3%)</span>
+                    </div>
+                    <div class="roi-value green">₹ 15,00,000</div>
+                </div>
+                <div class="roi-row">
+                    <div class="roi-left">
+                        <div class="roi-icon"><img src="roi/graph.png" alt="roi graph"></div>
+                        <span class="roi-label">Estimated ROI Potential</span>
+                    </div>
+                    <div class="roi-potential">
+                        <div class="roi-big-number">10 X+</div>
+                        <div class="roi-small-text">Return on Investment</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-     <!-- NOTE -->
-        <div class="roi-note">
-            * Savings are indicative and based on internal analysis, operational assumptions and effective
-            utilization of ePMC Platform. Actual results may vary depending on project type, size,
-            processes and execution.
-        </div>
-
-</section>
-
-<!-- ========================================= -->
-<!-- WITHOUT VS WITH EPMC SECTION -->
-<!-- ========================================= -->
-
-<section class="comparison-section py-5">
-
-    <div class="container d-flex justify-content-center">
-
-        <div class="comparison-wrapper">
-
-            <div class="row align-items-center gx-5 position-relative">
-
-                <!-- ================================= -->
-                <!-- WITHOUT EPMC -->
-                <!-- ================================= -->
-
-                <div class="col-lg-6">
-
-                    <div class="comparison-card without-card">
-
-                        <h2 class="comparison-title red-title">
-                            WITHOUT ePMC
-                        </h2>
-
-                        <!-- ITEM -->
-                        <div class="comparison-item">
-
-                            <div class="comparison-icon red-icon">
-                                ✕
-                            </div>
-
-                            <div class="comparison-content">
-
-                                <h4>Cost Overruns & Budget Leakages</h4>
-
-                                <p>
-                                    Poor visibility and tracking lead to uncontrolled expenses
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                        <!-- ITEM -->
-                        <div class="comparison-item">
-
-                            <div class="comparison-icon red-icon">
-                                ✕
-                            </div>
-
-                            <div class="comparison-content">
-
-                                <h4>Project Delays</h4>
-
-                                <p>
-                                    Delays in approvals, decisions and site execution
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                        <!-- ITEM -->
-                        <div class="comparison-item">
-
-                            <div class="comparison-icon red-icon">
-                                ✕
-                            </div>
-
-                            <div class="comparison-content">
-
-                                <h4>Rework & Material Wastage</h4>
-
-                                <p>
-                                    Lack of coordination & inaccurate information
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                        <!-- ITEM -->
-                        <div class="comparison-item">
-
-                            <div class="comparison-icon red-icon">
-                                ✕
-                            </div>
-
-                            <div class="comparison-content">
-
-                                <h4>Manual Processes & Errors</h4>
-
-                                <p>
-                                    Time-consuming reporting and data inconsistencies
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                        <!-- ITEM -->
-                        <div class="comparison-item">
-
-                            <div class="comparison-icon red-icon">
-                                ✕
-                            </div>
-
-                            <div class="comparison-content">
-
-                                <h4>Poor Accountability</h4>
-
-                                <p>
-                                    Unclear responsibilities and lack of real-time monitoring
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                        <!-- ITEM -->
-                        <div class="comparison-item border-0 pb-0">
-
-                            <div class="comparison-icon red-icon">
-                                ✕
-                            </div>
-
-                            <div class="comparison-content">
-
-                                <h4>Dispute & Claims</h4>
-
-                                <p>
-                                    Inadequate documentation and communication gaps
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <!-- CENTER VS -->
-                <div class="vs-circle">
-                    VS
-                </div>
-
-                <!-- ================================= -->
-                <!-- WITH EPMC -->
-                <!-- ================================= -->
-
-                <div class="col-lg-6">
-
-                    <div class="comparison-card with-card">
-
-                        <h2 class="comparison-title green-title">
-                            WITH ePMC
-                        </h2>
-
-                        <!-- ITEM -->
-                        <div class="comparison-item">
-
-                            <div class="comparison-icon green-icon">
-                                ✓
-                            </div>
-
-                            <div class="comparison-content">
-
-                                <h4>Better Cost Control</h4>
-
-                                <p>
-                                    Real-time cost visibility and proactive variance tracking
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                        <!-- ITEM -->
-                        <div class="comparison-item">
-
-                            <div class="comparison-icon green-icon">
-                                ✓
-                            </div>
-
-                            <div class="comparison-content">
-
-                                <h4>On-time Project Delivery</h4>
-
-                                <p>
-                                    Faster approvals, better planning and real-time insights
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                        <!-- ITEM -->
-                        <div class="comparison-item">
-
-                            <div class="comparison-icon green-icon">
-                                ✓
-                            </div>
-
-                            <div class="comparison-content">
-
-                                <h4>Reduced Rework & Wastage</h4>
-
-                                <p>
-                                    Accurate information, better coordination and quality control
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                        <!-- ITEM -->
-                        <div class="comparison-item">
-
-                            <div class="comparison-icon green-icon">
-                                ✓
-                            </div>
-
-                            <div class="comparison-content">
-
-                                <h4>Digital Workflows & Accuracy</h4>
-
-                                <p>
-                                    Automated processes, standardized data and fewer errors
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                        <!-- ITEM -->
-                        <div class="comparison-item">
-
-                            <div class="comparison-icon green-icon">
-                                ✓
-                            </div>
-
-                            <div class="comparison-content">
-
-                                <h4>Stronger Accountability</h4>
-
-                                <p>
-                                    Clear roles, real-time tracking and performance visibility
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                        <!-- ITEM -->
-                        <div class="comparison-item border-0 pb-0">
-
-                            <div class="comparison-icon green-icon">
-                                ✓
-                            </div>
-
-                            <div class="comparison-content">
-
-                                <h4>Fewer Disputes & Claims</h4>
-
-                                <p>
-                                    Complete documentation and transparent communication
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ========================================= -->
-<!-- ROI CTA SECTION -->
-<!-- ========================================= -->
-
-<section class="roi-cta-section py-5">
-
-    <div class="container-fluid px-4 d-flex justify-content-center">
-
-        <div class="roi-cta-wrapper ">
-
-            <div class="row align-items-center gx-0">
-
-                <!-- ================================= -->
-                <!-- LEFT SIDE -->
-                <!-- ================================= -->
-
-                <div class="col-lg-8">
-
-                    <div class="roi-cta-left">
-
-                        <!-- IMAGE -->
-                        <div class="roi-cta-image">
-                            <img src="ROI/roicalculator.png" alt="ROI Calculator">
-                        </div>
-
-                        <!-- CONTENT -->
-                        <div class="roi-cta-content">
-
-                            <h2>
-                                See How Much You Can Save?
-                            </h2>
-
-                            <p>
-                                Every project is unique. Calculate your potential
-                                savings with ePMC on your project turnover.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <!-- DIVIDER -->
-
-                <div class="col-lg-1 d-none d-lg-flex justify-content-center">
-                    <div class="roi-cta-divider"></div>
-                </div>
-
-                <!-- ================================= -->
-                <!-- RIGHT SIDE -->
-                <!-- ================================= -->
-
-                <div class="col-lg-3">
-
-                    <div class="roi-cta-right">
-
-                        <!-- BUTTON -->
-                        <a href="#" class="roi-cta-btn">
-                            Check Your ROI
-                            <span>→</span>
-                        </a>
-
-                        <!-- TIME -->
-                        <div class="roi-time">
-
-                            <img src="ROI/clock.png" alt="Clock">
-
-                            <span>
-                                Takes less than 1 minute
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ==================== ADDITIONAL BENEFITS ==================== -->
-
-<section class="py-5 bg-white">
-
-<div class="container">
-
-    <div class="row g-4">
-
-        <!-- ITEM 1 -->
-
-        <div class="col-sm-6 col-lg-3">
-
-            <div class="benefit-item">
-
-                <img 
-                    src="features/cloudbase.png"
-                    alt="Cloud Based"
-                    class="benefit-icon"
-                >
-
-                <div class="benefit-text">
-
-                    <div class="benefit-title">
-                        Cloud Based
-                    </div>
-
-                    <div class="benefit-desc">
-                        Access Anytime, Anywhere
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- ITEM 2 -->
-
-        <div class="col-sm-6 col-lg-3">
-
-            <div class="benefit-item">
-
-                <img 
-                    src="features/mobilefirst.png"
-                    alt="Mobile First"
-                    class="benefit-icon"
-                >
-
-                <div class="benefit-text">
-
-                    <div class="benefit-title">
-                        Mobile First
-                    </div>
-
-                    <div class="benefit-desc">
-                        Built for Site Teams in the Field
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- ITEM 3 -->
-
-        <div class="col-sm-6 col-lg-3">
-
-            <div class="benefit-item">
-
-                <img 
-                    src="features/secureandreliable.png"
-                    alt="Secure & Reliable"
-                    class="benefit-icon"
-                >
-
-                <div class="benefit-text">
-
-                    <div class="benefit-title">
-                        Secure & Reliable
-                    </div>
-
-                    <div class="benefit-desc">
-                        Enterprise-grade Security you can Trust
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- ITEM 4 -->
-
-        <div class="col-sm-6 col-lg-3">
-
-            <div class="benefit-item">
-
-                <img 
-                    src="features/dedicatedsupport.png"
-                    alt="Dedicated Support"
-                    class="benefit-icon"
-                >
-
-                <div class="benefit-text">
-
-                    <div class="benefit-title">
-                        Dedicated Support
-                    </div>
-
-                    <div class="benefit-desc">
-                        We are here, when you need us
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
 </div>
 
-
+<!-- Comparison Section -->
+<section class="comparison-section py-5">
+    <div class="container d-flex justify-content-center">
+        <div class="comparison-wrapper">
+            <div class="row align-items-center gx-5 position-relative">
+                <div class="col-lg-6">
+                    <div class="comparison-card without-card">
+                        <h2 class="comparison-title red-title">WITHOUT ePMC</h2>
+                        <div class="comparison-item"><div class="comparison-icon red-icon">✕</div><div class="comparison-content"><h4>Cost Overruns & Budget Leakages</h4><p>Poor visibility and tracking lead to uncontrolled expenses</p></div></div>
+                        <div class="comparison-item"><div class="comparison-icon red-icon">✕</div><div class="comparison-content"><h4>Project Delays</h4><p>Delays in approvals, decisions and site execution</p></div></div>
+                        <div class="comparison-item"><div class="comparison-icon red-icon">✕</div><div class="comparison-content"><h4>Rework & Material Wastage</h4><p>Lack of coordination & inaccurate information</p></div></div>
+                        <div class="comparison-item"><div class="comparison-icon red-icon">✕</div><div class="comparison-content"><h4>Manual Processes & Errors</h4><p>Time-consuming reporting and data inconsistencies</p></div></div>
+                        <div class="comparison-item"><div class="comparison-icon red-icon">✕</div><div class="comparison-content"><h4>Poor Accountability</h4><p>Unclear responsibilities and lack of real-time monitoring</p></div></div>
+                        <div class="comparison-item border-0 pb-0"><div class="comparison-icon red-icon">✕</div><div class="comparison-content"><h4>Dispute & Claims</h4><p>Inadequate documentation and communication gaps</p></div></div>
+                    </div>
+                </div>
+                <div class="vs-circle">VS</div>
+                <div class="col-lg-6">
+                    <div class="comparison-card with-card">
+                        <h2 class="comparison-title green-title">WITH ePMC</h2>
+                        <div class="comparison-item"><div class="comparison-icon green-icon">✓</div><div class="comparison-content"><h4>Better Cost Control</h4><p>Real-time cost visibility and proactive variance tracking</p></div></div>
+                        <div class="comparison-item"><div class="comparison-icon green-icon">✓</div><div class="comparison-content"><h4>On-time Project Delivery</h4><p>Faster approvals, better planning and real-time insights</p></div></div>
+                        <div class="comparison-item"><div class="comparison-icon green-icon">✓</div><div class="comparison-content"><h4>Reduced Rework & Wastage</h4><p>Accurate information, better coordination and quality control</p></div></div>
+                        <div class="comparison-item"><div class="comparison-icon green-icon">✓</div><div class="comparison-content"><h4>Digital Workflows & Accuracy</h4><p>Automated processes, standardized data and fewer errors</p></div></div>
+                        <div class="comparison-item"><div class="comparison-icon green-icon">✓</div><div class="comparison-content"><h4>Stronger Accountability</h4><p>Clear roles, real-time tracking and performance visibility</p></div></div>
+                        <div class="comparison-item border-0 pb-0"><div class="comparison-icon green-icon">✓</div><div class="comparison-content"><h4>Fewer Disputes & Claims</h4><p>Complete documentation and transparent communication</p></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
+<!-- ROI CTA Section -->
+<section class="roi-cta-section py-5">
+    <div class="container-fluid px-4 d-flex justify-content-center">
+        <div class="roi-cta-wrapper">
+            <div class="row align-items-center gx-0">
+                <div class="col-lg-8">
+                    <div class="roi-cta-left">
+                        <div class="roi-cta-image"><img src="ROI/roicalculator.png" alt="ROI Calculator"></div>
+                        <div class="roi-cta-content">
+                            <h2>See How Much You Can Save?</h2>
+                            <p>Every project is unique. Calculate your potential savings with ePMC on your project turnover.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-1 d-none d-lg-flex justify-content-center"><div class="roi-cta-divider"></div></div>
+                <div class="col-lg-3">
+                    <div class="roi-cta-right">
+                        <a href="#" class="roi-cta-btn">Check Your ROI <span>→</span></a>
+                        <div class="roi-time"><img src="ROI/clock.svg" alt="Clock"><span>Takes less than 1 minute</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
+<!-- Additional Benefits -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <div class="row g-3">
+            <div class="col-sm-6 col-lg-3">
+                <div class="benefit-item">
+                    <img src="features/cloudbase.png" alt="Cloud Based" class="benefit-icon">
+                    <div class="benefit-text">
+                        <div class="benefit-title">Cloud Based</div>
+                        <div class="benefit-desc">Access Anytime, Anywhere</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <div class="benefit-item">
+                    <img src="features/mobilefirst.svg" alt="Mobile First" class="benefit-icon">
+                    <div class="benefit-text">
+                        <div class="benefit-title">Mobile First</div>
+                        <div class="benefit-desc">Built for Site Teams in the Field</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <div class="benefit-item">
+                    <img src="features/secureandreliable.png" alt="Secure & Reliable" class="benefit-icon">
+                    <div class="benefit-text">
+                        <div class="benefit-title">Secure & Reliable</div>
+                        <div class="benefit-desc">Enterprise-grade Security you can Trust</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <div class="benefit-item">
+                    <img src="features/dedicatedsupport.png" alt="Dedicated Support" class="benefit-icon">
+                    <div class="benefit-text">
+                        <div class="benefit-title">Dedicated Support</div>
+                        <div class="benefit-desc">We are here, when you need us</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-
-
-   <!-- Final CTA with background image – left aligned, no overlay -->
-    <div class="final-cta-box-left">
-      <div class="cta-content">
+<!-- Final CTA -->
+<div class="final-cta-box-left">
+    <div class="cta-content">
         <h2 class="display-6 fw-bold mb-3">Take Control. Deliver Better.</h2>
         <p class="fs-5 mb-4" style="max-width: 600px;">
-          ePMC empowers your teams with visibility, accountability and action - all in one platform
+            ePMC empowers your teams with visibility, accountability and action - all in one platform
         </p>
-        <a href="#" class="btn btn-epmc btn-lg px-5 py-3" data-bs-toggle="modal" data-bs-target="#demoModal">
-          Book a Demo <i class="fas fa-arrow-right ms-2"></i>
+        <a href="#" class="btn btn-white-blue btn-lg px-5 py-3" onclick="openGoogleFormPopup(event)">
+            Book a Demo <i class="fas fa-arrow-right ms-2"></i>
         </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<div class="container">
-    <div class="footer-new">
-        <div class="footer-grid">
-            <div><img src="EPMC-Logo-File-PNG.png" alt="ePMC Logo" class="footer-logo"></div>
-            <div>
-                <div class="footer-description">
-                    ePMC is a construction project management platform built specifically for the construction industry. Designed from 22+ years of real project execution experience, ePMC helps teams control cost, delays, quality, reporting, and project coordination through one connected system.
-                </div>
-            </div>
-            <div>
-                <div class="footer-vertical-links">
-                    <a href="#">Home</a>
-                    <a href="whyepmc.html">Why ePMC?</a>
-                    <a href="#features">Features</a>
-                    <a href="#">Pricing</a>
-                    <a href="#">ROI</a>
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#demoModal">Book a Demo</a>
-                </div>
-            </div>
-            <div>
-                <div class="footer-vertical-links">
-                    <a href="#">Terms & Conditions</a>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Refund Policy</a>
-                </div>
-                <div class="footer-contact-info mt-3">
-                    <p><i class="fas fa-phone-alt me-2"></i> 9033281213</p>
-                    <p><i class="fas fa-envelope me-2"></i> inquiry@epmc.app</p>
-                </div>
-            </div>
-        </div>
-        <div class="footer-copyright">© 2025 copyrights by ePMC</div>
     </div>
 </div>
 
-<!-- Demo Modal -->
-<div class="modal fade" id="demoModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content">
-            <div class="modal-header border-0 pb-0">
-                <h5 class="modal-title fw-bold text-epmc fs-3">Request a Demo</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body p-4 pt-0">
-                <form action="https://formsubmit.co/company@example.com" method="POST">
-                    <input type="hidden" name="_subject" value="ePMC Demo Request (Modal)">
-                    <input type="hidden" name="_captcha" value="false">
-                    <div class="row g-3">
-                        <div class="col-md-6"><input type="text" name="Name" class="form-control" placeholder="Full Name *" required></div>
-                        <div class="col-md-6"><input type="text" name="Company" class="form-control" placeholder="Company *" required></div>
-                        <div class="col-md-6"><input type="email" name="Email" class="form-control" placeholder="Work Email *" required></div>
-                        <div class="col-md-6"><input type="tel" name="Phone" class="form-control" placeholder="Phone *" required></div>
-                        <div class="col-12">
-                            <select name="Project Type" class="form-select">
-                                <option>Civil Construction</option>
-                                <option>MEPFI</option>
-                                <option>Solar</option>
-                                <option>Infra</option>
-                                <option>Interior</option>
-                            </select>
-                        </div>
-                        <div class="col-12"><textarea name="Message" rows="2" class="form-control" placeholder="Tell us about your project..."></textarea></div>
-                        <div class="col-12"><button type="submit" class="btn btn-epmc-accent w-100 py-2"><i class="fas fa-paper-plane me-2"></i>Submit Request</button></div>
-                    </div>
-                </form>
-            </div>
-        </div>
+<!-- Footer -->
+<div class="footer-new">
+    <div class="footer-grid">
+        <div><img src="EPMC-Logo-File-PNG.png" alt="logo" class="footer-logo"></div>
+        <div><div class="footer-description">ePMC is a construction project management platform built specifically for the construction industry. Designed from 22+ years of real project execution experience.</div></div>
+        <div><div class="footer-vertical-links"><a href="#">Home</a><a href="#">Why ePMC?</a><a href="#">Features</a><a href="#">Pricing</a><a href="#">ROI</a><a href="#" onclick="openGoogleFormPopup(event)">Book a Demo</a></div></div>
+        <div><div class="footer-vertical-links"><a href="#">Terms & Conditions</a><a href="#">Privacy Policy</a></div><div class="footer-contact-info mt-3"><p><i class="fas fa-phone-alt"></i> 9033281213</p><p><i class="fas fa-envelope"></i> inquiry@epmc.app</p></div></div>
     </div>
+    <div class="footer-copyright">© 2025 copyrights by ePMC</div>
 </div>
+
+<script>
+    // Google Form popup function
+    function openGoogleFormPopup(event) {
+        event.preventDefault();
+        var url = "https://forms.gle/yUfCUgpv35yM8Sxk8";
+        var width = 600;
+        var height = 700;
+        var left = (screen.width - width) / 2;
+        var top = (screen.height - height) / 2;
+        window.open(url, "GoogleFormPopup", "width=" + width + ",height=" + height + ",left=" + left + ",top=" + top + ",resizable=yes,scrollbars=yes,toolbar=no,location=yes");
+        return false;
+    }
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-<script>console.log("Lead form ready — replace 'company@example.com' with actual email address.");</script>
 </body>
 </html>

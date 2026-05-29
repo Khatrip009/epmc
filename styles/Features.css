@@ -155,11 +155,6 @@
       font-size: 0.8rem;
     }
 
-    body{
-        margin:0;
-        background:#f3f3f3;
-        font-family:'Montserrat',sans-serif;
-    }
 
       /* =============================== */
       /* WRAPPER */
@@ -174,7 +169,6 @@
       /* =============================== */
       /* MAIN BOX */
       /* =============================== */
-
       .custom-box{
           position:relative;
           
@@ -464,7 +458,7 @@
       margin-top:45px;
       }
 
-      .comparison-rectangle{
+       .comparison-rectangle{
       display:flex;
       align-items:center;
       justify-content:center;
